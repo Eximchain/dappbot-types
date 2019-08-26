@@ -1,0 +1,29 @@
+{
+  "name": "dappbot-api-types",
+  "version": "0.0.1",
+  "description": "Typescript bindings to interact with the DappBot API",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eximchain/dappbot-api-types.git"
+  },
+  "keywords": [
+    "typescript",
+    "dappbot",
+    "types",
+    "api"
+  ],
+  "author": "John O'Sullivan <j.osullivan42@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eximchain/dappbot-api-types/issues"
+  },
+  "homepage": "https://github.com/Eximchain/dappbot-api-types#readme",
+  "dependencies": {
+    "@types/stripe": "^6.31.20",
+    "ts-xor": "^1.0.8"
+  }
+}

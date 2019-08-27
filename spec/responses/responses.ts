@@ -8,6 +8,8 @@ export enum HttpMethods {
   DELETE = 'DELETE'
 }
 
+export type HttpMethodNames = HttpMethods | keyof typeof HttpMethods;
+
 export enum RootResources {
   private = 'private',
   public = 'public',

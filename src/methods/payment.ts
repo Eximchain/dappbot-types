@@ -1,5 +1,5 @@
-import { DappBotResponse } from "../responses";
-import { Subscription, Customer } from '../stripe';
+import { DappBotResponse } from "../responses/responses";
+import { Subscription, Customer } from '../stripe/stripe';
 import { User } from "../user";
 
 export interface StripePlans {

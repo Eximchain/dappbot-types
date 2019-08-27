@@ -32,7 +32,7 @@ export interface ChallengeData {
   Session: string
 }
 
-export enum ChallengeType{
+export enum ChallengeType {
   Mfa = "MFA",
   ForgotPassword = "FORGOT_PASSWORD",
   NewPasswordRequired = "NEW_PASSWORD_REQUIRED",

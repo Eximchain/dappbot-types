@@ -1,14 +1,4 @@
-import { XOR } from 'ts-xor';
-import { DappDbItem} from './dapp';
-import { UserResponseData, ChallengeData } from './user';
-
-export interface Method<reqBody, resBody>{
-  rootResource : RootResources
-  target : string
-  httpMethod: HttpMethods
-  request : reqBody
-  response : resBody
-}
+import { DbItem} from '../dapp';
 
 export enum HttpMethods {
   OPTIONS = 'OPTIONS',
@@ -67,16 +57,10 @@ export type MessageResponse = DappBotResponse<{ message: string }>
 
 export type ReadResponse = DappBotResponse<{
   exists : boolean
-  item : DappDbItem
+  item : DbItem
 }>
 
 export type ListResponse = DappBotResponse<{
   count : 0
-  items : DappDbItem[]
+  items : DbItem[]
 }>
-
-export type SignInResponse = DappBotResponse<XOR<UserResponseData, ChallengeData>>
-
-export type UserResponse = DappBotResponse<UserResponseData>
-
-export type ChallengeResponse = DappBotResponse<ChallengeData>

@@ -1,8 +1,16 @@
-export interface DappData {
+
+interface CoreDappData {
   Abi: string,
   Web3URL: string,
   GuardianURL: string,
   ContractAddr: string,
+}
+
+export interface PublicView extends CoreDappData {
+  DappName: string
+}
+
+export interface UnnamedDapp extends CoreDappData {
   Tier: Tiers
 }
 
@@ -12,18 +20,11 @@ export enum Tiers{
   Enterprise = 'ENTERPRISE'
 }
 
-export enum DappTiers {
-  POC = 'POC', // TODO: Remove this legacy tier
-  STANDARD = 'STANDARD',
-  PROFESSIONAL = 'PROFESSIONAL',
-  ENTERPRISE = 'ENTERPRISE'
-}
-
-export interface DappCreateArgs extends DappData {
+export interface NamedDapp extends UnnamedDapp {
   DappName: string
 }
 
-export function SampleDappArgs():DappCreateArgs{
+export function SampleDappArgs():NamedDapp{
   return {
     DappName: '',
     Abi : '',
@@ -34,7 +35,7 @@ export function SampleDappArgs():DappCreateArgs{
   }
 }
 
-export interface DappDbItem extends DappCreateArgs {
+export interface DbItem extends NamedDapp {
   OwnerEmail : string,
   CreationTime : string,
   DnsName : string
@@ -51,7 +52,7 @@ export interface ValidCreateBody {
   TargetRepoOwner? : string
 }
 
-export interface DappApiRepresentation extends ValidCreateBody {
+export interface ApiRepresentation extends ValidCreateBody {
   OwnerEmail : string
   CreationTime : string
   DnsName : string

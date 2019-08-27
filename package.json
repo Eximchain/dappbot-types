@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Eximchain/dappbot-api-types#readme",
   "dependencies": {
     "@types/stripe": "^6.31.20",
+    "runtypes": "^4.0.1",
     "ts-xor": "^1.0.8"
   }
 }

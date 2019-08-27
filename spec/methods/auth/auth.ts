@@ -1,15 +1,29 @@
 import { XOR } from 'ts-xor';
-import { apiBasePath } from '../methods';
-import { DappBotResponse, MessageResponse, HttpMethods, HttpMethodNames } from '../responses/responses';
-import { ChallengeType, UserResponseData, ChallengeData } from '../user';
+import { apiBasePath, RootResources } from '..';
+import { ApiResponse, MessageResponse, HttpMethods } from '../../responses';
+import { AuthData, Challenges } from '../../user';
 
-export const authBasePath = `${apiBasePath}/auth`;
+/**
+ * Baseline path from which more specific auth
+ * paths are built on top of.
+ */
+export const authBasePath = `${apiBasePath}/${RootResources.auth}`;
 
-//////////////////////////////////
-// Login Types
-//////////////////////////////////
+/**
+ * Subpaths available on the auth endpoint.
+ * Built into an enum for easy change later on.
+ */
+export enum ResourcePaths {
+  login = 'login',
+  passReset = 'password-reset'
+}
 
-type UserOrChallengeResponse = DappBotResponse<XOR<UserResponseData, ChallengeData>>;
+/**
+ * Login response which either contains AuthData
+ * or ChallengeData, depending on whether the
+ * login or challenge response was successful.
+ */
+export type UserOrChallengeResponse = ApiResponse<XOR<AuthData, Challenges.Data>>;
 
 /**
  * Main login call which either produces a user
@@ -21,8 +35,8 @@ export namespace Login {
     password: string
   }
   export type Result = UserOrChallengeResponse
-  export const HTTP:HttpMethodNames = 'POST';
-  export const Path = `${authBasePath}/login`
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`
 }
 
 /**
@@ -35,8 +49,8 @@ export namespace Refresh {
     refreshToken: string
   }
   export type Result = UserOrChallengeResponse
-  export const HTTP:HttpMethodNames = 'POST';
-  export const Path = `${authBasePath}/login`;
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`;
 }
 
 /**
@@ -58,8 +72,8 @@ export namespace NewPassChallenge {
     session: string
   }
   export type Result = UserOrChallengeResponse;
-  export const HTTP:HttpMethods = HttpMethods.POST;
-  export const Path = `${authBasePath}/login`;
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`;
 }
 
 //////////////////////////////////
@@ -76,8 +90,8 @@ export namespace BeginPassReset {
     username: string
   }
   export type Result = MessageResponse;
-  export const HTTP:HttpMethods = HttpMethods.POST;
-  export const Path = `${authBasePath}/password-reset`;
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 }
 
 /**
@@ -91,8 +105,8 @@ export namespace ConfirmPassReset {
     passwordResetCode: string
   }
   export type Result = MessageResponse;
-  export const HTTP:HttpMethods = HttpMethods.POST;
-  export const Path = `${authBasePath}/password-reset`;
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 }
 
 export default this.exports;

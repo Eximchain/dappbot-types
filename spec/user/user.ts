@@ -39,6 +39,7 @@ export enum ChallengeType {
   Default = "DEFAULT"
 }
 
+// TODO: Add isUser guard function
 export interface User {
   Username: string,
   Email: string
@@ -48,6 +49,7 @@ export interface User {
   UserMFASettingList?: UserMFASettingListType
 }
 
+// TODO: Add isUserResponse guard function
 export interface UserResponseData {
   User: User,
   Authorization: string,

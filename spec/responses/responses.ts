@@ -1,68 +1,33 @@
-import { DbItem} from '../dapp';
-
-export enum HttpMethods {
-  OPTIONS = 'OPTIONS',
-  GET = 'GET',
-  POST = 'POST',
-  PUT = 'PUT',
-  DELETE = 'DELETE'
+/**
+ * All error responses from our API will include a message key.
+ */
+export interface ApiError extends Error {
+  message : string
 }
 
-export type HttpMethodNames = HttpMethods | keyof typeof HttpMethods;
-
-export enum RootResources {
-  private = 'private',
-  public = 'public',
-  auth = 'auth',
-  payment = 'payment'
+/**
+ * General shape which all responses from our API conform to.
+ * Success responses will have data !== null, error responses
+ * will have err !== null.
+ */
+export interface ApiResponse<ResponseType> {
+  data: ResponseType | null
+  err: ApiError | null
 }
 
-export enum ApiMethods {
-  read = 'read',
-  view = 'view',
-  list = 'list',
-  create = 'create',
-  update = 'update',
-  delete = 'delete',
-  login  = 'login',
-  passwordReset = 'password-reset'
-}
+/**
+ * Basic response which simply contains a message about
+ * the action that was taken.
+ */
+export type MessageResponse = ApiResponse<{ message: string }>
 
-export enum ApiOperations {
-  create = "create",
-  login = "login",
-  resetPassword = "reset-password",
-  delete = "delete",
-  edit = "edit",
-  list = "list",
-  read = "read",
-  signup = "signup",
-  updatePlanCount = "updatePlanCount",
-  updatePayment = "updatePayment",
-  readStripeData = "readStripeData",
-  cancelStripe = "cancelStripe"
-}
-
-export interface ResponseOptions {
-  isErr? : boolean
-  isCreate? : boolean
-  isRead? : boolean
-  errorResponseCode? : number
-}
-
-export interface DappBotResponse<ResponseType> {
-  data: ResponseType
-  err : Error | null
-}
-
-export type MessageResponse = DappBotResponse<{ message: string }>
-
-export type ReadResponse = DappBotResponse<{
-  exists : boolean
-  item : DbItem
-}>
-
-export type ListResponse = DappBotResponse<{
-  count : 0
-  items : DbItem[]
-}>
+/**
+ * HttpMethods type is a union of string literals, rather than
+ * an enum, because these literals will not change over time.
+ * Enums make it easy to change values in the future, like if
+ * we restructure our API.  For values which are an unchanging
+ * constants, simply specifying string literals still gives us
+ * the guarantee of no typos.  It also means that we can satisfy
+ * the type by writing 'POST', rather than HttpMethods.POST.
+ */
+export type HttpMethods = 'OPTIONS' | 'GET' | 'POST' | 'PUT' | 'DELETE';

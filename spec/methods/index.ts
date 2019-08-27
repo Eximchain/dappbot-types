@@ -1,6 +1,25 @@
-import * as AuthTypes from './auth';
-import * as PaymentTypes from './payment';
-import * as PrivateTypes from './private';
+import AuthTypes from './auth';
+import PaymentTypes from './payment';
+import PrivateTypes from './private';
+import PublicTypes from './public';
+
+/**
+ * Child namespaces import this base path
+ * to build their own path arguments.
+ */
+export const apiBasePath = '/v1';
+
+/**
+ * RootResources are the top-level endpoints on our API.  They
+ * are maintained within an enum so it's easy to modify our
+ * API layout in the future.
+ */
+export enum RootResources {
+  private = 'private',
+  public = 'public',
+  auth = 'auth',
+  payment = 'payment'
+}
 
 // These exports make it possible to do
 // something like:
@@ -10,6 +29,7 @@ import * as PrivateTypes from './private';
 export import Auth = AuthTypes;
 export import Payment = PaymentTypes;
 export import Private = PrivateTypes;
+export import Public = PublicTypes;
 
 // Declaring this namespace means we can
 // group everything into one default export,
@@ -21,10 +41,7 @@ export namespace Methods {
   export import Auth = AuthTypes;
   export import Payment = PaymentTypes;
   export import Private = PrivateTypes;
+  export import Public = PublicTypes;
 }
-
-// Other namespaces use this to build out
-// their path argument
-export const apiBasePath = '/v1';
 
 export default Methods;

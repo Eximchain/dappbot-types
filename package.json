@@ -6,7 +6,7 @@
   "types": "spec/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && typedoc && echo \"include:\n  - \"_*_.html\"\n  - \"_*_.*.html\"\" >> docs/config.yml",
+    "build": "tsc && typedoc && echo \"include:\n  - \"_*_.html\"\n  - \"_*_.*.html\"\" >> docs/config.yml && touch docs/.nojekyll",
     "prepublish": "npm run build",
     "deploy":"npm run build; gh-pages -d docs"
   },

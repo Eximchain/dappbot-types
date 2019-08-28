@@ -1,27 +1,41 @@
 /**
  * Helper validation function; provide an object and
  * a list of string keys, returns true if all are
- * present.
+ * present & not null.
  * 
  * @param body 
  * @param propertyNames 
  */
 export function bodyHas(body:any, propertyNames:string[]){
-  if (!isObject(body)) return false;
-  return propertyNames.every(name => body.hasOwnProperty(name))
+  return bodyHasValOn(body, propertyNames, (val:any) => val !== null)
 }
 
 /**
- * Helper validation function like `bodyHas`, except
- * it also enforces that all of the property values
- * are also strings.
+ * Helper validation function which checks whether
+ * all `propertyNames` are present on `body` and
+ * then checks that their values are strings.
+ * 
  * @param body 
  * @param propertyNames 
  */
 export function bodyHasStrings(body:any, propertyNames:string[]){
+  return bodyHasValOn(body, propertyNames, isString);
+}
+
+/**
+ * Very flexible validation function which accepts
+ * an object to check, properties to inspect, and a
+ * test function to see if the value is correct.
+ * Only returns `true` if `isVal(body.prop)` returns
+ * `true` for every `prop in propertyNames`.
+ * @param body
+ * @param propertyNames 
+ * @param isVal 
+ */
+export function bodyHasValOn(body:any, propertyNames:string[], isVal:(maybe:any)=>boolean) {
   if (!isObject(body)) return false;
   return propertyNames.every(prop => {
-    return body.hasOwnProperty(prop) && isString(body[prop])
+    return body.hasOwnProperty(prop) && isVal(body[prop])
   })
 }
 

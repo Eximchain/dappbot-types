@@ -1,5 +1,5 @@
 import AllStripeTypes from 'stripe';
-import { bodyHas, bodyHasStrings, bodyHasValOn, isString } from '../util';
+import { bodyHasStrings, bodyHasValOn, isString } from '../util';
 
 /**
  * DappBot User Record as defined by Cognito.  This
@@ -39,7 +39,7 @@ export interface UserAttributes extends CognitoAttributes.MapType {
  * the `UserData` interface.  Validates that the enum
  * values within `UserAttributes` are actually from the
  * appropriate enums, validates that the limit values
- * can be converted to positive integers.
+ * can be converted to non-negative integers.
  * @param maybeUserData 
  */
 export function isUserData(maybe:any): maybe is UserData {
@@ -50,7 +50,7 @@ export function isUserData(maybe:any): maybe is UserData {
     return (
       Object.values(PaymentStatus).includes(attrs['custom:payment_status']) &&
       Object.values(PaymentProvider).includes(attrs['custom:payment_provider']) &&
-      bodyHasValOn(attrs, limitNames, (strVal) => parseInt(strVal) >= 0)
+      bodyHasValOn(attrs, limitNames, (strVal:any) => parseInt(strVal) >= 0)
     )
 }
 

@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && typedoc",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "deploy":"npm run build; gh-pages -d docs"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/Eximchain/dappbot-types/issues"
   },
-  "homepage": "https://github.com/Eximchain/dappbot-types#readme",
+  "homepage": "https://eximchain.github.io/dappbot-types",
   "dependencies": {
     "@types/stripe": "^6.31.20",
     "runtypes": "^4.0.1",

@@ -10,9 +10,13 @@ export const privateBasePath = `${apiBasePath}/${RootResources.private}`
  * infers by the path.
  */
 export namespace CreateDapp {
+
   export type Args = Omit<Item.Full, 'DappName'>;
+
   export type Result = MessageResponse;
+
   export const HTTP:HttpMethods = 'POST';
+
   export const Path = (DappName:string)=>`${privateBasePath}/${DappName}`;
 }
 
@@ -24,16 +28,20 @@ export namespace CreateDapp {
  * not exist.
  */
 export namespace ReadDapp {
+
   /**
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
    */
   export type Args = {}
+
   export type Result = ApiResponse<{
     itemExists : boolean
     item : Item.Api
   }>
+
   export const HTTP:HttpMethods = 'GET';
+
   /**
    * Given a DappName, returns its fully scoped private path
    * @param DappName 
@@ -48,9 +56,17 @@ export namespace ReadDapp {
  * caller is the dapp's owner.
  */
 export namespace UpdateDapp {
+
   export type Args = Partial<Omit<Item.Core, 'DappName'>>
+
+  /**
+   * Message will say something (not exactly) like, 
+   * "Your dapp has been successfully updated."
+   */
   export type Result = MessageResponse;
+
   export const HTTP:HttpMethods = 'PUT';
+
   /**
    * Given a DappName, returns its fully scoped path
    * @param DappName 
@@ -69,8 +85,15 @@ export namespace DeleteDapp {
    * are taken from Authorization & path respectively.
    */
   export interface Args {}
+
+  /**
+   * Message will say something (not exactly) like, 
+   * "Your dapp has been successfully deleted."
+   */
   export type Result = MessageResponse;
+
   export const HTTP:HttpMethods = 'DELETE';
+
   /**
    * Given a DappName, returns its fully scoped private path
    * @param DappName 
@@ -83,16 +106,20 @@ export namespace DeleteDapp {
  * in their API representation.
  */
 export namespace ListDapps {
+  
   /**
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
    */
   export interface Args {}
+
   export type Result = ApiResponse<{
     count : number
     items : Item.Api[]
   }>
+
   export const HTTP:HttpMethods = 'GET';
+
   /**
    * Given a DappName, returns its fully scoped private path
    * @param DappName 

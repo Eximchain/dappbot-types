@@ -89,6 +89,10 @@ export namespace BeginPassReset {
   export interface Args {
     username: string
   }
+  /**
+   * When successful, the message ought to say something
+   * like, "An email has been sent with a temporary password."
+   */
   export type Result = MessageResponse;
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
@@ -104,6 +108,10 @@ export namespace ConfirmPassReset {
     newPassword: string,
     passwordResetCode: string
   }
+  /**
+   * Ought to tell them they can now log in with their
+   * new password.
+   */
   export type Result = MessageResponse;
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;

@@ -17,7 +17,10 @@ export interface StripePlans {
 
 
 /**
- * Main method to create a new account. 
+ * Main method to create a new account. If called as
+ * an API customer, you can only create a trial
+ * account.  Card info can only ever be plugged in
+ * through the DappBot web interface.
  **/
 export namespace SignUp {
   /**

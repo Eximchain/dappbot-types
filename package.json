@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && typedoc",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run deploy",
     "deploy": "npm run build; gh-pages -d docs -t"
   },

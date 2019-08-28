@@ -100,7 +100,7 @@ export namespace Item {
    */
   export function isApi(maybe:any): maybe is Api {
     return (
-      bodyHasStrings(maybe, Object.keys(SampleApi())) &&
+      bodyHasStrings(maybe, Object.keys(EmptyApi())) &&
       isTiers(maybe.Tier) &&
       isState(maybe.State)
     )
@@ -112,7 +112,7 @@ export namespace Item {
    * a value. Note that the actual values on
    * this object are not valid.
    */
-  export function SampleApi():Item.Api {
+  export function EmptyApi():Item.Api {
     return Object.assign(EmptyFull(), {
       OwnerEmail : '',
       CreationTime : '',

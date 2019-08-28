@@ -24,6 +24,7 @@
       "out" : "docs",
       "excludeNotExpored" : true,
       "categorizeByGroup" : true,
-      "exclude": ["spec/**/index.ts"]
+      "exclude": ["spec/**/index.ts"],
+      "theme" : "minimal"
     }
 }

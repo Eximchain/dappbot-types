@@ -19,5 +19,9 @@ export namespace ViewDapp {
     item : Item.Core
   }>
   export const HTTP:HttpMethods = 'GET';
+  /**
+   * Given a DappName, returns its fully scoped public path
+   * @param DappName
+   */
   export const Path = (DappName:string) => `${publicBasePath}/${DappName}`;
 }

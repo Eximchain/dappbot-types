@@ -18,5 +18,12 @@
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "typeRoots": ["./types", "./node_modules/@types"]
+    },
+    "typedocOptions": {
+      "mode" : "modules",
+      "out" : "docs",
+      "excludeNotExpored" : true,
+      "categorizeByGroup" : true,
+      "exclude": ["spec/**/index.ts"]
     }
 }

@@ -24,16 +24,16 @@ export interface UserAttributes extends CognitoAttributes.MapType {
  * TODO: Fill in
  * @param maybeUserData 
  */
-export function isUserData(maybe:any): maybe is UserData {
+// export function isUserData(maybe:any): maybe is UserData {
   
-}
+// }
 
 /**
  * TODO: Fill in
  */
-export function emptyUserData():UserData {
+// export function emptyUserData():UserData {
 
-}
+// }
 
 /**
  * TODO: Fill in
@@ -49,16 +49,16 @@ export interface AuthData {
  * TODO: Fill in
  * @param maybeAuthData 
  */
-export function isAuthData(maybe:any): maybe is AuthData {
+// export function isAuthData(maybe:any): maybe is AuthData {
 
-}
+// }
 
 /**
  * TODO: Fill in
  */
-export function emptyAuthData():AuthData {
+// export function emptyAuthData():AuthData {
 
-}
+// }
 
 
 /**
@@ -112,16 +112,16 @@ export namespace Challenges {
    * TODO: Fill in
    * @param maybe 
    */
-  export function isData(maybe:any): maybe is Challenges.Data {
+  // export function isData(maybe:any): maybe is Challenges.Data {
 
-  }
+  // }
 
   /**
    * TODO: Fill in
    */
-  export function emptyData(): Challenges.Data {
+  // export function emptyData(): Challenges.Data {
 
-  }
+  // }
 }
 
 /**

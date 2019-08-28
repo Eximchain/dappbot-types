@@ -5,7 +5,9 @@
   "main": "build/index.js",
   "types": "spec/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && typedoc",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,8 @@
     "@types/stripe": "^6.31.20",
     "runtypes": "^4.0.1",
     "ts-xor": "^1.0.8"
+  },
+  "devDependencies": {
+    "typedoc": "^0.15.0"
   }
 }

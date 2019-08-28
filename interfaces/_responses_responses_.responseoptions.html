@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UpdateDapp | dappbot-types</title>
+	<title>ResponseOptions | dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_methods_private_private_.html">&quot;methods/private/private&quot;</a>
+					<a href="../modules/_responses_responses_.html">&quot;responses/responses&quot;</a>
 				</li>
 				<li>
-					<a href="_methods_private_private_.updatedapp.html">UpdateDapp</a>
+					<a href="_responses_responses_.responseoptions.html">ResponseOptions</a>
 				</li>
 			</ul>
-			<h1>Module UpdateDapp</h1>
+			<h1>Interface ResponseOptions</h1>
 		</div>
 	</div>
 </header>
@@ -72,111 +72,89 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Update an existing dapp.  An existing Dapp
-							can only have its ABI, ContractAddr, Web3URL,
-							&amp; GuardianURL modified.  Only works if the
-						caller is the dapp&#39;s owner.</p>
+						<p>All possible options which can be fed into our shared
+						response generator functions.</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ResponseOptions</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#args" class="tsd-kind-icon">Args</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#result" class="tsd-kind-icon">Result</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#http" class="tsd-kind-icon">HTTP</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#path" class="tsd-kind-icon">Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.responseoptions.html#errorresponsecode" class="tsd-kind-icon">error<wbr>Response<wbr>Code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.responseoptions.html#iscreate" class="tsd-kind-icon">is<wbr>Create</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.responseoptions.html#iserr" class="tsd-kind-icon">is<wbr>Err</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.responseoptions.html#isread" class="tsd-kind-icon">is<wbr>Read</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="args" class="tsd-anchor"></a>
-					<h3>Args</h3>
-					<div class="tsd-signature tsd-kind-icon">Args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_dapp_dapp_.item.core.html" class="tsd-signature-type">Core</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"DappName"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="errorresponsecode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> error<wbr>Response<wbr>Code</h3>
+					<div class="tsd-signature tsd-kind-icon">error<wbr>Response<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/methods/private/private.ts#L60">methods/private/private.ts:60</a></li>
-						</ul>
-					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="result" class="tsd-anchor"></a>
-					<h3>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messageresponse" class="tsd-signature-type">MessageResponse</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/methods/private/private.ts#L66">methods/private/private.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/responses/responses.ts#L62">responses/responses.ts:62</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Message will say something (not exactly) like,
-							&quot;Your dapp has been successfully updated.&quot;</p>
+							<p>Manually set an error code according to the situation.</p>
 						</div>
 					</div>
-			</section>    </section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="http" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> HTTP</h3>
-					<div class="tsd-signature tsd-kind-icon">HTTP<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#httpmethods" class="tsd-signature-type">HttpMethods</a><span class="tsd-signature-symbol"> =&nbsp;&quot;PUT&quot;</span></div>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="iscreate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Create</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Create<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/methods/private/private.ts#L68">methods/private/private.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/responses/responses.ts#L51">responses/responses.ts:51</a></li>
 						</ul>
 					</aside>
-			</section>    </section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="path" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> Path</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">(</span>DappName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/methods/private/private.ts#L74">methods/private/private.ts:74</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Given a DappName, returns its fully scoped path</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>DappName: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Will yield a 201 error code, following HTTP spec</p>
+						</div>
+					</div>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="iserr" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Err</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Err<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/responses/responses.ts#L46">responses/responses.ts:46</a></li>
+						</ul>
+					</aside>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isread" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Read</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Read<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/8624bf9/spec/responses/responses.ts#L57">responses/responses.ts:57</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If set &amp; item was not found, will yield a proper
+							404 error code.</p>
+						</div>
+					</div>
 			</section>    </section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -185,21 +163,78 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_dapp_dapp_.html">"dapp/dapp"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_methods_auth_auth_.html">"methods/auth/auth"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_methods_payment_payment_.html">"methods/payment/payment"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_methods_private_private_.html">"methods/private/private"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_methods_public_public_.html">"methods/public/public"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_responses_responses_.html">"responses/responses"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_user_user_.html">"user/user"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_util_.html">"util"</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_methods_private_private_.updatedapp.html#args" class="tsd-kind-icon">Args</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_responses_responses_.apierror.html" class="tsd-kind-icon">Api<wbr>Error</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_methods_private_private_.updatedapp.html#result" class="tsd-kind-icon">Result</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_responses_responses_.apiresponse.html" class="tsd-kind-icon">Api<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_methods_private_private_.updatedapp.html#http" class="tsd-kind-icon">HTTP</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_responses_responses_.responseoptions.html" class="tsd-kind-icon">Response<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_responses_responses_.responseoptions.html#errorresponsecode" class="tsd-kind-icon">error<wbr>Response<wbr>Code</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_responses_responses_.responseoptions.html#iscreate" class="tsd-kind-icon">is<wbr>Create</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_responses_responses_.responseoptions.html#iserr" class="tsd-kind-icon">is<wbr>Err</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_responses_responses_.responseoptions.html#isread" class="tsd-kind-icon">is<wbr>Read</a>
+							</li>
+						</ul>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_methods_private_private_.updatedapp.html#path" class="tsd-kind-icon">Path</a>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#httpmethods" class="tsd-kind-icon">Http<wbr>Methods</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#messageresponse" class="tsd-kind-icon">Message<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#response" class="tsd-kind-icon">response</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#successresponse" class="tsd-kind-icon">success<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#unexpectederrorresponse" class="tsd-kind-icon">unexpected<wbr>Error<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#usererrorresponse" class="tsd-kind-icon">user<wbr>Error<wbr>Response</a>
 					</li>
 				</ul>
 			</nav>

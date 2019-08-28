@@ -4,19 +4,24 @@ import { Item } from '../../dapp';
 
 export const privateBasePath = `${apiBasePath}/${RootResources.private}`
 
-// TODO: Add docstrings
 /**
- *
+ * Create a new dapp.  Accepts all properties from a
+ * full DappItem, except for the name, which the API
+ * infers by the path.
  */
 export namespace CreateDapp {
-  export type Args = Item.Full;
+  export type Args = Omit<Item.Full, 'DappName'>;
   export type Result = MessageResponse;
   export const HTTP:HttpMethods = 'POST';
   export const Path = (DappName:string)=>`${privateBasePath}/${DappName}`;
 }
 
 /**
- *
+ * Retrieve the API representation of any given
+ * dapp.  Will not succeed if the caller is not
+ * the owner of said dapp.  Gracefully returns
+ * with `itemExists === false` if the dapp does
+ * not exist.
  */
 export namespace ReadDapp {
   /**
@@ -33,7 +38,10 @@ export namespace ReadDapp {
 }
 
 /**
- *
+ * Update an existing dapp.  An existing Dapp
+ * can only have its ABI, ContractAddr, Web3URL,
+ * & GuardianURL modified.  Only works if the
+ * caller is the dapp's owner.
  */
 export namespace UpdateDapp {
   export type Args = Partial<Omit<Item.Core, 'DappName'>>
@@ -43,7 +51,9 @@ export namespace UpdateDapp {
 }
 
 /**
- *
+ * Delete an existing dapp.  Its DappName will
+ * be reclaimed for other users.  Only works
+ * if the caller is the dapp's owner.
  */
 export namespace DeleteDapp {
   /**
@@ -57,7 +67,8 @@ export namespace DeleteDapp {
 }
 
 /**
- *
+ * List all of the dapp's owned by the calling user
+ * in their API representation.
  */
 export namespace ListDapps {
   /**

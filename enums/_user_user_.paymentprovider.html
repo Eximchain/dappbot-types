@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UserAttributes | dappbot-types</title>
+	<title>PaymentProvider | dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_user_user_.html">&quot;user/user&quot;</a>
 				</li>
 				<li>
-					<a href="_user_user_.userattributes.html">UserAttributes</a>
+					<a href="_user_user_.paymentprovider.html">PaymentProvider</a>
 				</li>
 			</ul>
-			<h1>Interface UserAttributes</h1>
+			<h1>Enumeration PaymentProvider</h1>
 		</div>
 	</div>
 </header>
@@ -72,41 +72,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>UserAttributes map including all of the custom
-							properties we added to the Cognito user.  The
-							<code>limit</code> attributes all control how many dapps
-							the user is allowed to make, <code>payment_provider</code>
-							says whether they are using Stripe,
-							<code>payment_status</code> says whether their payments
-						are all up to date.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="tsd-signature-type">object</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">UserAttributes</span>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-external-module">
-				<h3 class="tsd-before-signature">Indexable</h3>
-				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>Name: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../modules/_user_user_.cognitoattributes.html#valuetype" class="tsd-signature-type">ValueType</a></div>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>UserAttributes map including all of the custom
-							properties we added to the Cognito user.  The
-							<code>limit</code> attributes all control how many dapps
-							the user is allowed to make, <code>payment_provider</code>
-							says whether they are using Stripe,
-							<code>payment_status</code> says whether their payments
-						are all up to date.</p>
+						<p>All possible <code>custom:payment_provider</code>s for a DappBot
+							user.  As of Fall 2019, the only options are they&#39;re
+						paying with Stripe or they have an admin account.</p>
 					</div>
 				</div>
 			</section>
@@ -115,63 +83,33 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.userattributes.html#custom_enterprise_limit" class="tsd-kind-icon">custom:enterprise_<wbr>limit</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.userattributes.html#custom_payment_provider" class="tsd-kind-icon">custom:payment_<wbr>provider</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.userattributes.html#custom_payment_status" class="tsd-kind-icon">custom:payment_<wbr>status</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.userattributes.html#custom_professional_limit" class="tsd-kind-icon">custom:professional_<wbr>limit</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.userattributes.html#custom_standard_limit" class="tsd-kind-icon">custom:standard_<wbr>limit</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_user_user_.paymentprovider.html#admin" class="tsd-kind-icon">ADMIN</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_user_user_.paymentprovider.html#stripe" class="tsd-kind-icon">STRIPE</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="custom_enterprise_limit" class="tsd-anchor"></a>
-					<h3>custom:enterprise_<wbr>limit</h3>
-					<div class="tsd-signature tsd-kind-icon">custom:enterprise_<wbr>limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="admin" class="tsd-anchor"></a>
+					<h3>ADMIN</h3>
+					<div class="tsd-signature tsd-kind-icon">ADMIN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;ADMIN&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/70a6170/spec/user/user.ts#L34">user/user.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/70a6170/spec/user/user.ts#L148">user/user.ts:148</a></li>
 						</ul>
 					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="custom_payment_provider" class="tsd-anchor"></a>
-					<h3>custom:payment_<wbr>provider</h3>
-					<div class="tsd-signature tsd-kind-icon">custom:payment_<wbr>provider<span class="tsd-signature-symbol">:</span> <a href="../enums/_user_user_.paymentprovider.html" class="tsd-signature-type">PaymentProvider</a></div>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="stripe" class="tsd-anchor"></a>
+					<h3>STRIPE</h3>
+					<div class="tsd-signature tsd-kind-icon">STRIPE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;STRIPE&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/70a6170/spec/user/user.ts#L30">user/user.ts:30</a></li>
-						</ul>
-					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="custom_payment_status" class="tsd-anchor"></a>
-					<h3>custom:payment_<wbr>status</h3>
-					<div class="tsd-signature tsd-kind-icon">custom:payment_<wbr>status<span class="tsd-signature-symbol">:</span> <a href="../enums/_user_user_.paymentstatus.html" class="tsd-signature-type">PaymentStatus</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/70a6170/spec/user/user.ts#L31">user/user.ts:31</a></li>
-						</ul>
-					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="custom_professional_limit" class="tsd-anchor"></a>
-					<h3>custom:professional_<wbr>limit</h3>
-					<div class="tsd-signature tsd-kind-icon">custom:professional_<wbr>limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/70a6170/spec/user/user.ts#L33">user/user.ts:33</a></li>
-						</ul>
-					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="custom_standard_limit" class="tsd-anchor"></a>
-					<h3>custom:standard_<wbr>limit</h3>
-					<div class="tsd-signature tsd-kind-icon">custom:standard_<wbr>limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/70a6170/spec/user/user.ts#L32">user/user.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/70a6170/spec/user/user.ts#L147">user/user.ts:147</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -210,41 +148,32 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_user_user_.paymentprovider.html" class="tsd-kind-icon">Payment<wbr>Provider</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_user_user_.paymentstatus.html" class="tsd-kind-icon">Payment<wbr>Status</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_user_user_.authdata.html" class="tsd-kind-icon">Auth<wbr>Data</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_user_user_.userattributes.html" class="tsd-kind-icon">User<wbr>Attributes</a>
+					<li class="current tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="_user_user_.paymentprovider.html" class="tsd-kind-icon">Payment<wbr>Provider</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.userattributes.html#custom_enterprise_limit" class="tsd-kind-icon">custom:enterprise_<wbr>limit</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_user_user_.paymentprovider.html#admin" class="tsd-kind-icon">ADMIN</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.userattributes.html#custom_payment_provider" class="tsd-kind-icon">custom:payment_<wbr>provider</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.userattributes.html#custom_payment_status" class="tsd-kind-icon">custom:payment_<wbr>status</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.userattributes.html#custom_professional_limit" class="tsd-kind-icon">custom:professional_<wbr>limit</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.userattributes.html#custom_standard_limit" class="tsd-kind-icon">custom:standard_<wbr>limit</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_user_user_.paymentprovider.html#stripe" class="tsd-kind-icon">STRIPE</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="_user_user_.paymentstatus.html" class="tsd-kind-icon">Payment<wbr>Status</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_user_user_.userdata.html" class="tsd-kind-icon">User<wbr>Data</a>
+						<a href="../interfaces/_user_user_.authdata.html" class="tsd-kind-icon">Auth<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_user_user_.userattributes.html" class="tsd-kind-icon">User<wbr>Attributes</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_user_user_.userdata.html" class="tsd-kind-icon">User<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="../modules/_user_user_.html#emptyauthdata" class="tsd-kind-icon">empty<wbr>Auth<wbr>Data</a>

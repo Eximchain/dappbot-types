@@ -46,13 +46,13 @@ export interface ResponseOptions {
   isErr? : boolean
 
   /**
-   * Will yield a 201 error code, following HTTP spec
+   * Will yield a `201` error code, following HTTP spec
    */
   isCreate? : boolean
 
   /**
    * If set & item was not found, will yield a proper
-   * 404 error code.
+   * `404` error code.
    */
   isRead? : boolean
 
@@ -72,7 +72,7 @@ export interface ResponseOptions {
  * response body will either have `res.data = JSON.stringify(body)`
  * or `res.err = JSON.stringify(body)`.  The other property
  * will always be null.  In the case of `isErr` without a
- * more specific error code, return code is 500.
+ * more specific error code, return code is `500`.
  * @param body 
  * @param opts 
  */
@@ -115,7 +115,7 @@ export function response(body:any, opts:ResponseOptions) {
 
 /**
  * Helper response function; correctly builds our response object
- * for a successful 200 response.  `body` will become the value in
+ * for a successful `200` response.  `body` will become the value in
  * `res.data`, `res.err` will be `null`.
  * @param body 
  * @param opts 

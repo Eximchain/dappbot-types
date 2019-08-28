@@ -31,3 +31,7 @@ export type MessageResponse = ApiResponse<{ message: string }>
  * the type by writing 'POST', rather than HttpMethods.POST.
  */
 export type HttpMethods = 'OPTIONS' | 'GET' | 'POST' | 'PUT' | 'DELETE';
+
+// TODO: Add the actual response functions from `dappbot-api-lambda`
+// so they can be shared across all APIs and directly enforce correct
+// response shapes

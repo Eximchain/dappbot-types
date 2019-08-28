@@ -7,8 +7,9 @@ export interface ApiError extends Error {
 
 /**
  * General shape which all responses from our API conform to.
- * Success responses will have data !== null, error responses
- * will have err !== null.
+ * An object `res` where either `res.data` or `res.err` won't 
+ * be `null`, depending on whether your call succeeded.
+ * Both will always be defined.
  */
 export interface ApiResponse<ResponseType> {
   data: ResponseType | null

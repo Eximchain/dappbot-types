@@ -4,6 +4,11 @@ import { apiBasePath, RootResources } from "..";
 
 export const paymentBasePath = `${apiBasePath}/${RootResources.payment}/stripe`;
 
+/**
+ * Listing of how many dapps a customer has allowed
+ * for each tier.  Note that all must be specified,
+ * including 0 values, for safety.
+ */
 export interface StripePlans {
   standard: number
   professional: number

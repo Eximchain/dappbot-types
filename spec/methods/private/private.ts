@@ -34,6 +34,10 @@ export namespace ReadDapp {
     item : Item.Api
   }>
   export const HTTP:HttpMethods = 'GET';
+  /**
+   * Given a DappName, returns its fully scoped private path
+   * @param DappName 
+   */
   export const Path = (DappName:string)=>`${privateBasePath}/${DappName}`;
 }
 
@@ -47,6 +51,10 @@ export namespace UpdateDapp {
   export type Args = Partial<Omit<Item.Core, 'DappName'>>
   export type Result = MessageResponse;
   export const HTTP:HttpMethods = 'PUT';
+  /**
+   * Given a DappName, returns its fully scoped path
+   * @param DappName 
+   */
   export const Path = (DappName:string)=>`${privateBasePath}/${DappName}`;
 }
 
@@ -63,6 +71,10 @@ export namespace DeleteDapp {
   export interface Args {}
   export type Result = MessageResponse;
   export const HTTP:HttpMethods = 'DELETE';
+  /**
+   * Given a DappName, returns its fully scoped private path
+   * @param DappName 
+   */
   export const Path = (DappName:string)=>`${privateBasePath}/${DappName}`;
 }
 
@@ -81,6 +93,10 @@ export namespace ListDapps {
     items : Item.Api[]
   }>
   export const HTTP:HttpMethods = 'GET';
+  /**
+   * Given a DappName, returns its fully scoped private path
+   * @param DappName 
+   */
   export const Path = privateBasePath;
 }
 

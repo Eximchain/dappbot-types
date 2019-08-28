@@ -31,6 +31,9 @@ export namespace Item {
 
   /**
    * Factory to produce an empty `Item.Core`.
+   * Useful to get the interface's keys as
+   * a value. Note that the actual values on
+   * this object are not valid.
    */
   export function EmptyCore():Item.Core {
     return {
@@ -66,6 +69,9 @@ export namespace Item {
 
   /**
    * Factory to produce an empty `Item.Full`.
+   * Useful to get the interface's keys as
+   * a value. Note that the actual values on
+   * this object are not valid.
    */
   export function EmptyFull():Item.Full {
     return Object.assign(EmptyCore(), {
@@ -102,12 +108,15 @@ export namespace Item {
 
   /**
    * Factory to produce an empty `Item.Api`.
+   * Useful to get the interface's keys as
+   * a value. Note that the actual values on
+   * this object are not valid.
    */
   export function SampleApi():Item.Api {
     return Object.assign(EmptyFull(), {
-      OwnerEmail : 'alex@example.com',
-      CreationTime : Date.now().toString(),
-      DnsName : 'dapp.bot/example',
+      OwnerEmail : '',
+      CreationTime : '',
+      DnsName : '',
       State : States.AVAILABLE
     })
   }

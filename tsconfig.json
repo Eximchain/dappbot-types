@@ -24,6 +24,7 @@
       "out" : "docs",
       "categorizeByGroup" : true,
       "exclude": ["spec/**/index.ts"],
-      "theme" : "doctheme"
+      "theme" : "doctheme",
+      "excludeNotExported" : false
     }
 }

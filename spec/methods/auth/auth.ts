@@ -71,6 +71,9 @@ export namespace NewPassChallenge {
     newPassword: string,
     session: string
   }
+  /**
+   * TODO: Describe the nature of UserOrChallengeResponse
+   */
   export type Result = UserOrChallengeResponse;
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.login}`;

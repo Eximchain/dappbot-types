@@ -25,6 +25,6 @@
       "excludeNotExpored" : true,
       "categorizeByGroup" : true,
       "exclude": ["spec/**/index.ts"],
-      "theme" : "minimal"
+      "theme" : "default"
     }
 }

@@ -22,8 +22,7 @@
     "typedocOptions": {
       "mode" : "modules",
       "out" : "docs",
-      "excludeNotExported" : true,
-      // "categorizeByGroup" : true,
+      "categorizeByGroup" : true,
       "exclude": ["spec/**/index.ts"],
       "theme" : "doctheme"
     }

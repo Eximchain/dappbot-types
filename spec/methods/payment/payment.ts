@@ -84,7 +84,7 @@ export namespace Read {
  * Used to update the customer's saved payment source,
  * currently a credit card.
  */
-export namespace UpdatePayment {
+export namespace UpdateCard {
 
   /**
    * Like with SignUp, this token can only be produced
@@ -149,7 +149,7 @@ export namespace Cancel {
   export interface Result {
     cancelledSub : StripeTypes.Subscription
   }
-  
+
   export type Response = ApiResponse<Result>
   export const HTTP:HttpMethods = 'DELETE';
   export const Path = paymentBasePath;

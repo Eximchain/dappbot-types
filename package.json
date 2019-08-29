@@ -1,15 +1,15 @@
 {
   "name": "@eximchain/dappbot-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript bindings to interact with the DappBot API",
   "main": "build/index.js",
   "types": "spec/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && typedoc",
+    "build": "tsc && typedoc && touch docs/build/.nojekyll && echo \"include:\n  - \"_*_.html\"\n  - \"_*_.*.html\"\" >> docs/build/config.yml",
     "prepare": "npm run build",
     "prepublishOnly": "npm run deploy",
-    "deploy": "npm run build; gh-pages -d docs -t"
+    "deploy": "npm run build; gh-pages -d docs/build -t"
   },
   "repository": {
     "type": "git",

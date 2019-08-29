@@ -20,6 +20,14 @@ export interface ApiResponse<ResponseType> {
 }
 
 /**
+ * Basic result which simply contains a message about
+ * the action that was taken.
+ */
+export type MessageData = {
+  message : string
+}
+
+/**
  * Basic response which simply contains a message about
  * the action that was taken.
  */

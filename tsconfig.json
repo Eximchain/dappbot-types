@@ -17,14 +17,14 @@
       "sourceRoot": "./spec",
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
-      "typeRoots": ["./types", "./node_modules/@types"]
+      "typeRoots": ["./node_modules/@types"]
     },
     "typedocOptions": {
       "mode" : "modules",
-      "out" : "docs",
+      "out" : "docs/build",
       "categorizeByGroup" : true,
       "exclude": ["spec/**/index.ts"],
-      "theme" : "doctheme",
+      "theme" : "docs/themeoverride",
       "excludeNotExported" : false
     }
 }

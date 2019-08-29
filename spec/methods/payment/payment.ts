@@ -1,5 +1,5 @@
-import { ApiResponse, HttpMethods } from "../../responses/responses";
-import { AuthData, StripeTypes } from "../../user";
+import { ApiResponse, HttpMethods } from "../../responses";
+import { AuthData, StripeTypes, UserData } from "../../user";
 import { apiBasePath, RootResources } from "..";
 
 export const paymentBasePath = `${apiBasePath}/${RootResources.payment}/stripe`;
@@ -23,6 +23,7 @@ export interface StripePlans {
  * through the DappBot web interface.
  **/
 export namespace SignUp {
+
   /**
    * The token here is produced by Stripe on dapp.bot 
    * and cannot be created by external API customers.  
@@ -37,11 +38,14 @@ export namespace SignUp {
     coupon?: string
     token?: string
   }
-  export type Result = ApiResponse<{
+
+  export interface Result {
     stripeId: number
     subscriptionId: number
     user : AuthData | boolean
-  }>
+  }
+
+  export type Response = ApiResponse<Result>
   export const HTTP:HttpMethods = 'POST';
   export const Path = paymentBasePath;
 }
@@ -56,17 +60,21 @@ export namespace SignUp {
  * Stripe, they will be null.
  */
 export namespace Read {
+
   /**
    * Body has no args, customer email is read via the
    * Authorization token.
    */
   export interface Args {}
-  export type Result = ApiResponse<{
-    user: AuthData
+
+  export interface Result {
+    user: UserData
     customer: StripeTypes.Customer | null
     subscription: StripeTypes.Subscription | null
     invoice: StripeTypes.Invoice | null
-  }>
+  }
+
+  export type Response = ApiResponse<Result>
   export const HTTP:HttpMethods = 'GET';
   export const Path = paymentBasePath;
 }
@@ -77,6 +85,7 @@ export namespace Read {
  * currently a credit card.
  */
 export namespace UpdatePayment {
+
   /**
    * Like with SignUp, this token can only be produced
    * on the dapp.bot website using Stripe's client-side
@@ -86,9 +95,13 @@ export namespace UpdatePayment {
   export interface Args {
     token : string
   }
-  export type Result = ApiResponse<{ 
+
+  export interface Result { 
     updatedCustomer : StripeTypes.Customer 
-  }>;
+  }
+
+  export type Response = ApiResponse<Result>;
+
   export const HTTP:HttpMethods = 'PUT';
   export const Path = paymentBasePath;
 }
@@ -102,13 +115,17 @@ export namespace UpdatePayment {
  * capacity.
  */
 export namespace UpdatePlanCount {
+
   export interface Args {
     plans : StripePlans
   }
-  export type Result = ApiResponse<{
+
+  export interface Result {
     updatedSubscription : StripeTypes.Subscription
     updatedUser : AuthData
-  }>;
+  }
+
+  export type Response = ApiResponse<Result>;
   export const HTTP:HttpMethods = 'PUT';
   export const Path = paymentBasePath;
 }
@@ -122,14 +139,18 @@ export namespace UpdatePlanCount {
  * CANCELLED state.
  */
 export namespace Cancel {
+
   /**
    * No body arguments required, user's email is
    * inferred from Authorization token.
    */
   export interface Args {}
-  export type Result = ApiResponse<{
+
+  export interface Result {
     cancelledSub : StripeTypes.Subscription
-  }>
+  }
+  
+  export type Response = ApiResponse<Result>
   export const HTTP:HttpMethods = 'DELETE';
   export const Path = paymentBasePath;
 }

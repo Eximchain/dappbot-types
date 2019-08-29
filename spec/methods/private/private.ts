@@ -1,4 +1,4 @@
-import { HttpMethods, MessageResponse, ApiResponse } from '../../responses';
+import { HttpMethods, MessageResponse, MessageData, ApiResponse } from '../../responses';
 import { apiBasePath, RootResources } from '..';
 import { Item } from '../../dapp';
 
@@ -13,7 +13,13 @@ export namespace CreateDapp {
 
   export type Args = Omit<Item.Full, 'DappName'>;
 
-  export type Result = MessageResponse;
+  /**
+   * Message ought to be something like, "Your dapp
+   * has been successfully created."
+   */
+  export type Result = MessageData;
+
+  export type Response = MessageResponse;
 
   export const HTTP:HttpMethods = 'POST';
 
@@ -33,12 +39,14 @@ export namespace ReadDapp {
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
    */
-  export type Args = {}
+  export interface Args {}
 
-  export type Result = ApiResponse<{
+  export interface Result {
     itemExists : boolean
     item : Item.Api
-  }>
+  }
+
+  export type Response = ApiResponse<Result>
 
   export const HTTP:HttpMethods = 'GET';
 
@@ -63,7 +71,9 @@ export namespace UpdateDapp {
    * Message will say something (not exactly) like, 
    * "Your dapp has been successfully updated."
    */
-  export type Result = MessageResponse;
+  export type Result = MessageData;
+  
+  export type Response = MessageResponse;
 
   export const HTTP:HttpMethods = 'PUT';
 
@@ -80,6 +90,7 @@ export namespace UpdateDapp {
  * if the caller is the dapp's owner.
  */
 export namespace DeleteDapp {
+
   /**
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
@@ -90,7 +101,9 @@ export namespace DeleteDapp {
    * Message will say something (not exactly) like, 
    * "Your dapp has been successfully deleted."
    */
-  export type Result = MessageResponse;
+  export type Result = MessageData;
+
+  export type Response = MessageResponse;
 
   export const HTTP:HttpMethods = 'DELETE';
 
@@ -106,18 +119,19 @@ export namespace DeleteDapp {
  * in their API representation.
  */
 export namespace ListDapps {
-  
+
   /**
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
    */
   export interface Args {}
 
-  export type Result = ApiResponse<{
+  export interface Result {
     count : number
     items : Item.Api[]
-  }>
+  }
 
+  export type Response = ApiResponse<Result>
   export const HTTP:HttpMethods = 'GET';
 
   /**

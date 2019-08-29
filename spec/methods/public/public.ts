@@ -10,15 +10,20 @@ export const publicBasePath = `${apiBasePath}/${RootResources.public}`
  * for it to render on DappHub.
  */
 export namespace ViewDapp {
+
   /**
    * No body required, DappName is taken from the path.
    */
   export interface Args {}
-  export type Result = ApiResponse<{
+
+  export interface Result {
     exists : boolean
     item : Item.Core
-  }>
+  }
+
+  export type Response = ApiResponse<Result>
   export const HTTP:HttpMethods = 'GET';
+
   /**
    * Given a DappName, returns its fully scoped public path
    * @param DappName 

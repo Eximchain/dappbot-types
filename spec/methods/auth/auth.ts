@@ -1,6 +1,6 @@
 import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '..';
-import { ApiResponse, MessageResponse, HttpMethods } from '../../responses';
+import { ApiResponse, MessageResponse, HttpMethods, MessageData } from '../../responses';
 import { AuthData, Challenges } from '../../user';
 
 /**
@@ -19,11 +19,19 @@ export enum ResourcePaths {
 }
 
 /**
- * Login response which either contains AuthData
- * or ChallengeData, depending on whether the
- * login or challenge response was successful.
+ * Response from a call to our login endpoint.  It
+ * either contains successful authentication or
+ * a challenge for the user to respond to.
  */
-export type UserOrChallengeResponse = ApiResponse<XOR<AuthData, Challenges.Data>>;
+export type UserOrChallengeResult = XOR<AuthData, Challenges.Data>;
+
+/**
+ * Decoded API response from a call to our login
+ * endpoint.  It either contains successful 
+ * authentication ora challenge for the user 
+ * to respond to.
+ */
+export type UserOrChallengeResponse = ApiResponse<UserOrChallengeResult>;
 
 /**
  * Main login call which either produces a user
@@ -34,7 +42,8 @@ export namespace Login {
     username: string,
     password: string
   }
-  export type Result = UserOrChallengeResponse
+  export type Result = UserOrChallengeResult
+  export type Response = UserOrChallengeResponse
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.login}`
 }
@@ -48,7 +57,8 @@ export namespace Refresh {
   export interface Args {
     refreshToken: string
   }
-  export type Result = UserOrChallengeResponse
+  export type Result = UserOrChallengeResult
+  export type Response = UserOrChallengeResponse
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.login}`;
 }
@@ -59,6 +69,7 @@ export namespace Refresh {
  * can create a new one.
  */
 export namespace NewPassChallenge {
+
   /** 
    * Note that the session here would be from a
    * previous ChallengeResponse.  This is not the
@@ -71,7 +82,9 @@ export namespace NewPassChallenge {
     newPassword: string,
     session: string
   }
-  export type Result = UserOrChallengeResponse;
+
+  export type Result = UserOrChallengeResult;
+  export type Response = UserOrChallengeResponse;
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.login}`;
 }
@@ -86,14 +99,18 @@ export namespace NewPassChallenge {
  * must be provided to confirm the reset.
  */
 export namespace BeginPassReset {
+
   export interface Args {
     username: string
   }
+
   /**
    * When successful, the message ought to say something
    * like, "An email has been sent with a temporary password."
    */
-  export type Result = MessageResponse;
+  export type Result = MessageData;
+
+  export type Response = MessageResponse;
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 }
@@ -103,16 +120,20 @@ export namespace BeginPassReset {
  * from the email along with a new password.
  */
 export namespace ConfirmPassReset {
+
   export interface Args {
     username:string
     newPassword: string,
     passwordResetCode: string
   }
+
   /**
    * Ought to tell them they can now log in with their
    * new password.
    */
-  export type Result = MessageResponse;
+  export type Result = MessageData;
+  
+  export type Response = MessageResponse;
   export const HTTP:HttpMethods = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 }

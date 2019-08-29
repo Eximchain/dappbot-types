@@ -73,28 +73,17 @@
 					<li>Make the overall DappBot codebase DRYer</li>
 					<li>Share these types with our API customers</li>
 				</ul>
-				<p>The types are grouped into nested namespaces in order to minimize both collisions and stuttering. They are nested like:</p>
+				<p>There is full generated documentation from the source code hosted at <code>eximchain.github.io/dappbot-types</code>.  Briefly, the types are grouped into nested namespaces in order to minimize both collisions and stuttering. They are nested like:</p>
 				<ul>
 					<li><code>DappBotTypes</code>: Overall namespace, package&#39;s default export<ul>
-							<li><code>Dapp</code>: </li>
-							<li>User: </li>
-							<li>Responses: </li>
-							<li>Methods: <ul>
-									<li>Auth: <ul>
-											<li>Login:</li>
-											<li>Refresh: </li>
-											<li>...</li>
-										</ul>
-									</li>
-									<li>Private: </li>
-									<li>Payment: </li>
-									<li>Public: </li>
-								</ul>
-							</li>
+							<li><code>Dapp</code>: Interfaces, type guards, and factories related to the <code>DappItem</code> data type</li>
+							<li><code>User</code>:  Interfaces, type guards, and factories related to the <code>User</code> &amp; auth data types</li>
+							<li><code>Responses</code>: Interfaces and helper functions for our API responses</li>
+							<li><code>Methods</code>: Each sub-module within here (<code>Auth</code>, <code>Payment</code>, <code>Private</code>, <code>Public</code>) contains all types related to that resource&#39;s available methods.  Each method contains keys <code>Args</code>, <code>Result</code>, <code>Response</code>, <code>HTTP</code>, &amp; <code>Path</code>.  The <code>Result</code> corresponds to the <code>res.data</code> in a successful call, <code>Response</code> just wraps that shape in <code>data</code>/<code>err</code>.</li>
 						</ul>
 					</li>
 				</ul>
-				<p>As a consumer, you can import either import the full namespace from the top or instead use the import string to grab one of the more nested ones.  All of the individual namespaces &amp; types are declared within the <code>spec</code> folder, which you can directly refer to in your import.  By example:</p>
+				<p>As a consumer, you can import either import the full namespace from the top or instead use the import string to grab one of the more nested ones.  All of the individual namespaces &amp; types are declared within the <code>spec</code> folder, which you can directly refer to in your import.  By example, below are two ways of getting at the same type:</p>
 				<pre><code class="language-typescript"><span class="hljs-comment">// Grab the overall types object and drill down through</span>
 <span class="hljs-comment">// the namespaces to get the interface we want</span>
 <span class="hljs-keyword">import</span> Types <span class="hljs-keyword">from</span> <span class="hljs-string">'dappbot-types'</span>;

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UpdatePayment | @eximchain/dappbot-types</title>
+	<title>Result | @eximchain/dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,112 +56,62 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_methods_payment_payment_.html">&quot;methods/payment/payment&quot;</a>
+					<a href="../modules/_methods_private_private_.html">&quot;methods/private/private&quot;</a>
 				</li>
 				<li>
-					<a href="_methods_payment_payment_.updatepayment.html">UpdatePayment</a>
+					<a href="../modules/_methods_private_private_.listdapps.html">ListDapps</a>
+				</li>
+				<li>
+					<a href="_methods_private_private_.listdapps.result.html">Result</a>
 				</li>
 			</ul>
-			<h1>Module UpdatePayment</h1>
+			<h1>Interface Result</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Used to update the customer&#39;s saved payment source,
-						currently a credit card.</p>
-					</div>
-				</div>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Result</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_payment_payment_.updatepayment.args.html" class="tsd-kind-icon">Args</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_payment_payment_.updatepayment.html#result" class="tsd-kind-icon">Result</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_payment_payment_.updatepayment.html#http" class="tsd-kind-icon">HTTP</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_payment_payment_.updatepayment.html#path" class="tsd-kind-icon">Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_methods_private_private_.listdapps.result.html#count" class="tsd-kind-icon">count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_methods_private_private_.listdapps.result.html#items" class="tsd-kind-icon">items</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Interfaces</h2>
-				<section class="tsd-panel tsd-member tsd-kind-interface tsd-parent-kind-module">
-					<a name="" class="tsd-anchor"></a>
-					<h3>Args</h3>
-					<div class="tsd-signature tsd-kind-icon">Args<span class="tsd-signature-symbol">:</span> </div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="count" class="tsd-anchor"></a>
+					<h3>count</h3>
+					<div class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/843fafb/spec/methods/payment/payment.ts#L86">methods/payment/payment.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/7062f6c/spec/methods/private/private.ts#L130">methods/private/private.ts:130</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Like with SignUp, this token can only be produced
-								on the dapp.bot website using Stripe&#39;s client-side
-								plugin.  This method cannot be successfully called
-							by external API customers.</p>
-						</div>
-					</div>
-					<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-						<a name="token" class="tsd-anchor"></a>
-						<h3>token</h3>
-						<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/843fafb/spec/methods/payment/payment.ts#L87">methods/payment/payment.ts:87</a></li>
-							</ul>
-						</aside>
-			</section></section>    </section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="result" class="tsd-anchor"></a>
-					<h3>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_responses_responses_.apiresponse.html" class="tsd-signature-type">ApiResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="items" class="tsd-anchor"></a>
+					<h3>items</h3>
+					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <a href="_dapp_dapp_.item.api.html" class="tsd-signature-type">Api</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/843fafb/spec/methods/payment/payment.ts#L89">methods/payment/payment.ts:89</a></li>
-						</ul>
-					</aside>
-			</section>    </section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="http" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> HTTP</h3>
-					<div class="tsd-signature tsd-kind-icon">HTTP<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#httpmethods" class="tsd-signature-type">HttpMethods</a><span class="tsd-signature-symbol"> =&nbsp;&quot;PUT&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/843fafb/spec/methods/payment/payment.ts#L92">methods/payment/payment.ts:92</a></li>
-						</ul>
-					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="path" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> Path</h3>
-					<div class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;paymentBasePath</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/843fafb/spec/methods/payment/payment.ts#L93">methods/payment/payment.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/7062f6c/spec/methods/private/private.ts#L131">methods/private/private.ts:131</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -177,16 +127,31 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_methods_payment_payment_.updatepayment.args.html" class="tsd-kind-icon">Args</a>
+						<a href="_methods_private_private_.listdapps.args.html" class="tsd-kind-icon">Args</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_methods_private_private_.listdapps.result.html" class="tsd-kind-icon">Result</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_methods_private_private_.listdapps.result.html#count" class="tsd-kind-icon">count</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_methods_private_private_.listdapps.result.html#items" class="tsd-kind-icon">items</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_methods_payment_payment_.updatepayment.html#result" class="tsd-kind-icon">Result</a>
+						<a href="../modules/_methods_private_private_.listdapps.html#response" class="tsd-kind-icon">Response</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_methods_payment_payment_.updatepayment.html#http" class="tsd-kind-icon">HTTP</a>
+						<a href="../modules/_methods_private_private_.listdapps.html#http" class="tsd-kind-icon">HTTP</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_methods_payment_payment_.updatepayment.html#path" class="tsd-kind-icon">Path</a>
+						<a href="../modules/_methods_private_private_.listdapps.html#path" class="tsd-kind-icon">Path</a>
 					</li>
 				</ul>
 			</nav>

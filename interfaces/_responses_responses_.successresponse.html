@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ApiResponse | @eximchain/dappbot-types</title>
+	<title>SuccessResponse | @eximchain/dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_responses_responses_.html">&quot;responses/responses&quot;</a>
 				</li>
 				<li>
-					<a href="_responses_responses_.apiresponse.html">ApiResponse</a>
+					<a href="_responses_responses_.successresponse.html">SuccessResponse</a>
 				</li>
 			</ul>
-			<h1>Interface ApiResponse&lt;ResponseType&gt;</h1>
+			<h1>Interface SuccessResponse&lt;ResultType&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -72,13 +72,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>General shape which all responses from our API conform to.
-							An object <code>res</code> where either <code>res.data</code> or <code>res.err</code> won&#39;t
-							be <code>null</code>, depending on whether your call succeeded.
-							Both will always be defined.  Note that this just describes
-							the body of the response.  If there&#39;s an error, the error
-							code will also be set to 4xx or 5xx, so your request
-						tool will automatically detect there&#39;s an error.</p>
+						<p>Successful response from our API.  <code>data</code> will contain the
+						corresponding <code>Result</code>, <code>err</code> will be null.</p>
 					</div>
 				</div>
 			</section>
@@ -86,7 +81,7 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>ResponseType</h4>
+						<h4>ResultType</h4>
 					</li>
 				</ul>
 			</section>
@@ -94,7 +89,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ApiResponse</span>
+						<span class="target">SuccessResponse</span>
 					</li>
 				</ul>
 			</section>
@@ -105,8 +100,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.apiresponse.html#data" class="tsd-kind-icon">data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.apiresponse.html#err" class="tsd-kind-icon">err</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.successresponse.html#data" class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_responses_responses_.successresponse.html#err" class="tsd-kind-icon">err</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,19 +112,19 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="data" class="tsd-anchor"></a>
 					<h3>data</h3>
-					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ResponseType</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ResultType</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/2133a68/spec/responses/responses.ts#L18">responses/responses.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/responses/responses.ts#L26">responses/responses.ts:26</a></li>
 						</ul>
 					</aside>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="err" class="tsd-anchor"></a>
 					<h3>err</h3>
-					<div class="tsd-signature tsd-kind-icon">err<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.apierror.html" class="tsd-signature-type">ApiError</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<div class="tsd-signature tsd-kind-icon">err<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/2133a68/spec/responses/responses.ts#L19">responses/responses.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/responses/responses.ts#L27">responses/responses.ts:27</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -171,38 +166,53 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_responses_responses_.apierror.html" class="tsd-kind-icon">Api<wbr>Error</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_responses_responses_.errorresponse.html" class="tsd-kind-icon">Error<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_responses_responses_.responseoptions.html" class="tsd-kind-icon">Response<wbr>Options</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_responses_responses_.apiresponse.html" class="tsd-kind-icon">Api<wbr>Response</a>
+						<a href="_responses_responses_.successresponse.html" class="tsd-kind-icon">Success<wbr>Response</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_responses_responses_.apiresponse.html#data" class="tsd-kind-icon">data</a>
+								<a href="_responses_responses_.successresponse.html#data" class="tsd-kind-icon">data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_responses_responses_.apiresponse.html#err" class="tsd-kind-icon">err</a>
+								<a href="_responses_responses_.successresponse.html#err" class="tsd-kind-icon">err</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_responses_responses_.responseoptions.html" class="tsd-kind-icon">Response<wbr>Options</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/_responses_responses_.html#apiresponse" class="tsd-kind-icon">Api<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_responses_responses_.html#httpmethods" class="tsd-kind-icon">Http<wbr>Methods</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_responses_responses_.html#messagedata" class="tsd-kind-icon">Message<wbr>Data</a>
+						<a href="../modules/_responses_responses_.html#messageresponse" class="tsd-kind-icon">Message<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_responses_responses_.html#messageresponse" class="tsd-kind-icon">Message<wbr>Response</a>
+						<a href="../modules/_responses_responses_.html#messageresult" class="tsd-kind-icon">Message<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#iserrresponse" class="tsd-kind-icon">is<wbr>Err<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_responses_responses_.html#ismessageresult" class="tsd-kind-icon">is<wbr>Message<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/_responses_responses_.html#issuccessresponse" class="tsd-kind-icon">is<wbr>Success<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="../modules/_responses_responses_.html#response" class="tsd-kind-icon">response</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_responses_responses_.html#successresponse" class="tsd-kind-icon">success<wbr>Response</a>
+						<a href="../modules/_responses_responses_.html#successresponse-1" class="tsd-kind-icon">success<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="../modules/_responses_responses_.html#unexpectederrorresponse" class="tsd-kind-icon">unexpected<wbr>Error<wbr>Response</a>

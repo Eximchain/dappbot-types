@@ -95,12 +95,13 @@
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#http" class="tsd-kind-icon">HTTP</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#path" class="tsd-kind-icon">Path</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#path" class="tsd-kind-icon">Path</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_private_private_.updatedapp.html#isargs" class="tsd-kind-icon">is<wbr>Args</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,7 +115,7 @@
 					<div class="tsd-signature tsd-kind-icon">Args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_dapp_dapp_.item.core.html" class="tsd-signature-type">Core</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"DappName"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/2133a68/spec/methods/private/private.ts#L68">methods/private/private.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/methods/private/private.ts#L96">methods/private/private.ts:96</a></li>
 						</ul>
 					</aside>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
@@ -123,16 +124,16 @@
 					<div class="tsd-signature tsd-kind-icon">Response<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messageresponse" class="tsd-signature-type">MessageResponse</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/2133a68/spec/methods/private/private.ts#L76">methods/private/private.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/methods/private/private.ts#L115">methods/private/private.ts:115</a></li>
 						</ul>
 					</aside>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="result" class="tsd-anchor"></a>
 					<h3>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messagedata" class="tsd-signature-type">MessageData</a></div>
+					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messageresult" class="tsd-signature-type">MessageResult</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/2133a68/spec/methods/private/private.ts#L74">methods/private/private.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/methods/private/private.ts#L113">methods/private/private.ts:113</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -150,41 +151,58 @@
 					<div class="tsd-signature tsd-kind-icon">HTTP<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#httpmethods" class="tsd-signature-type">HttpMethods</a><span class="tsd-signature-symbol"> =&nbsp;&quot;PUT&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/2133a68/spec/methods/private/private.ts#L78">methods/private/private.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/methods/private/private.ts#L88">methods/private/private.ts:88</a></li>
 						</ul>
 					</aside>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="path" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">:</span> <a href="_methods_private_private_.html#dapppath" class="tsd-signature-type">DappPath</a><span class="tsd-signature-symbol"> =&nbsp;DappPath</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/methods/private/private.ts#L94">methods/private/private.ts:94</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Given a DappName, returns its fully scoped path</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd></dd>
+						</dl>
+					</div>
 			</section>    </section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="path" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> Path</h3>
+					<a name="isargs" class="tsd-anchor"></a>
+					<h3>is<wbr>Args</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">(</span>DappName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Args<span class="tsd-signature-symbol">(</span>maybe<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/2133a68/spec/methods/private/private.ts#L84">methods/private/private.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/89e0a6d/spec/methods/private/private.ts#L103">methods/private/private.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Given a DappName, returns its fully scoped path</p>
+									<p>Type guard; only returns <code>true</code> if one of the
+									valid <code>Item.Core</code> update attributes has been set.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>DappName: <span class="tsd-signature-type">string</span></h5>
+									<h5>maybe: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 			</section>    </section>
@@ -211,8 +229,11 @@
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="_methods_private_private_.updatedapp.html#http" class="tsd-kind-icon">HTTP</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="_methods_private_private_.updatedapp.html#path" class="tsd-kind-icon">Path</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_methods_private_private_.updatedapp.html#isargs" class="tsd-kind-icon">is<wbr>Args</a>
 					</li>
 				</ul>
 			</nav>

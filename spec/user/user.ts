@@ -84,10 +84,10 @@ export function emptyUserData():UserData {
  * after it expires at `ExpiresAt`, which is a date
  * encoded as an ISO string.
  */
-export interface AuthData {
-  User: UserData,
-  Authorization: string,
-  RefreshToken: string,
+export type AuthData = {
+  User: UserData
+  Authorization: string
+  RefreshToken: string
   ExpiresAt: string
 }
 

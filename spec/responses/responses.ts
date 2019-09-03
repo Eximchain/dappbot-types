@@ -1,3 +1,5 @@
+import { XOR } from 'ts-xor';
+
 /**
  * All error responses from our API will include a message key.
  */
@@ -14,17 +16,59 @@ export interface ApiError extends Error {
  * code will also be set to 4xx or 5xx, so your request
  * tool will automatically detect there's an error.
  */
-export interface ApiResponse<ResponseType> {
-  data: ResponseType | null
-  err: ApiError | null
+export type ApiResponse<ResponseType> = XOR<SuccessResponse<ResponseType>, ErrorResponse>
+
+/**
+ * Successful response from our API.  `data` will contain the
+ * corresponding `Result`, `err` will be null.
+ */
+export interface SuccessResponse<ResultType=any> {
+  data: ResultType
+  err: null
+}
+
+/**
+ * Type guard; only returns `true` if object shape has a non-null
+ * `data` value and `err` has a null value.
+ * @param res 
+ */
+export function isSuccessResponse<ResultType>(res:any): res is SuccessResponse<ResultType> {
+  return res.data && res.err === null
+}
+
+/**
+ * Error response from our API.  `err` will contain an `ApiError`,
+ * while `data` will be `null`.
+ */
+export interface ErrorResponse {
+  data : null
+  err : ApiError
+}
+
+/**
+ * Type guard; only returns `true` if object shape has a null
+ * `data` value and a non-null `err` value.
+ * @param res 
+ */
+export function isErrResponse(res:any): res is ErrorResponse {
+  return res.err && res.data === null
 }
 
 /**
  * Basic result which simply contains a message about
  * the action that was taken.
  */
-export type MessageData = {
+export type MessageResult = {
   message : string
+}
+
+/**
+ * Type guard; only returns `true` if `res` has a
+ * `message` key holding a `string` value.
+ * @param res
+ */
+export function isMessageResult(res:any):res is MessageResult {
+  return res.message && typeof res.message === 'string';
 }
 
 /**
@@ -128,7 +172,9 @@ export function response(body:any, opts:ResponseOptions) {
  * @param body 
  * @param opts 
  */
-export function successResponse(body:any, opts:ResponseOptions={isCreate: false}) {
+export function successResponse(
+  body:any, opts:ResponseOptions={isCreate: false}
+) {
   let successOpt = {isErr: false};
   let callOpts = {...opts, ...successOpt};
   return response(body, callOpts);

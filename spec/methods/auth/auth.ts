@@ -1,7 +1,8 @@
 import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '..';
-import { ApiResponse, MessageResponse, HttpMethods, MessageData } from '../../responses';
+import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
+import { bodyHasStrings } from '../../util';
 
 /**
  * Baseline path from which more specific auth
@@ -38,14 +39,25 @@ export type UserOrChallengeResponse = ApiResponse<UserOrChallengeResult>;
  * object and credentials, or returns a challenge.
  */
 export namespace Login {
+
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`
+
   export interface Args {
     username: string,
     password: string
   }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param maybe 
+   */
+  export function isArgs(maybe:any): maybe is Args {
+    return bodyHasStrings(maybe, ['username', 'password'])
+  }
+
   export type Result = UserOrChallengeResult
   export type Response = UserOrChallengeResponse
-  export const HTTP:HttpMethods = 'POST';
-  export const Path = `${authBasePath}/${ResourcePaths.login}`
 }
 
 /**
@@ -54,13 +66,24 @@ export namespace Login {
  * it has been more than a month.
  */
 export namespace Refresh {
+
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`;
+
   export interface Args {
     refreshToken: string
   }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param maybe 
+   */
+  export function isArgs(maybe:any): maybe is Args {
+    return bodyHasStrings(maybe, ['refreshToken'])
+  }
+
   export type Result = UserOrChallengeResult
   export type Response = UserOrChallengeResponse
-  export const HTTP:HttpMethods = 'POST';
-  export const Path = `${authBasePath}/${ResourcePaths.login}`;
 }
 
 /**
@@ -69,6 +92,9 @@ export namespace Refresh {
  * can create a new one.
  */
 export namespace NewPassChallenge {
+
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`;
 
   /** 
    * Note that the session here would be from a
@@ -83,10 +109,16 @@ export namespace NewPassChallenge {
     session: string
   }
 
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param maybe 
+   */
+  export function isArgs(maybe:any): maybe is Args {
+    return bodyHasStrings(maybe, ['username', 'newPassword', 'session'])
+  }
+
   export type Result = UserOrChallengeResult;
   export type Response = UserOrChallengeResponse;
-  export const HTTP:HttpMethods = 'POST';
-  export const Path = `${authBasePath}/${ResourcePaths.login}`;
 }
 
 //////////////////////////////////
@@ -100,19 +132,28 @@ export namespace NewPassChallenge {
  */
 export namespace BeginPassReset {
 
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
+
   export interface Args {
     username: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param maybe 
+   */
+  export function isArgs(maybe:any): maybe is Args {
+    return bodyHasStrings(maybe, ['username'])
   }
 
   /**
    * When successful, the message ought to say something
    * like, "An email has been sent with a temporary password."
    */
-  export type Result = MessageData;
+  export type Result = MessageResult;
 
   export type Response = MessageResponse;
-  export const HTTP:HttpMethods = 'POST';
-  export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 }
 
 /**
@@ -121,6 +162,9 @@ export namespace BeginPassReset {
  */
 export namespace ConfirmPassReset {
 
+  export const HTTP:HttpMethods = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
+
   export interface Args {
     username:string
     newPassword: string,
@@ -128,14 +172,20 @@ export namespace ConfirmPassReset {
   }
 
   /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param maybe 
+   */
+  export function isArgs(maybe:any): maybe is Args {
+    return bodyHasStrings(maybe, ['username', 'newPassword', 'passwordResetCode'])
+  }
+
+  /**
    * Ought to tell them they can now log in with their
    * new password.
    */
-  export type Result = MessageData;
-  
+  export type Result = MessageResult;
+
   export type Response = MessageResponse;
-  export const HTTP:HttpMethods = 'POST';
-  export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 }
 
 export default this.exports;

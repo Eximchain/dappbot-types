@@ -14,7 +14,7 @@ export namespace ViewDapp {
   /**
    * No body required, DappName is taken from the path.
    */
-  export interface Args {}
+  export type Args = void; 
 
   export interface Result {
     exists : boolean

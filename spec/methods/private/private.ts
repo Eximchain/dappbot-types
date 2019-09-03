@@ -39,7 +39,7 @@ export namespace ReadDapp {
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
    */
-  export interface Args {}
+  export type Args = void;
 
   export interface Result {
     itemExists : boolean
@@ -95,7 +95,7 @@ export namespace DeleteDapp {
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
    */
-  export interface Args {}
+  export type Args = void;
 
   /**
    * Message will say something (not exactly) like, 
@@ -124,7 +124,7 @@ export namespace ListDapps {
    * Body requires no arguments, email and DappName
    * are taken from Authorization & path respectively.
    */
-  export interface Args {}
+  export type Args = void;
 
   export interface Result {
     count : number

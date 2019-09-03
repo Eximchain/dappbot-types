@@ -40,9 +40,9 @@ export namespace SignUp {
   }
 
   export interface Result {
-    stripeId: number
-    subscriptionId: number
-    user : AuthData | boolean
+    stripeId: string
+    subscriptionId: string
+    user : UserData | boolean
   }
 
   export type Response = ApiResponse<Result>
@@ -65,7 +65,7 @@ export namespace Read {
    * Body has no args, customer email is read via the
    * Authorization token.
    */
-  export interface Args {}
+  export type Args = void;
 
   export interface Result {
     user: UserData
@@ -144,7 +144,7 @@ export namespace Cancel {
    * No body arguments required, user's email is
    * inferred from Authorization token.
    */
-  export interface Args {}
+  export type Args = void;
 
   export interface Result {
     cancelledSub : StripeTypes.Subscription

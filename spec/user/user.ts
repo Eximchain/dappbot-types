@@ -33,24 +33,55 @@ export interface UserAttributes extends CognitoAttributes.MapType {
   'custom:enterprise_limit' : string
 }
 
+
+/**
+ * Validates that the enum values within `UserAttributes` 
+ * are actually from the appropriate enums, validates 
+ * that the limit values can be converted to non-negative 
+ * integers.
+ * 
+ * @param maybe 
+ */
+export function isUserAttributes(maybe:any): maybe is UserAttributes {
+  if (typeof maybe !== 'object') return false;
+  let limitNames = ['standard', 'professional', 'enterprise'].map(str => `custom:${str}_limit`);
+  return (
+    Object.values(PaymentStatus).includes(maybe['custom:payment_status']) &&
+    Object.values(PaymentProvider).includes(maybe['custom:payment_provider']) &&
+    bodyHasValOn(maybe, limitNames, (strVal:any) => parseInt(strVal) >= 0)
+  )
+}
+
+/**
+ * Factory to produce a blank UserAttributes object.
+ * For validity, it is configured as an active admin
+ * account with one standard dapp.  These factories
+ * are convenient for getting blank objects of the
+ * correct type, or a list of the interface's keys
+ * as a value.
+ */
+export function emptyUserAttributes():UserAttributes {
+  return {
+    'custom:payment_provider' : PaymentProvider.ADMIN,
+    'custom:payment_status' : PaymentStatus.ACTIVE,
+    'custom:standard_limit' : '1',
+    'custom:professional_limit' : '0',
+    'custom:enterprise_limit' : '0'
+  }
+}
+
 /**
  * Type guard; only returns true if `maybe` satisfies
- * the `UserData` interface.  Validates that the enum
- * values within `UserAttributes` are actually from the
- * appropriate enums, validates that the limit values
- * can be converted to non-negative integers.
+ * the `UserData` interface. Recursively verifies that
+ * `maybe.UserAttributes` verifies the `UserAttributes`
+ * interface.
+ * 
  * @param maybeUserData 
  */
 export function isUserData(maybe:any): maybe is UserData {
     if (!bodyHasStrings(maybe, ['Username', 'Email'])) return false;
-    if (typeof maybe.UserAttributes !== 'object') return false;
-    let attrs = maybe.UserAttributes;
-    let limitNames = ['standard', 'professional', 'enterprise'].map(str => `custom:${str}_limit`);
-    return (
-      Object.values(PaymentStatus).includes(attrs['custom:payment_status']) &&
-      Object.values(PaymentProvider).includes(attrs['custom:payment_provider']) &&
-      bodyHasValOn(attrs, limitNames, (strVal:any) => parseInt(strVal) >= 0)
-    )
+    if (!maybe.UserAttributes) return false;
+    return isUserAttributes(maybe.UserAttributes);
 }
 
 /**
@@ -65,13 +96,7 @@ export function emptyUserData():UserData {
   return {
     Username : '',
     Email : '',
-    UserAttributes : {
-      'custom:payment_provider' : PaymentProvider.ADMIN,
-      'custom:payment_status' : PaymentStatus.ACTIVE,
-      'custom:standard_limit' : '1',
-      'custom:professional_limit' : '0',
-      'custom:enterprise_limit' : '0'
-    }
+    UserAttributes : emptyUserAttributes()
   }
 }
 

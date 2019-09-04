@@ -1,4 +1,3 @@
-import AllStripeTypes from 'stripe';
 import { bodyHasStrings, bodyHasValOn, isString } from '../util';
 
 /**
@@ -146,19 +145,6 @@ export enum PaymentStatus {
 export enum PaymentProvider {
   STRIPE = 'STRIPE',
   ADMIN = 'ADMIN'
-}
-
-/**
- * The subset of Stripe's types which we use, extracted 
- * into a convenient namespace. For more info about how
- * the underlying objects look, check the official Stripe
- * documentation -- it's excellent.
- */
-export namespace StripeTypes {
-  export type Customer = AllStripeTypes.customers.ICustomer;
-  export type Subscription = AllStripeTypes.subscriptions.ISubscription;
-  export type Invoice = AllStripeTypes.invoices.IInvoice;
-  export type LineItem = AllStripeTypes.invoices.IInvoiceLineItem;
 }
 
 /**

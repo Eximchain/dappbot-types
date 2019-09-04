@@ -1,5 +1,6 @@
+import AllStripeTypes from 'stripe';
 import { ApiResponse, HttpMethods } from "../../responses";
-import { AuthData, StripeTypes, UserData } from "../../user";
+import { AuthData, UserData } from "../../user";
 import { apiBasePath, RootResources } from "..";
 import { bodyHasStrings, bodyHasValOn } from "../../util";
 
@@ -27,6 +28,39 @@ export function isStripePlans(maybe:any): maybe is StripePlans {
   })
 }
 
+/**
+ * Factory to get a Stripe plan config that only has
+ * one standard dapp, the value used on trials.
+ */
+export function trialStripePlan():StripePlans {
+  return {
+    standard: 1,
+    professional: 0,
+    enterprise: 0
+  }
+}
+
+/**
+ * The subset of Stripe's types which we use, extracted 
+ * into a convenient namespace. For more info about how
+ * the underlying objects look, check the official Stripe
+ * documentation -- it's excellent.
+ */
+export namespace StripeTypes {
+  export type Customer = AllStripeTypes.customers.ICustomer;
+
+  export type Subscription = AllStripeTypes.subscriptions.ISubscription;
+  export type SubscriptionState = AllStripeTypes.subscriptions.SubscriptionStatus;
+
+  /**
+   * Array of subscription states which translate to an
+   * active payment status for the underlying user.
+   */
+  export const ValidSubscriptionStates:SubscriptionState[] = ['trialing','active'];
+
+  export type Invoice = AllStripeTypes.invoices.IInvoice;
+  export type LineItem = AllStripeTypes.invoices.IInvoiceLineItem;
+}
 
 /**
  * Main method to create a new account. If called as
@@ -68,7 +102,7 @@ export namespace SignUp {
   export interface Result {
     stripeId: string
     subscriptionId: string
-    user : UserData | boolean
+    user : UserData | null
   }
 
   export type Response = ApiResponse<Result>
@@ -96,7 +130,7 @@ export namespace Read {
   export type Args = void;
 
   export interface Result {
-    user: UserData
+    user: UserData | null
     customer: StripeTypes.Customer | null
     subscription: StripeTypes.Subscription | null
     invoice: StripeTypes.Invoice | null
@@ -134,7 +168,8 @@ export namespace UpdateCard {
   }
 
   export interface Result { 
-    updatedCustomer : StripeTypes.Customer 
+    updatedCustomer : StripeTypes.Customer
+    retriedInvoice? : StripeTypes.Invoice
   }
 
   export type Response = ApiResponse<Result>;
@@ -167,7 +202,7 @@ export namespace UpdatePlanCount {
 
   export interface Result {
     updatedSubscription : StripeTypes.Subscription
-    updatedUser : AuthData
+    updatedUser : UserData | null
   }
 
   export type Response = ApiResponse<Result>;

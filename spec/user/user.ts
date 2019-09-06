@@ -1,4 +1,4 @@
-import { bodyHasStrings, bodyHasValOn, isString } from '../util';
+import { keysAreStrings, keysValid, isString, isObject } from '../util';
 
 /**
  * DappBot User Record as defined by Cognito.  This
@@ -14,6 +14,36 @@ export interface UserData {
   MFAOptions?: CognitoAttributes.MFAOptionListType,
   PreferredMfaSetting?: string,
   UserMFASettingList?: CognitoAttributes.UserMFASettingListType
+}
+
+/**
+ * Type guard; only returns true if `maybe` satisfies
+ * the `UserData` interface. Recursively verifies that
+ * `maybe.UserAttributes` verifies the `UserAttributes`
+ * interface.
+ * 
+ * @param maybeUserData 
+ */
+export function isUserData(val:any): val is UserData {
+  if (!keysAreStrings(val, ['Username', 'Email'])) return false;
+  if (!val.UserAttributes) return false;
+  return isUserAttributes(val.UserAttributes);
+}
+
+/**
+* Factory to produce an empty UserData object. All
+* string values are empty except for the UserAttributes,
+* which simulate an admin account that is only
+* allowed to make one standard dapp.  These factories
+* are convenient for getting blank objects or a list
+* of the interface's keys as a value.
+*/
+export function newUserData():UserData {
+return {
+  Username : '',
+  Email : '',
+  UserAttributes : newUserAttributes()
+}
 }
 
 /**
@@ -40,15 +70,15 @@ export interface UserAttributes extends CognitoAttributes.MapType {
  * that the limit values can be converted to non-negative 
  * integers.
  * 
- * @param maybe 
+ * @param val 
  */
-export function isUserAttributes(maybe:any): maybe is UserAttributes {
-  if (typeof maybe !== 'object') return false;
+export function isUserAttributes(val:any): val is UserAttributes {
+  if (typeof val !== 'object') return false;
   let limitNames = ['standard', 'professional', 'enterprise'].map(str => `custom:${str}_limit`);
   return (
-    Object.values(PaymentStatus).includes(maybe['custom:payment_status']) &&
-    Object.values(PaymentProvider).includes(maybe['custom:payment_provider']) &&
-    bodyHasValOn(maybe, limitNames, (strVal:any) => parseInt(strVal) >= 0)
+    Object.values(PaymentStatus).includes(val['custom:payment_status']) &&
+    Object.values(PaymentProvider).includes(val['custom:payment_provider']) &&
+    keysValid(val, limitNames, (limitVal:any) => parseInt(limitVal) >= 0)
   )
 }
 
@@ -60,43 +90,13 @@ export function isUserAttributes(maybe:any): maybe is UserAttributes {
  * correct type, or a list of the interface's keys
  * as a value.
  */
-export function emptyUserAttributes():UserAttributes {
+export function newUserAttributes():UserAttributes {
   return {
     'custom:payment_provider' : PaymentProvider.ADMIN,
     'custom:payment_status' : PaymentStatus.ACTIVE,
     'custom:standard_limit' : '1',
     'custom:professional_limit' : '0',
     'custom:enterprise_limit' : '0'
-  }
-}
-
-/**
- * Type guard; only returns true if `maybe` satisfies
- * the `UserData` interface. Recursively verifies that
- * `maybe.UserAttributes` verifies the `UserAttributes`
- * interface.
- * 
- * @param maybeUserData 
- */
-export function isUserData(maybe:any): maybe is UserData {
-    if (!bodyHasStrings(maybe, ['Username', 'Email'])) return false;
-    if (!maybe.UserAttributes) return false;
-    return isUserAttributes(maybe.UserAttributes);
-}
-
-/**
- * Factory to produce an empty UserData object. All
- * string values are empty except for the UserAttributes,
- * which simulate an admin account that is only
- * allowed to make one standard dapp.  These factories
- * are convenient for getting blank objects or a list
- * of the interface's keys as a value.
- */
-export function emptyUserData():UserData {
-  return {
-    Username : '',
-    Email : '',
-    UserAttributes : emptyUserAttributes()
   }
 }
 
@@ -123,11 +123,12 @@ export interface AuthData {
  * other two props are strings.
  * @param maybeAuthData 
  */
-export function isAuthData(maybe:any): maybe is AuthData {
+export function isAuthData(val:any): val is AuthData {
+  if (!isObject(val)) return false;
   return (
-    isUserData(maybe.User) &&
-    Date.parse(maybe.ExpiresAt) !== NaN &&
-    bodyHasStrings(maybe, ['Authorization', 'RefreshToken'])
+    isUserData(val.User) &&
+    Date.parse(val.ExpiresAt) !== NaN &&
+    keysAreStrings(val, ['Authorization', 'RefreshToken'])
   )
 }
 
@@ -137,12 +138,12 @@ export function isAuthData(maybe:any): maybe is AuthData {
  * `ExpiresAt` is now as an ISO string, `Authorization`
  * & `RefreshToken` are empty strings.
  */
-export function emptyAuthData():AuthData {
+export function newAuthData():AuthData {
   return {
     Authorization : '',
     RefreshToken : '',
     ExpiresAt : new Date().toISOString(),
-    User : emptyUserData()
+    User : newUserData()
   }
 }
 
@@ -223,13 +224,13 @@ export namespace Challenges {
    * `Data.ChallengeParameters` has only string keys &
    * string values.
    * 
-   * @param maybe 
+   * @param val 
    */
-  export function isData(maybe:any): maybe is Challenges.Data {
-    let params = maybe.ChallengeParameters;
+  export function isData(val:any): val is Challenges.Data {
+    let params = val.ChallengeParameters;
     return (
-      Object.values(Challenges.Types).includes(maybe.ChallengeName) &&
-      isString(maybe.Session) &&
+      Object.values(Challenges.Types).includes(val.ChallengeName) &&
+      isString(val.Session) &&
       Object.keys(params).every(isString) &&
       Object.values(params).every(isString)
     )
@@ -241,7 +242,7 @@ export namespace Challenges {
    * `Types.Default`, and `ChallengeParameters` is an
    * empty object.
    */
-  export function emptyData(): Challenges.Data {
+  export function newData(): Challenges.Data {
     return {
       ChallengeName : Challenges.Types.Default,
       ChallengeParameters : {},

@@ -1,4 +1,25 @@
-import { bodyHasStrings, isString } from '../util';
+import { keysAreStrings, isString, isObject } from '../util';
+
+
+
+/**
+ * Possible Dapp tiers and their string name 
+ * representations.
+ */
+export enum Tiers {
+  Standard = 'STANDARD',
+  Professional = 'PROFESSIONAL',
+  Enterprise = 'ENTERPRISE'
+}
+
+/**
+ * Type guard; only valid enum values within the
+ * Tiers enum will return `true`.
+ * @param val 
+ */
+export function isTiers(val: any): val is Tiers {
+  return isString(val) && Object.values(Tiers).includes(val);
+}
 
 /**
  * All of the potential shapes for a DappItem
@@ -23,10 +44,10 @@ export namespace Item {
   /**
    * Type guard; returns `true` if the argument
    * satisfies `Item.Core`, otherwise `false`.
-   * @param maybe 
+   * @param val 
    */
-  export function isCore(maybe:any): maybe is Core {
-    return bodyHasStrings(maybe, Object.keys(EmptyCore()))
+  export function isCore(val: any): val is Core {
+    return keysAreStrings(val, Object.keys(newCore()))
   }
 
   /**
@@ -35,50 +56,114 @@ export namespace Item {
    * a value. Note that the actual values on
    * this object are not valid.
    */
-  export function EmptyCore():Item.Core {
+  export function newCore(): Item.Core {
     return {
       DappName: '',
-      Abi : '',
-      Web3URL : '',
-      GuardianURL : '',
-      ContractAddr : ''
+      Abi: '',
+      Web3URL: '',
+      GuardianURL: '',
+      ContractAddr: ''
     }
   }
 
   /**
    * Core data plus the dapp's tier and some
    * optional info about the GitHub integration.
+   * This type applies to both enterprise and
+   * standard dapps.
    */
   export interface Full extends Core {
-    Tier: Tiers
-    TargetRepoName? : string
-    TargetRepoOwner? : string
+    Tier: Tiers,
+    TargetRepoName?: string
+    TargetRepoOwner?: string
   }
 
   /**
    * Type guard; returns `true` if the argument
    * satisfies `Item.Full`, otherwise `false`.
-   * @param maybe 
+   * @param val 
    */
-  export function isFull(maybe:any): maybe is Full {
-    return (
-      bodyHasStrings(maybe, Object.keys(EmptyFull())) && 
-      isTiers(maybe.Tier)
-    );
+  export function isFull(val: any): val is Full {
+    if (!isObject(val)) return false;
+    if (!isTiers(val.Tier)) return false;
+    return val.Tier === Tiers.Enterprise ?
+      keysAreStrings(val, Object.keys(newFullEnterprise())) :
+      keysAreStrings(val, Object.keys(newFullHub()))
   }
 
   /**
    * Factory to produce an empty `Item.Full`.
    * Useful to get the interface's keys as
    * a value. Note that the actual values on
-   * this object are not valid.
+   * this object are not valid.  It produces
+   * a standard dapp, so no GitHub config.
    */
-  export function EmptyFull():Item.Full {
-    return Object.assign(EmptyCore(), {
+  export function newFull(): Item.Full {
+    return {
+      ...newCore(),
+      Tier: Tiers.Standard
+    }
+  }
+
+  /**
+   * 
+   */
+  export interface FullHub extends Item.Full {
+    Tier: Exclude<Tiers, Tiers.Enterprise>
+  }
+
+  /**
+   * 
+   * @param val 
+   */
+  export function isFullHub(val: any): val is FullHub {
+    return (
+      keysAreStrings(val, Object.keys(newFullEnterprise())) &&
+      isTiers(val.Tier) &&
+      val.Tier !== Tiers.Enterprise
+    )
+  }
+
+  /**
+   * 
+   */
+  export function newFullHub(): FullHub {
+    return {
       Tier : Tiers.Standard,
-      TargetRepoName : 'fake-repo',
-      TargetRepoOwner : '@example-github-name'
-    })
+      ...newCore()
+    };
+  }
+
+  /**
+   * 
+   */
+  export interface FullEnterprise extends Item.Full {
+    Tier: Extract<Tiers, Tiers.Enterprise>
+    TargetRepoName: string
+    TargetRepoOwner: string
+  }
+
+  /**
+   * 
+   * @param val 
+   */
+  export function isFullEnterprise(val: any): val is FullEnterprise {
+    return (
+      keysAreStrings(val, Object.keys(newFullEnterprise())) &&
+      val.Tier === Tiers.Enterprise
+    )
+  }
+
+  /**
+   * 
+   */
+  export function newFullEnterprise(): FullEnterprise {
+    return {
+      ...newCore(),
+      Tier: Tiers.Enterprise,
+      TargetRepoName: 'myfirstdapp',
+      TargetRepoOwner: '@example'
+    }
   }
 
   /**
@@ -87,22 +172,22 @@ export namespace Item {
    * full plus some dapp management data.
    */
   export interface Api extends Full {
-    OwnerEmail : string
-    CreationTime : string
-    DnsName : string
-    State : States
+    OwnerEmail: string
+    CreationTime: string
+    DnsName: string
+    State: States
   }
 
   /**
    * Type guard; returns `true` if the argument
    * satisfies `Item.Api`, otherwise `false`.
-   * @param maybe 
+   * @param val 
    */
-  export function isApi(maybe:any): maybe is Api {
+  export function isApi(val: any): val is Api {
     return (
-      bodyHasStrings(maybe, Object.keys(EmptyApi())) &&
-      isTiers(maybe.Tier) &&
-      isState(maybe.State)
+      keysAreStrings(val, Object.keys(newApi())) &&
+      isTiers(val.Tier) &&
+      isState(val.State)
     )
   }
 
@@ -112,12 +197,12 @@ export namespace Item {
    * a value. Note that the actual values on
    * this object are not valid.
    */
-  export function EmptyApi():Item.Api {
-    return Object.assign(EmptyFull(), {
-      OwnerEmail : '',
-      CreationTime : '',
-      DnsName : '',
-      State : States.AVAILABLE
+  export function newApi(): Item.Api {
+    return Object.assign(newFull(), {
+      OwnerEmail: '',
+      CreationTime: '',
+      DnsName: '',
+      State: States.AVAILABLE
     })
   }
 }
@@ -139,27 +224,20 @@ export enum States {
 /**
  * Type guard; only valid enum values within the
  * States enum will return `true`.
- * @param maybe
+ * @param val
  */
-export function isState(maybe:any): maybe is States {
-  return isString(maybe) && Object.values(States).includes(maybe)
+export function isState(val: any): val is States {
+  return isString(val) && Object.values(States).includes(val)
 }
 
 /**
- * Possible Dapp tiers and their string name 
- * representations.
+ * Given a potential DappName, applies a regex
+ * which outputs a valid DappName.
+ * @param DappName 
  */
-export enum Tiers{
-  Standard = 'STANDARD',
-  Professional = 'PROFESSIONAL',
-  Enterprise = 'ENTERPRISE'
-}
-
-/**
- * Type guard; only valid enum values within the
- * Tiers enum will return `true`.
- * @param maybe 
- */
-export function isTiers(maybe:any): maybe is Tiers {
-  return isString(maybe) && Object.values(Tiers).includes(maybe);
+export function cleanName(DappName: string) {
+  return DappName.toLowerCase()
+    .replace(/\s/g, '-') // Convert spaces to hyphens
+    .replace(/[^A-Za-z0-9-]/g, '') // Remove non-alphanumerics
+    .replace(/-*$|^-*/g, '') // Trim hyphens off the front & back
 }

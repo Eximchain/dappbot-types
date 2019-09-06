@@ -3,11 +3,11 @@
  * a list of string keys, returns true if all are
  * present & not null.
  * 
- * @param body 
- * @param propertyNames 
+ * @param val 
+ * @param keyNames 
  */
-export function bodyHas(body:any, propertyNames:string[]){
-  return bodyHasValOn(body, propertyNames, (val:any) => val !== null)
+export function keysNonNull(val:any, keyNames:string[]){
+  return keysValid(val, keyNames, (keyVal:any) => keyVal !== null);
 }
 
 /**
@@ -15,11 +15,11 @@ export function bodyHas(body:any, propertyNames:string[]){
  * all `propertyNames` are present on `body` and
  * then checks that their values are strings.
  * 
- * @param body 
- * @param propertyNames 
+ * @param val 
+ * @param keyNames 
  */
-export function bodyHasStrings(body:any, propertyNames:string[]){
-  return bodyHasValOn(body, propertyNames, isString);
+export function keysAreStrings(val:any, keyNames:string[]){
+  return keysValid(val, keyNames, isString);
 }
 
 /**
@@ -28,24 +28,24 @@ export function bodyHasStrings(body:any, propertyNames:string[]){
  * test function to see if the value is correct.
  * Only returns `true` if `isVal(body.prop)` returns
  * `true` for every `prop in propertyNames`.
- * @param body
- * @param propertyNames 
- * @param isVal 
+ * @param val
+ * @param keyNames 
+ * @param isValid 
  */
-export function bodyHasValOn(body:any, propertyNames:string[], isVal:(maybe:any)=>boolean) {
-  if (!isObject(body)) return false;
-  return propertyNames.every(prop => {
-    return body.hasOwnProperty(prop) && isVal(body[prop])
+export function keysValid(val:any, keyNames:string[], isValid:(keyVal:any)=>boolean) {
+  if (!isObject(val)) return false;
+  return keyNames.every(key => {
+    return val.hasOwnProperty(key) && isValid(val[key])
   })
 }
 
 /**
  * Type guard; returns `true` if `maybe` is a string,
  * `false` otherwise.
- * @param maybe 
+ * @param val 
  */
-export function isString(maybe:any): maybe is string {
-  return typeof maybe === 'string';
+export function isString(val:any): val is string {
+  return typeof val === 'string';
 }
 
 /**
@@ -54,8 +54,23 @@ export function isString(maybe:any): maybe is string {
  * Does not declare itself as enforcing type
  * `'object'` because then TS thinks the output
  * can't have any other properties.
- * @param maybe 
+ * @param val 
  */
-export function isObject(maybe:any) {
-  return typeof maybe === 'object';
+export function isObject(val:any) {
+  return typeof val === 'object';
 }
+
+/**
+ * Convenient type which takes an interface and
+ * produces a type like <Partial>, except that
+ * at least one of the properties must be
+ * specified.  The second generic argument is
+ * what does the Typescript magic, user only
+ * specifies the interface, e.g.:
+ * 
+ * type DappUpdate = AtLeastOne<Dapp.Item.Core>
+ * 
+ * Taken from @jcalz on StackOverflow:
+ * https://stackoverflow.com/a/48244432/2128308
+ */
+export type AtLeastOne<T, U = {[K in keyof T]: Pick<T, K> }> = Partial<T> & U[keyof U];

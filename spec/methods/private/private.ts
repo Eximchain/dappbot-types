@@ -1,6 +1,8 @@
+import { XOR } from 'ts-xor';
+import { isObject, AtLeastOne } from '../../util';
 import { HttpMethods, MessageResponse, MessageResult, ApiResponse } from '../../responses';
 import { apiBasePath, RootResources } from '..';
-import { Item } from '../../dapp';
+import { Item, Tiers } from '../../dapp';
 
 export const privateBasePath = `${apiBasePath}/${RootResources.private}`
 
@@ -29,12 +31,15 @@ export namespace CreateDapp {
   /**
    * Type guard; only returns `true` if all `Item.Full`
    * attributes other than `DappName` have been
-   * correctly set.
-   * @param maybe 
+   * correctly set.  The underlying guard verifies
+   * that if it's an Enterprise Dapp, the GitHub
+   * config is set.
+   * 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    if (typeof maybe !== 'object') return false;
-    return Item.isFull({ DappName : 'placeholder', ...maybe });
+  export function isArgs(val:any): val is Args {
+    if (!isObject(val)) return false;
+    return Item.isFull({ ...val, DappName : 'placeholder' })
   }
 
   /**
@@ -69,10 +74,17 @@ export namespace ReadDapp {
    */
   export type Args = void;
 
-  export interface Result {
-    itemExists : boolean
+  export interface FoundResult {
+    exists : true
     item : Item.Api
   }
+
+  export interface NotFoundResult {
+    exists : false
+    item : null
+  }
+
+  export type Result = FoundResult | NotFoundResult
 
   export type Response = ApiResponse<Result>
 }
@@ -93,16 +105,16 @@ export namespace UpdateDapp {
    */
   export const Path = DappPath;
 
-  export type Args = Partial<Omit<Item.Core, 'DappName'>>
+  export type Args = AtLeastOne<Omit<Item.Core, 'DappName'>>
 
   /**
    * Type guard; only returns `true` if one of the
    * valid `Item.Core` update attributes has been set.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
+  export function isArgs(val:any): val is Args {
     return ['Abi', 'ContractAddr', 'Web3URL', 'GuardianURL'].some((key) => {
-      typeof maybe[key] === 'string'
+      typeof val[key] === 'string'
     })
   }
 

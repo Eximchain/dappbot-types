@@ -2,7 +2,7 @@ import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '..';
 import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
-import { bodyHasStrings } from '../../util';
+import { keysAreStrings as keysAreStrings } from '../../util';
 
 /**
  * Baseline path from which more specific auth
@@ -50,10 +50,10 @@ export namespace Login {
 
   /**
    * Type guard; only returns true for valid `Args` objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    return bodyHasStrings(maybe, ['username', 'password'])
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'password'])
   }
 
   export type Result = UserOrChallengeResult
@@ -76,10 +76,10 @@ export namespace Refresh {
 
   /**
    * Type guard; only returns true for valid `Args` objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    return bodyHasStrings(maybe, ['refreshToken'])
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['refreshToken'])
   }
 
   export type Result = UserOrChallengeResult
@@ -111,10 +111,10 @@ export namespace NewPassChallenge {
 
   /**
    * Type guard; only returns true for valid `Args` objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    return bodyHasStrings(maybe, ['username', 'newPassword', 'session'])
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'newPassword', 'session'])
   }
 
   export type Result = UserOrChallengeResult;
@@ -141,10 +141,10 @@ export namespace BeginPassReset {
 
   /**
    * Type guard; only returns true for valid `Args` objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    return bodyHasStrings(maybe, ['username'])
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username'])
   }
 
   /**
@@ -173,10 +173,10 @@ export namespace ConfirmPassReset {
 
   /**
    * Type guard; only returns true for valid `Args` objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    return bodyHasStrings(maybe, ['username', 'newPassword', 'passwordResetCode'])
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'newPassword', 'passwordResetCode'])
   }
 
   /**

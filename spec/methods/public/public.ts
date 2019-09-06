@@ -16,10 +16,17 @@ export namespace ViewDapp {
    */
   export type Args = void; 
 
-  export interface Result {
-    exists : boolean
+  export interface FoundResult {
+    exists : true
     item : Item.Core
   }
+
+  export interface NotFoundResult {
+    exists : false
+    item : null
+  }
+
+  export type Result = FoundResult | NotFoundResult
 
   export type Response = ApiResponse<Result>
   export const HTTP:HttpMethods = 'GET';

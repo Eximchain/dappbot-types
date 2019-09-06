@@ -28,8 +28,12 @@
   },
   "homepage": "https://eximchain.github.io/dappbot-types",
   "dependencies": {
-    "@types/stripe": "^6.31.20",
-    "ts-xor": "^1.0.8"
+    "@types/stripe": "6.31.25",
+    "ts-xor": "^1.0.8",
+    "typescript": "^3.6.2"
+  },
+  "peerDependencies": {
+    "@types/stripe": "6.31.25"
   },
   "devDependencies": {
     "typedoc": "^0.15.0"

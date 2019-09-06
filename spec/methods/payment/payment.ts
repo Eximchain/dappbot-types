@@ -1,8 +1,8 @@
 import AllStripeTypes from 'stripe';
 import { ApiResponse, HttpMethods } from "../../responses";
-import { AuthData, UserData } from "../../user";
+import { UserData } from "../../user";
 import { apiBasePath, RootResources } from "..";
-import { bodyHasStrings, bodyHasValOn } from "../../util";
+import { keysAreStrings, keysValid } from "../../util";
 
 export const paymentBasePath = `${apiBasePath}/${RootResources.payment}/stripe`;
 
@@ -20,11 +20,11 @@ export interface StripePlans {
 /**
  * Type guard; only returns true for 
  * valid `StripePlans` objects.
- * @param maybe 
+ * @param val 
  */
-export function isStripePlans(maybe:any): maybe is StripePlans {
-  return bodyHasValOn(maybe, ['standard', 'professional', 'enterprise'], (val:any) => {
-    return typeof val === 'number';
+export function isStripePlans(val:any): val is StripePlans {
+  return keysValid(val, ['standard', 'professional', 'enterprise'], (planVal:any) => {
+    return typeof planVal === 'number';
   })
 }
 
@@ -90,12 +90,12 @@ export namespace SignUp {
 
   /**
    * Type guard; only returns true for valid Args objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
+  export function isArgs(val:any): val is Args {
     return (
-      bodyHasStrings(maybe, ['email', 'name']) &&
-      isStripePlans(maybe.plans)
+      keysAreStrings(val, ['email', 'name']) &&
+      isStripePlans(val.plans)
     )
   }
 
@@ -161,10 +161,10 @@ export namespace UpdateCard {
 
   /**
    * Type guard; only returns `true` for valid `Args` objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    return bodyHasStrings(maybe, ['token'])
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['token'])
   }
 
   export interface Result { 
@@ -194,10 +194,10 @@ export namespace UpdatePlanCount {
 
   /**
    * Type guard; only returns true for valid `Args` objects.
-   * @param maybe 
+   * @param val 
    */
-  export function isArgs(maybe:any): maybe is Args {
-    return maybe && maybe.plans && isStripePlans(maybe.plans)
+  export function isArgs(val:any): val is Args {
+    return val && val.plans && isStripePlans(val.plans)
   }
 
   export interface Result {

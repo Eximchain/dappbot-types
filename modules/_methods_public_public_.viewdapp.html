@@ -85,7 +85,8 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_public_public_.viewdapp.result.html" class="tsd-kind-icon">Result</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_public_public_.viewdapp.foundresult.html" class="tsd-kind-icon">Found<wbr>Result</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_public_public_.viewdapp.notfoundresult.html" class="tsd-kind-icon">Not<wbr>Found<wbr>Result</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -93,6 +94,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_public_public_.viewdapp.html#args" class="tsd-kind-icon">Args</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_public_public_.viewdapp.html#response" class="tsd-kind-icon">Response</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_public_public_.viewdapp.html#result" class="tsd-kind-icon">Result</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -114,20 +116,20 @@
 				<h2>Interfaces</h2>
 				<section class="tsd-panel tsd-member tsd-kind-interface tsd-parent-kind-module">
 					<a name="" class="tsd-anchor"></a>
-					<h3>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> </div>
+					<h3>Found<wbr>Result</h3>
+					<div class="tsd-signature tsd-kind-icon">Found<wbr>Result<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/6cbe31b/spec/methods/public/public.ts#L19">methods/public/public.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L19">methods/public/public.ts:19</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 						<a name="exists" class="tsd-anchor"></a>
 						<h3>exists</h3>
-						<div class="tsd-signature tsd-kind-icon">exists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+						<div class="tsd-signature tsd-kind-icon">exists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/6cbe31b/spec/methods/public/public.ts#L20">methods/public/public.ts:20</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L20">methods/public/public.ts:20</a></li>
 							</ul>
 						</aside>
 						</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -136,7 +138,34 @@
 						<div class="tsd-signature tsd-kind-icon">item<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_dapp_dapp_.item.core.html" class="tsd-signature-type">Core</a></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/6cbe31b/spec/methods/public/public.ts#L21">methods/public/public.ts:21</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L21">methods/public/public.ts:21</a></li>
+							</ul>
+						</aside>
+					</section></section>            <section class="tsd-panel tsd-member tsd-kind-interface tsd-parent-kind-module">
+					<a name="" class="tsd-anchor"></a>
+					<h3>Not<wbr>Found<wbr>Result</h3>
+					<div class="tsd-signature tsd-kind-icon">Not<wbr>Found<wbr>Result<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L24">methods/public/public.ts:24</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+						<a name="exists" class="tsd-anchor"></a>
+						<h3>exists</h3>
+						<div class="tsd-signature tsd-kind-icon">exists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L25">methods/public/public.ts:25</a></li>
+							</ul>
+						</aside>
+						</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+						<a name="item" class="tsd-anchor"></a>
+						<h3>item</h3>
+						<div class="tsd-signature tsd-kind-icon">item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L26">methods/public/public.ts:26</a></li>
 							</ul>
 						</aside>
 			</section></section>    </section>
@@ -148,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">Args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/6cbe31b/spec/methods/public/public.ts#L17">methods/public/public.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L17">methods/public/public.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -159,10 +188,19 @@
 					</section>            <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="response" class="tsd-anchor"></a>
 					<h3>Response</h3>
-					<div class="tsd-signature tsd-kind-icon">Response<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#apiresponse" class="tsd-signature-type">ApiResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_methods_public_public_.viewdapp.result.html" class="tsd-signature-type">Result</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Response<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#apiresponse" class="tsd-signature-type">ApiResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="_methods_public_public_.viewdapp.html#result" class="tsd-signature-type">Result</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/6cbe31b/spec/methods/public/public.ts#L24">methods/public/public.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L31">methods/public/public.ts:31</a></li>
+						</ul>
+					</aside>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="result" class="tsd-anchor"></a>
+					<h3>Result</h3>
+					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_methods_public_public_.viewdapp.foundresult.html" class="tsd-signature-type">FoundResult</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_methods_public_public_.viewdapp.notfoundresult.html" class="tsd-signature-type">NotFoundResult</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L29">methods/public/public.ts:29</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -171,10 +209,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="http" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> HTTP</h3>
-					<div class="tsd-signature tsd-kind-icon">HTTP<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#httpmethods" class="tsd-signature-type">HttpMethods</a><span class="tsd-signature-symbol"> =&nbsp;&quot;GET&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">HTTP<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.httpmethods.html#get" class="tsd-signature-type">GET</a><span class="tsd-signature-symbol"> =&nbsp;&quot;GET&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/6cbe31b/spec/methods/public/public.ts#L25">methods/public/public.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L32">methods/public/public.ts:32</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -190,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/6cbe31b/spec/methods/public/public.ts#L31">methods/public/public.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/148216d/spec/methods/public/public.ts#L38">methods/public/public.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -224,13 +262,19 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_methods_public_public_.viewdapp.result.html" class="tsd-kind-icon">Result</a>
+						<a href="../interfaces/_methods_public_public_.viewdapp.foundresult.html" class="tsd-kind-icon">Found<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_methods_public_public_.viewdapp.notfoundresult.html" class="tsd-kind-icon">Not<wbr>Found<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_methods_public_public_.viewdapp.html#args" class="tsd-kind-icon">Args</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_methods_public_public_.viewdapp.html#response" class="tsd-kind-icon">Response</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_methods_public_public_.viewdapp.html#result" class="tsd-kind-icon">Result</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="_methods_public_public_.viewdapp.html#http" class="tsd-kind-icon">HTTP</a>

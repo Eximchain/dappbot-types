@@ -221,6 +221,12 @@ export enum States {
   DEPOSED = 'DEPOSED'
 }
 
+export enum Operations {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete'
+}
+
 /**
  * Type guard; only valid enum values within the
  * States enum will return `true`.

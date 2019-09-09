@@ -1,4 +1,5 @@
 import { XOR } from 'ts-xor';
+import { isString } from '../util';
 
 /**
  * All error responses from our API will include a message key.
@@ -72,10 +73,28 @@ export function isMessageResult(res:any):res is MessageResult {
 }
 
 /**
+ * Factory function which accepts a string to produce
+ * a new message result.
+ * @param message 
+ */
+export function newMessageResult(message:string): MessageResult {
+  return { message }
+}
+
+/**
  * Basic response which simply contains a message about
  * the action that was taken.
  */
 export type MessageResponse = ApiResponse<{ message: string }>
+
+export namespace HttpMethods {
+  export type PUT = 'PUT';
+  export type DELETE = 'DELETE';
+  export type GET = 'GET';
+  export type OPTIONS = 'OPTIONS';
+  export type POST = 'POST';
+  export type ANY = POST | PUT | DELETE | GET | OPTIONS;
+}
 
 /**
  * HttpMethods type is a union of string literals, rather than
@@ -86,8 +105,14 @@ export type MessageResponse = ApiResponse<{ message: string }>
  * the guarantee of no typos.  It also means that we can satisfy
  * the type by writing 'POST', rather than HttpMethods.POST.
  */
-export type HttpMethods = 'OPTIONS' | 'GET' | 'POST' | 'PUT' | 'DELETE';
 
+export function isHttpMethod(val:any): val is HttpMethods.ANY {
+  if (!isString(val)) return false;
+  let httpMethods:HttpMethods.ANY[] = [
+    'POST', 'PUT', 'DELETE', 'GET', 'OPTIONS'
+  ]
+  return httpMethods.includes(val as HttpMethods.ANY)
+}
 
 /**
  * All possible options which can be fed into our shared
@@ -214,4 +239,45 @@ export function unexpectedErrorResponse(body:any, opts:ResponseOptions={isCreate
   };
   let callOpts = {...opts, ...errorOpt};
   return response(body, callOpts);
+}
+
+/**
+ * Given an object which is known to be the wrong shape, along with
+ * an object of the correct shape, this function iterates over every
+ * key on the correct object and includes an error message if that key
+ * is missing or of incorrect type on the wrong object.
+ * @param wrong 
+ * @param right 
+ */
+export function typeValidationErrMsg(wrong:object, right:object) {
+  function checkValOnSample(item:any, sample:any, keyErrs:string[], prefix:string=''):string[] {
+    let newKeyErrs:string[] = []
+    let rightKeys = Object.keys(sample);
+    rightKeys.forEach((reqdKeyName) => {
+      let sampleVal = sample[reqdKeyName];
+      let sampleType = typeof sampleVal;
+      let itemHasKey = item.hasOwnProperty(reqdKeyName);
+      if (sampleType === 'object') {
+        // If we pass undefined, the string references will throw hard errors.  
+        // Ensure we always at least pass an object as `item`.
+        let itemArg = itemHasKey ? item[reqdKeyName] : {}
+        newKeyErrs = newKeyErrs.concat(
+          checkValOnSample(itemArg, sampleVal, newKeyErrs, `${prefix}${reqdKeyName}.`)
+        )
+      } else {
+        let itemType = typeof item[reqdKeyName];
+        if (!itemHasKey) {
+          newKeyErrs.push(
+            `- ${name}: Missing value, please provide a '${sampleType}'`
+          )
+        } else if (itemType !== sampleType) {
+          newKeyErrs.push(
+            `- ${name}: Incorrect value, please provide a '${sampleType}' instead of a '${itemType}'`
+          )
+        }
+      }
+    })
+    return keyErrs.concat(newKeyErrs);
+  }
+  return checkValOnSample(wrong, right, []);
 }

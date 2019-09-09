@@ -29,7 +29,7 @@ export namespace ViewDapp {
   export type Result = FoundResult | NotFoundResult
 
   export type Response = ApiResponse<Result>
-  export const HTTP:HttpMethods = 'GET';
+  export const HTTP:HttpMethods.GET = 'GET';
 
   /**
    * Given a DappName, returns its fully scoped public path

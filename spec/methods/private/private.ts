@@ -17,7 +17,7 @@ function DappPath(DappName:string){
  */
 export namespace CreateDapp {
 
-  export const HTTP:HttpMethods = 'POST';
+  export const HTTP:HttpMethods.POST = 'POST';
 
   /**
    * Given a DappName, return the fully scoped private
@@ -43,6 +43,18 @@ export namespace CreateDapp {
   }
 
   /**
+   * Factory to produce an Args object with an empty
+   * string. Useful for getting the correct shape as 
+   * a value, without having to hardcode strings.
+   */
+  export function newArgs(): Args {
+    const { Tier, Abi, Web3URL, GuardianURL, ContractAddr } = Item.newFull();
+    return {
+      Tier, Abi, Web3URL, GuardianURL, ContractAddr
+    }
+  }
+
+  /**
    * Message ought to be something like, "Your dapp
    * has been successfully created."
    */
@@ -60,7 +72,7 @@ export namespace CreateDapp {
  */
 export namespace ReadDapp {
 
-  export const HTTP:HttpMethods = 'GET';
+  export const HTTP:HttpMethods.GET = 'GET';
 
   /**
    * Given a DappName, returns its fully scoped private path
@@ -97,7 +109,7 @@ export namespace ReadDapp {
  */
 export namespace UpdateDapp {
 
-  export const HTTP:HttpMethods = 'PUT';
+  export const HTTP:HttpMethods.PUT = 'PUT';
 
   /**
    * Given a DappName, returns its fully scoped path
@@ -119,6 +131,17 @@ export namespace UpdateDapp {
   }
 
   /**
+   * Factory to produce a sample Args object. As the
+   * argument only requires one to be set, this arg
+   * would set the Web3URL to a blank string.
+   */
+  export function newArgs(): Args {
+    return {
+      Web3URL : ''
+    }
+  }
+
+  /**
    * Message will say something (not exactly) like, 
    * "Your dapp has been successfully updated."
    */
@@ -134,7 +157,7 @@ export namespace UpdateDapp {
  */
 export namespace DeleteDapp {
 
-  export const HTTP:HttpMethods = 'DELETE';
+  export const HTTP:HttpMethods.DELETE = 'DELETE';
 
   /**
    * Given a DappName, returns its fully scoped private path
@@ -163,7 +186,7 @@ export namespace DeleteDapp {
  */
 export namespace ListDapps {
 
-  export const HTTP:HttpMethods = 'GET';
+  export const HTTP:HttpMethods.GET = 'GET';
   export const Path = privateBasePath;
 
   /**

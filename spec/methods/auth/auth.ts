@@ -40,7 +40,7 @@ export type UserOrChallengeResponse = ApiResponse<UserOrChallengeResult>;
  */
 export namespace Login {
 
-  export const HTTP:HttpMethods = 'POST';
+  export const HTTP:HttpMethods.POST = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.login}`
 
   export interface Args {
@@ -56,6 +56,18 @@ export namespace Login {
     return keysAreStrings(val, ['username', 'password'])
   }
 
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : '',
+      password : ''
+    }
+  }
+
   export type Result = UserOrChallengeResult
   export type Response = UserOrChallengeResponse
 }
@@ -67,7 +79,7 @@ export namespace Login {
  */
 export namespace Refresh {
 
-  export const HTTP:HttpMethods = 'POST';
+  export const HTTP:HttpMethods.POST = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.login}`;
 
   export interface Args {
@@ -82,6 +94,17 @@ export namespace Refresh {
     return keysAreStrings(val, ['refreshToken'])
   }
 
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      refreshToken : ''
+    }
+  }
+
   export type Result = UserOrChallengeResult
   export type Response = UserOrChallengeResponse
 }
@@ -93,7 +116,7 @@ export namespace Refresh {
  */
 export namespace NewPassChallenge {
 
-  export const HTTP:HttpMethods = 'POST';
+  export const HTTP:HttpMethods.POST = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.login}`;
 
   /** 
@@ -117,6 +140,19 @@ export namespace NewPassChallenge {
     return keysAreStrings(val, ['username', 'newPassword', 'session'])
   }
 
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : '',
+      newPassword : '',
+      session : ''
+    }
+  }
+
   export type Result = UserOrChallengeResult;
   export type Response = UserOrChallengeResponse;
 }
@@ -132,7 +168,7 @@ export namespace NewPassChallenge {
  */
 export namespace BeginPassReset {
 
-  export const HTTP:HttpMethods = 'POST';
+  export const HTTP:HttpMethods.POST = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 
   export interface Args {
@@ -145,6 +181,17 @@ export namespace BeginPassReset {
    */
   export function isArgs(val:any): val is Args {
     return keysAreStrings(val, ['username'])
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : ''
+    }
   }
 
   /**
@@ -162,7 +209,7 @@ export namespace BeginPassReset {
  */
 export namespace ConfirmPassReset {
 
-  export const HTTP:HttpMethods = 'POST';
+  export const HTTP:HttpMethods.POST = 'POST';
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 
   export interface Args {
@@ -177,6 +224,19 @@ export namespace ConfirmPassReset {
    */
   export function isArgs(val:any): val is Args {
     return keysAreStrings(val, ['username', 'newPassword', 'passwordResetCode'])
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : '',
+      newPassword : '',
+      passwordResetCode : ''
+    }
   }
 
   /**

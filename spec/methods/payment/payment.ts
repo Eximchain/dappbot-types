@@ -23,7 +23,7 @@ export interface StripePlans {
  * @param val 
  */
 export function isStripePlans(val:any): val is StripePlans {
-  return keysValid(val, ['standard', 'professional', 'enterprise'], (planVal:any) => {
+  return keysValid(val, Object.keys(trialStripePlan()), (planVal:any) => {
     return typeof planVal === 'number';
   })
 }
@@ -70,7 +70,7 @@ export namespace StripeTypes {
  **/
 export namespace SignUp {
 
-  export const HTTP:HttpMethods = 'POST';
+  export const HTTP:HttpMethods.POST = 'POST';
   export const Path = paymentBasePath;
 
   /**
@@ -99,6 +99,19 @@ export namespace SignUp {
     )
   }
 
+  /**
+   * Factory to produce an Args object with empty 
+   * strings for auth and a trial stripe plan. Useful 
+   * for getting the correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      email : '',
+      name : '',
+      plans : trialStripePlan()
+    }
+  }
+
   export interface Result {
     stripeId: string
     subscriptionId: string
@@ -120,7 +133,7 @@ export namespace SignUp {
  */
 export namespace Read {
 
-  export const HTTP:HttpMethods = 'GET';
+  export const HTTP:HttpMethods.GET = 'GET';
   export const Path = paymentBasePath;
 
   /**
@@ -146,7 +159,7 @@ export namespace Read {
  */
 export namespace UpdateCard {
 
-  export const HTTP:HttpMethods = 'PUT';
+  export const HTTP:HttpMethods.PUT = 'PUT';
   export const Path = paymentBasePath;
 
   /**
@@ -167,6 +180,17 @@ export namespace UpdateCard {
     return keysAreStrings(val, ['token'])
   }
 
+  /**
+   * Factory to produce an Args object with an empty
+   * string. Useful for getting the correct shape as 
+   * a value, without having to hardcode strings.
+   */
+  export function newArgs(): Args {
+    return {
+      token : ''
+    }
+  }
+
   export interface Result { 
     updatedCustomer : StripeTypes.Customer
     retriedInvoice? : StripeTypes.Invoice
@@ -185,7 +209,7 @@ export namespace UpdateCard {
  */
 export namespace UpdatePlanCount {
 
-  export const HTTP:HttpMethods = 'PUT';
+  export const HTTP:HttpMethods.PUT = 'PUT';
   export const Path = paymentBasePath;
 
   export interface Args {
@@ -198,6 +222,18 @@ export namespace UpdatePlanCount {
    */
   export function isArgs(val:any): val is Args {
     return val && val.plans && isStripePlans(val.plans)
+  }
+
+  /**
+   * Factory to produce an Args object with one 
+   * standard dapp. Useful for getting the correct 
+   * shape as a value, without having to hardcode 
+   * strings.
+   */
+  export function newArgs(): Args {
+    return {
+      plans : trialStripePlan()
+    }
   }
 
   export interface Result {
@@ -218,7 +254,7 @@ export namespace UpdatePlanCount {
  */
 export namespace Cancel {
 
-  export const HTTP:HttpMethods = 'DELETE';
+  export const HTTP:HttpMethods.DELETE = 'DELETE';
   export const Path = paymentBasePath;
 
   /**

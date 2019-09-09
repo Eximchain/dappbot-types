@@ -18,7 +18,8 @@ export enum Tiers {
  * @param val 
  */
 export function isTiers(val: any): val is Tiers {
-  return isString(val) && Object.values(Tiers).includes(val);
+  let tierStrings:string[] = Object.values(Tiers);
+  return isString(val) && tierStrings.includes(val);
 }
 
 /**
@@ -233,7 +234,8 @@ export enum Operations {
  * @param val
  */
 export function isState(val: any): val is States {
-  return isString(val) && Object.values(States).includes(val)
+  let stateStrings:string[] = Object.values(States);
+  return isString(val) && stateStrings.includes(val)
 }
 
 /**

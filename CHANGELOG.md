@@ -1,3 +1,8 @@
+# v1.1.1 - 1.1.7
+These versions were part of the debug loop as we built this package into our Lambda functions.  The key changes were:
+- Within `spec/methods`, we now define the `RootResources` & `apiBasePath` values before importing the child modules (e.g. `Auth`, `Private`, etc).  Previously we ran into runtime issues because they were defined after the import, so the values didn't exist when the child modules tried to consume them.
+- Upgraded the `util.isObject()` function to return `false` for `null`.  Turns out that `typeof null === 'object'`, so `typeof val === 'object'` isn't a sufficient test.
+
 # v1.1.0
 Larger overhaul as overall system integration continues.
 - Added subtypes for `Item.Full`.  `Item.FullHub` & `Item.FullEnterprise` now use the `Tier` value to explicitly determine whether the GitHub keys need to be set.

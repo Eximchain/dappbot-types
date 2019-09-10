@@ -57,7 +57,7 @@ export function isString(val:any): val is string {
  * @param val 
  */
 export function isObject(val:any) {
-  return typeof val === 'object';
+  return typeof val === 'object' && val !== null;
 }
 
 /**

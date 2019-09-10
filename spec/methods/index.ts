@@ -1,3 +1,7 @@
+// These two constants are defined at the top of
+// the file, before any imports, because the imports
+// all depend on these values being defined.
+
 /**
  * Child namespaces import this base path
  * to build their own path arguments.

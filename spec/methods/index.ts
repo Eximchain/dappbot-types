@@ -1,8 +1,3 @@
-import AuthTypes from './auth';
-import PaymentTypes from './payment';
-import PrivateTypes from './private';
-import PublicTypes from './public';
-
 /**
  * Child namespaces import this base path
  * to build their own path arguments.
@@ -20,6 +15,11 @@ export enum RootResources {
   auth = 'auth',
   payment = 'payment'
 }
+
+import AuthTypes from './auth';
+import PaymentTypes from './payment';
+import PrivateTypes from './private';
+import PublicTypes from './public';
 
 // These exports make it possible to do
 // something like:

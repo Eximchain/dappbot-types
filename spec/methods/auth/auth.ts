@@ -1,5 +1,5 @@
 import { XOR } from 'ts-xor';
-import { apiBasePath, RootResources } from '..';
+import { apiBasePath, RootResources } from '../../methods';
 import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
 import { keysAreStrings as keysAreStrings } from '../../util';

@@ -1,6 +1,6 @@
 import { ApiResponse, HttpMethods } from "../../responses";
 import { Item } from '../../dapp';
-import { apiBasePath, RootResources } from '..';
+import { apiBasePath, RootResources } from '../../methods';
 
 export const publicBasePath = `${apiBasePath}/${RootResources.public}`
 

@@ -1,7 +1,5 @@
 import { keysAreStrings, isString, isObject } from '../util';
 
-
-
 /**
  * Possible Dapp tiers and their string name 
  * representations.

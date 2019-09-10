@@ -247,5 +247,3 @@ export namespace ConfirmPassReset {
 
   export type Response = MessageResponse;
 }
-
-export default this.exports;

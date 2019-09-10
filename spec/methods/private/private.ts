@@ -202,5 +202,3 @@ export namespace ListDapps {
 
   export type Response = ApiResponse<Result>
 }
-
-export default this.exports;

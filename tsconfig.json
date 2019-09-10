@@ -6,7 +6,7 @@
   "compileOnSave": true,
   "compilerOptions": {
       "target": "es5",            // Compatible with older browsers
-      "module": "es6",            // Compatible with both Node.js and browser
+      "module": "commonjs",            // Compatible with both Node.js and browser
       "moduleResolution": "node", // Tell tsc to look in node_modules for modules
       "sourceMap": false,          // Creates *.js.map files
       "inlineSourceMap": true,

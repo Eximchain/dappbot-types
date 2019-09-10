@@ -1,0 +1,4 @@
+{
+  "main" : "../../build/responses/index.js",
+  "types": "./index.ts"
+}

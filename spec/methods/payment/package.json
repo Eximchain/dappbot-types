@@ -1,0 +1,4 @@
+{
+  "main" : "../../../build/methods/payment/index.js",
+  "types": "./index.ts"
+}

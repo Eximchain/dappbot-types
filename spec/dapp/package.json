@@ -1,0 +1,4 @@
+{
+  "main" : "../../build/dapp/index.js",
+  "types" : "./index.ts"
+}

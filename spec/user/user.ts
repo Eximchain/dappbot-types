@@ -188,16 +188,19 @@ export namespace Challenges {
    * constants we made up to control the client-side
    * interface -- the former means we've begun a
    * `PassReset` flow, the latter means there is
-   * no challenge at all.  `Mfa` and `NewPasswordRequired`,
-   * however, are proper Cognito challenges.  You
-   * can view the whole list of them at:
+   * no challenge at all. `NewPasswordRequired` and
+   * the MFA challenges, however, are proper Cognito
+   * challenges.  You can view the whole list of them at:
    * 
    * https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax
    */
   export enum Types {
     Default             = "DEFAULT",
     ForgotPassword      = "FORGOT_PASSWORD",
-    Mfa                 = "MFA",
+    SmsMfa              = "SMS_MFA",
+    SoftwareTokenMfa    = "SOFTWARE_TOKEN_MFA",
+    SelectMfaType       = "SELECT_MFA_TYPE",
+    MfaSetup            = "MFA_SETUP",
     NewPasswordRequired = "NEW_PASSWORD_REQUIRED"
   }
 

@@ -28,6 +28,7 @@
   },
   "homepage": "https://eximchain.github.io/dappbot-types",
   "dependencies": {
+    "@types/node": "^12.7.4",
     "@types/stripe": "6.31.25",
     "ts-xor": "^1.0.8",
     "typescript": "^3.6.2"

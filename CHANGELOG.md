@@ -1,3 +1,8 @@
+# v1.2.0
+Fixed enum values for MFA related challenges.
+- Removed incorrect challenge `Mfa`
+- Added challenges `SmsMfa`, `SoftwareTokenMfa`, `SelectMfaType`, and `MfaSetup`.
+
 # v1.1.0
 Larger overhaul as overall system integration continues.
 - Added subtypes for `Item.Full`.  `Item.FullHub` & `Item.FullEnterprise` now use the `Tier` value to explicitly determine whether the GitHub keys need to be set.

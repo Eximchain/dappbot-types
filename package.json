@@ -9,7 +9,7 @@
     "build": "tsc && typedoc && touch docs/build/.nojekyll && echo \"include:\n  - \"_*_.html\"\n  - \"_*_.*.html\"\" >> docs/build/config.yml",
     "prepare": "npm run build",
     "prepublishOnly": "npm run deploy",
-    "deploy": "npm run build; gh-pages -d docs/build -t"
+    "deploy": "npm run build; npx gh-pages -d docs/build -t"
   },
   "repository": {
     "type": "git",

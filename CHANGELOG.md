@@ -1,5 +1,5 @@
 # v1.2.1
-Added `MfaMethods` challenge type
+Added `MfaTypes` challenge type corresponding to `SmsMfa | SoftwareTokenMfa`.
 
 # v1.2.0
 Fixed enum values for MFA related challenges.

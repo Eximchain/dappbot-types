@@ -6,6 +6,8 @@ Typescript bindings describing the core data types and API interactions with Dap
 - Make the overall DappBot codebase DRYer
 - Share these types with our API customers
 
+### [Full Changelog](./CHANGELOG.md)
+
 There is full generated documentation from the source code hosted at `eximchain.github.io/dappbot-types`.  Briefly, the types are grouped into nested namespaces in order to minimize both collisions and stuttering. They are nested like:
 
 - `DappBotTypes`: Overall namespace, package's default export

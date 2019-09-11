@@ -97,6 +97,12 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_user_user_.challenges.html#mfatypes" class="tsd-kind-icon">Mfa<wbr>Types</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_user_user_.challenges.html#isdata" class="tsd-kind-icon">is<wbr>Data</a></li>
@@ -114,7 +120,7 @@
 					<div class="tsd-signature tsd-kind-icon">Types<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L197">user/user.ts:197</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L198">user/user.ts:198</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -124,9 +130,10 @@
 								constants we made up to control the client-side
 								interface -- the former means we&#39;ve begun a
 								<code>PassReset</code> flow, the latter means there is
-								no challenge at all.  <code>Mfa</code> and <code>NewPasswordRequired</code>,
-								however, are proper Cognito challenges.  You
-							can view the whole list of them at:</p>
+								no challenge at all. <code>NewPasswordRequired</code> and
+								MFA-related challenges, however, are proper
+								Cognito challenges.  You can view the whole
+							list of them at:</p>
 						</div>
 						<p><a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax">https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax</a></p>
 					</div>
@@ -136,7 +143,7 @@
 						<div class="tsd-signature tsd-kind-icon">Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;DEFAULT&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L198">user/user.ts:198</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L199">user/user.ts:199</a></li>
 							</ul>
 						</aside>
 						</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
@@ -145,16 +152,16 @@
 						<div class="tsd-signature tsd-kind-icon">Forgot<wbr>Password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;FORGOT_PASSWORD&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L199">user/user.ts:199</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L200">user/user.ts:200</a></li>
 							</ul>
 						</aside>
 						</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-						<a name="mfa" class="tsd-anchor"></a>
-						<h3>Mfa</h3>
-						<div class="tsd-signature tsd-kind-icon">Mfa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;MFA&quot;</span></div>
+						<a name="mfasetup" class="tsd-anchor"></a>
+						<h3>Mfa<wbr>Setup</h3>
+						<div class="tsd-signature tsd-kind-icon">Mfa<wbr>Setup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;MFA_SETUP&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L200">user/user.ts:200</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L204">user/user.ts:204</a></li>
 							</ul>
 						</aside>
 						</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
@@ -163,7 +170,34 @@
 						<div class="tsd-signature tsd-kind-icon">New<wbr>Password<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;NEW_PASSWORD_REQUIRED&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L201">user/user.ts:201</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L205">user/user.ts:205</a></li>
+							</ul>
+						</aside>
+						</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+						<a name="selectmfatype" class="tsd-anchor"></a>
+						<h3>Select<wbr>Mfa<wbr>Type</h3>
+						<div class="tsd-signature tsd-kind-icon">Select<wbr>Mfa<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;SELECT_MFA_TYPE&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L203">user/user.ts:203</a></li>
+							</ul>
+						</aside>
+						</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+						<a name="smsmfa" class="tsd-anchor"></a>
+						<h3>Sms<wbr>Mfa</h3>
+						<div class="tsd-signature tsd-kind-icon">Sms<wbr>Mfa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;SMS_MFA&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L201">user/user.ts:201</a></li>
+							</ul>
+						</aside>
+						</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+						<a name="softwaretokenmfa" class="tsd-anchor"></a>
+						<h3>Software<wbr>Token<wbr>Mfa</h3>
+						<div class="tsd-signature tsd-kind-icon">Software<wbr>Token<wbr>Mfa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;SOFTWARE_TOKEN_MFA&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L202">user/user.ts:202</a></li>
 							</ul>
 						</aside>
 			</section></section>    </section>
@@ -175,7 +209,7 @@
 					<div class="tsd-signature tsd-kind-icon">Data<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L211">user/user.ts:211</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L217">user/user.ts:217</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -193,7 +227,7 @@
 						<div class="tsd-signature tsd-kind-icon">Challenge<wbr>Name<span class="tsd-signature-symbol">:</span> <a href="../enums/_user_user_.challenges.types.html" class="tsd-signature-type">Types</a></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L212">user/user.ts:212</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L218">user/user.ts:218</a></li>
 							</ul>
 						</aside>
 						</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -202,7 +236,7 @@
 						<div class="tsd-signature tsd-kind-icon">Challenge<wbr>Parameters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L213">user/user.ts:213</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L219">user/user.ts:219</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-type-declaration">
@@ -219,10 +253,22 @@
 						<div class="tsd-signature tsd-kind-icon">Session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L216">user/user.ts:216</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L222">user/user.ts:222</a></li>
 							</ul>
 						</aside>
 			</section></section>    </section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="mfatypes" class="tsd-anchor"></a>
+					<h3>Mfa<wbr>Types</h3>
+					<div class="tsd-signature tsd-kind-icon">Mfa<wbr>Types<span class="tsd-signature-symbol">:</span> <a href="../enums/_user_user_.challenges.types.html#smsmfa" class="tsd-signature-type">SmsMfa</a><span class="tsd-signature-symbol"> | </span><a href="../enums/_user_user_.challenges.types.html#softwaretokenmfa" class="tsd-signature-type">SoftwareTokenMfa</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L208">user/user.ts:208</a></li>
+						</ul>
+					</aside>
+			</section>    </section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
@@ -235,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L229">user/user.ts:229</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L235">user/user.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/49a7a0b/spec/user/user.ts#L245">user/user.ts:245</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/45ccb66/spec/user/user.ts#L251">user/user.ts:251</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,6 +346,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_user_user_.challenges.data.html" class="tsd-kind-icon">Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_user_user_.challenges.html#mfatypes" class="tsd-kind-icon">Mfa<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_user_user_.challenges.html#isdata" class="tsd-kind-icon">is<wbr>Data</a>

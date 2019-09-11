@@ -1,3 +1,6 @@
+# v1.2.2
+Added `validatePassword()` to `spec/user`.
+
 # v1.2.1
 Added `MfaTypes` challenge type corresponding to `SmsMfa | SoftwareTokenMfa`.
 

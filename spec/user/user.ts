@@ -288,3 +288,22 @@ export namespace CognitoAttributes {
 
   export type UserMFASettingListType = string[];
 }
+
+/**
+ * Validator function which returns `true` if the
+ * provided string has a length from 8-64 chars,
+ * has upper & lowercase characters, no whitespace,
+ * and a symbol.  Otherwise returns `false`.
+ * @param newPass 
+ */
+export function validatePassword(newPass:string) {
+  let len = newPass.length;
+  return (
+    len >= 8 && len <= 64 && // Length from 8-64
+    !/\S/.test(newPass)   && // No whitespace
+    /[A-Z]/.test(newPass) && // Has upcase
+    /[a-z]/.test(newPass) && // Has locase
+    /[0-9]/.test(newPass) && // Has numbers
+    /[!@.#$%&\^\*\(\)]/.test(newPass) // Has a symbol
+  )
+}

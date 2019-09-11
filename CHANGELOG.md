@@ -1,3 +1,6 @@
+# v1.2.1
+Added `MfaMethods` challenge type
+
 # v1.2.0
 Fixed enum values for MFA related challenges.
 - Removed incorrect challenge `Mfa`

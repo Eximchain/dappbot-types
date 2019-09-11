@@ -205,6 +205,8 @@ export namespace Challenges {
     NewPasswordRequired = "NEW_PASSWORD_REQUIRED"
   }
 
+  export type MfaMethods = Types.SmsMfa | Types.SoftwareTokenMfa;
+
   /**
    * General response shape for all Challenges.  They
    * will always have a `ChallengeName`, and the

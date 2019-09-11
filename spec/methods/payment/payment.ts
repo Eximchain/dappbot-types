@@ -48,6 +48,7 @@ export function trialStripePlan():StripePlans {
  */
 export namespace StripeTypes {
   export type Customer = AllStripeTypes.customers.ICustomer;
+  export type Card = AllStripeTypes.ICard;
 
   export type Subscription = AllStripeTypes.subscriptions.ISubscription;
   export type SubscriptionState = AllStripeTypes.subscriptions.SubscriptionStatus;

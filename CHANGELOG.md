@@ -1,3 +1,6 @@
+# v1.2.3
+Added Stripe's interface for credits cards at `spec/methods/payment#StripeTypes.Card`.
+
 # v1.2.2
 Added `validatePassword()` to `spec/user`.
 

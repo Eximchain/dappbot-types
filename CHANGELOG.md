@@ -1,3 +1,8 @@
+# v1.2.0
+Fixed enum values for MFA related challenges.
+- Removed incorrect challenge `Mfa`
+- Added challenges `SmsMfa`, `SoftwareTokenMfa`, `SelectMfaType`, and `MfaSetup`.
+
 # v1.1.1 - 1.1.7
 These versions were part of the debug loop as we built this package into our Lambda functions.  The key changes were:
 - Within `spec/methods`, we now define the `RootResources` & `apiBasePath` values before importing the child modules (e.g. `Auth`, `Private`, etc).  Previously we ran into runtime issues because they were defined after the import, so the values didn't exist when the child modules tried to consume them.

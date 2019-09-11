@@ -1,5 +1,5 @@
 import { XOR } from 'ts-xor';
-import { isString } from '../util';
+import { isString, isObject } from '../util';
 
 /**
  * All error responses from our API will include a message key.
@@ -31,10 +31,10 @@ export interface SuccessResponse<ResultType=any> {
 /**
  * Type guard; only returns `true` if object shape has a non-null
  * `data` value and `err` has a null value.
- * @param res 
+ * @param val 
  */
-export function isSuccessResponse<ResultType>(res:any): res is SuccessResponse<ResultType> {
-  return res.data && res.err === null
+export function isSuccessResponse<ResultType>(val:any): val is SuccessResponse<ResultType> {
+  return isObject(val) && val.data && val.err === null
 }
 
 /**
@@ -49,10 +49,10 @@ export interface ErrorResponse {
 /**
  * Type guard; only returns `true` if object shape has a null
  * `data` value and a non-null `err` value.
- * @param res 
+ * @param val 
  */
-export function isErrResponse(res:any): res is ErrorResponse {
-  return res.err && res.data === null
+export function isErrResponse(val:any): val is ErrorResponse {
+  return isObject(val) && val.err && val.data === null
 }
 
 /**
@@ -66,10 +66,10 @@ export type MessageResult = {
 /**
  * Type guard; only returns `true` if `res` has a
  * `message` key holding a `string` value.
- * @param res
+ * @param val
  */
-export function isMessageResult(res:any):res is MessageResult {
-  return res.message && typeof res.message === 'string';
+export function isMessageResult(val:any):val is MessageResult {
+  return isObject(val) && isString(val.message);
 }
 
 /**
@@ -87,6 +87,11 @@ export function newMessageResult(message:string): MessageResult {
  */
 export type MessageResponse = ApiResponse<{ message: string }>
 
+/**
+ * Namespace containing types for the key HTTP verbs.
+ * Each verb has a dedicated string literal type, and
+ * then `HttpMethods.ANY` allows any of those values.
+ */
 export namespace HttpMethods {
   export type PUT = 'PUT';
   export type DELETE = 'DELETE';

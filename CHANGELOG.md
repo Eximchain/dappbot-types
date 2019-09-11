@@ -1,3 +1,6 @@
+# v1.2.4
+Upgraded the `isSuccessResponse()`, `isErrorResponse()`, `isMessageResult()` typeguards from `Response` and `UpdateDapp.isArgs()` to first check that the value is an object before trying to check any properties, guaranteeing no `ReferenceErrors` at runtime.
+
 # v1.2.3
 Added Stripe's interface for credits cards at `spec/methods/payment#StripeTypes.Card`.
 

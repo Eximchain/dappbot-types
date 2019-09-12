@@ -1,3 +1,8 @@
+# v1.2.5
+New types relating to MFA challenges
+- Added type guards for `Challenges.Types` and `Challenges.MfaTypes`
+- Added `MfaLoginChallenge` and `SelectMfaChallenge` to `Challenges` namespace
+
 # v1.2.4
 Upgraded the `isSuccessResponse()`, `isErrorResponse()`, `isMessageResult()` typeguards from `Response` and `UpdateDapp.isArgs()` to first check that the value is an object before trying to check any properties, guaranteeing no `ReferenceErrors` at runtime.
 

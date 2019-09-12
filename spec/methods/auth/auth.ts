@@ -53,7 +53,7 @@ export namespace Login {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['username', 'password'])
+    return keysAreStrings(val, ['username', 'password']);
   }
 
   /**
@@ -91,7 +91,7 @@ export namespace Refresh {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['refreshToken'])
+    return keysAreStrings(val, ['refreshToken']);
   }
 
   /**
@@ -137,7 +137,7 @@ export namespace NewPassChallenge {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['username', 'newPassword', 'session'])
+    return keysAreStrings(val, ['username', 'newPassword', 'session']);
   }
 
   /**
@@ -150,6 +150,100 @@ export namespace NewPassChallenge {
       username : '',
       newPassword : '',
       session : ''
+    }
+  }
+
+  export type Result = UserOrChallengeResult;
+  export type Response = UserOrChallengeResponse;
+}
+
+/**
+ * Corresponds to the challenge a user with
+ * MFA enabled gets to verify their MFA code.
+ */
+export namespace MfaLoginChallenge {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`;
+
+  /** 
+   * Note that the session here would be from a
+   * previous ChallengeResponse.  This is not the
+   * Authorization token, these values are passed 
+   * back and forth in each step of a Challenge
+   * Response interaction.
+   * */
+  export interface Args {
+    username: string,
+    mfaLoginCode: string,
+    session: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'mfaLoginCode', 'session']);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username     : '',
+      mfaLoginCode : '',
+      session      : ''
+    }
+  }
+
+  export type Result = UserOrChallengeResult;
+  export type Response = UserOrChallengeResponse;
+}
+
+/**
+ * Corresponds to the challenge a user with
+ * MFA enabled gets to verify their MFA code.
+ */
+export namespace SelectMfaChallenge {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.login}`;
+
+  /** 
+   * Note that the session here would be from a
+   * previous ChallengeResponse.  This is not the
+   * Authorization token, these values are passed 
+   * back and forth in each step of a Challenge
+   * Response interaction.
+   * */
+  export interface Args {
+    username: string,
+    mfaSelection: Challenges.MfaTypes,
+    session: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'mfaSelection', 'session']) && Challenges.isMfaTypes(val.mfaSelection);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username     : '',
+      mfaSelection : Challenges.Types.SoftwareTokenMfa,
+      session      : ''
     }
   }
 

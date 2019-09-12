@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Data | @eximchain/dappbot-types</title>
+	<title>Args | @eximchain/dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,16 +56,16 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_user_user_.html">&quot;user/user&quot;</a>
+					<a href="../modules/_methods_auth_auth_.html">&quot;methods/auth/auth&quot;</a>
 				</li>
 				<li>
-					<a href="../modules/_user_user_.challenges.html">Challenges</a>
+					<a href="../modules/_methods_auth_auth_.selectmfachallenge.html">SelectMfaChallenge</a>
 				</li>
 				<li>
-					<a href="_user_user_.challenges.data.html">Data</a>
+					<a href="_methods_auth_auth_.selectmfachallenge.args.html">Args</a>
 				</li>
 			</ul>
-			<h1>Interface Data</h1>
+			<h1>Interface Args</h1>
 		</div>
 	</div>
 </header>
@@ -75,11 +75,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>General response shape for all Challenges.  They
-							will always have a <code>ChallengeName</code>, and the
-							<code>Session</code> key is a special value which must be
-							passed back and forth throughout the Challenge-Response
-						flow.</p>
+						<p>Note that the session here would be from a
+							previous ChallengeResponse.  This is not the
+							Authorization token, these values are passed
+							back and forth in each step of a Challenge
+						Response interaction.</p>
 					</div>
 				</div>
 			</section>
@@ -87,7 +87,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Data</span>
+						<span class="target">Args</span>
 					</li>
 				</ul>
 			</section>
@@ -98,9 +98,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.challenges.data.html#challengename" class="tsd-kind-icon">Challenge<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.challenges.data.html#challengeparameters" class="tsd-kind-icon">Challenge<wbr>Parameters</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_user_user_.challenges.data.html#session" class="tsd-kind-icon">Session</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_methods_auth_auth_.selectmfachallenge.args.html#mfaselection" class="tsd-kind-icon">mfa<wbr>Selection</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_methods_auth_auth_.selectmfachallenge.args.html#session" class="tsd-kind-icon">session</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_methods_auth_auth_.selectmfachallenge.args.html#username" class="tsd-kind-icon">username</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,38 +109,30 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="challengename" class="tsd-anchor"></a>
-					<h3>Challenge<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Challenge<wbr>Name<span class="tsd-signature-symbol">:</span> <a href="../enums/_user_user_.challenges.types.html" class="tsd-signature-type">Types</a></div>
+					<a name="mfaselection" class="tsd-anchor"></a>
+					<h3>mfa<wbr>Selection</h3>
+					<div class="tsd-signature tsd-kind-icon">mfa<wbr>Selection<span class="tsd-signature-symbol">:</span> <a href="../modules/_user_user_.challenges.html#mfatypes" class="tsd-signature-type">MfaTypes</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/user/user.ts#L238">user/user.ts:238</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L225">methods/auth/auth.ts:225</a></li>
 						</ul>
 					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="challengeparameters" class="tsd-anchor"></a>
-					<h3>Challenge<wbr>Parameters</h3>
-					<div class="tsd-signature tsd-kind-icon">Challenge<wbr>Parameters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/user/user.ts#L239">user/user.ts:239</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-index-signature">
-								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
-							</li>
-						</ul>
-					</div>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="session" class="tsd-anchor"></a>
-					<h3>Session</h3>
-					<div class="tsd-signature tsd-kind-icon">Session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<h3>session</h3>
+					<div class="tsd-signature tsd-kind-icon">session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/user/user.ts#L242">user/user.ts:242</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L226">methods/auth/auth.ts:226</a></li>
+						</ul>
+					</aside>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="username" class="tsd-anchor"></a>
+					<h3>username</h3>
+					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L224">methods/auth/auth.ts:224</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -155,41 +147,41 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_user_user_.challenges.types.html" class="tsd-kind-icon">Types</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_user_user_.challenges.data.html" class="tsd-kind-icon">Data</a>
+						<a href="_methods_auth_auth_.selectmfachallenge.args.html" class="tsd-kind-icon">Args</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.challenges.data.html#challengename" class="tsd-kind-icon">Challenge<wbr>Name</a>
+								<a href="_methods_auth_auth_.selectmfachallenge.args.html#mfaselection" class="tsd-kind-icon">mfa<wbr>Selection</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.challenges.data.html#challengeparameters" class="tsd-kind-icon">Challenge<wbr>Parameters</a>
+								<a href="_methods_auth_auth_.selectmfachallenge.args.html#session" class="tsd-kind-icon">session</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_user_user_.challenges.data.html#session" class="tsd-kind-icon">Session</a>
+								<a href="_methods_auth_auth_.selectmfachallenge.args.html#username" class="tsd-kind-icon">username</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_user_user_.challenges.html#mfatypes" class="tsd-kind-icon">Mfa<wbr>Types</a>
+						<a href="../modules/_methods_auth_auth_.selectmfachallenge.html#response" class="tsd-kind-icon">Response</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.selectmfachallenge.html#result" class="tsd-kind-icon">Result</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.selectmfachallenge.html#http" class="tsd-kind-icon">HTTP</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.selectmfachallenge.html#path" class="tsd-kind-icon">Path</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_user_user_.challenges.html#isdata" class="tsd-kind-icon">is<wbr>Data</a>
+						<a href="../modules/_methods_auth_auth_.selectmfachallenge.html#isargs" class="tsd-kind-icon">is<wbr>Args</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_user_user_.challenges.html#ismfatypes" class="tsd-kind-icon">is<wbr>Mfa<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_user_user_.challenges.html#istypes" class="tsd-kind-icon">is<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_user_user_.challenges.html#newdata" class="tsd-kind-icon">new<wbr>Data</a>
+						<a href="../modules/_methods_auth_auth_.selectmfachallenge.html#newargs" class="tsd-kind-icon">new<wbr>Args</a>
 					</li>
 				</ul>
 			</nav>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ConfirmPassReset | @eximchain/dappbot-types</title>
+	<title>MfaLoginChallenge | @eximchain/dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="_methods_auth_auth_.html">&quot;methods/auth/auth&quot;</a>
 				</li>
 				<li>
-					<a href="_methods_auth_auth_.confirmpassreset.html">ConfirmPassReset</a>
+					<a href="_methods_auth_auth_.mfaloginchallenge.html">MfaLoginChallenge</a>
 				</li>
 			</ul>
-			<h1>Module ConfirmPassReset</h1>
+			<h1>Module MfaLoginChallenge</h1>
 		</div>
 	</div>
 </header>
@@ -72,8 +72,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Conclude a password reset by supplying the code
-						from the email along with a new password.</p>
+						<p>Corresponds to the challenge a user with
+						MFA enabled gets to verify their MFA code.</p>
 					</div>
 				</div>
 			</section>
@@ -84,28 +84,28 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_auth_auth_.confirmpassreset.args.html" class="tsd-kind-icon">Args</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_auth_auth_.mfaloginchallenge.args.html" class="tsd-kind-icon">Args</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.confirmpassreset.html#response" class="tsd-kind-icon">Response</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.confirmpassreset.html#result" class="tsd-kind-icon">Result</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.mfaloginchallenge.html#response" class="tsd-kind-icon">Response</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.mfaloginchallenge.html#result" class="tsd-kind-icon">Result</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.confirmpassreset.html#http" class="tsd-kind-icon">HTTP</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.confirmpassreset.html#path" class="tsd-kind-icon">Path</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.mfaloginchallenge.html#http" class="tsd-kind-icon">HTTP</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.mfaloginchallenge.html#path" class="tsd-kind-icon">Path</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.confirmpassreset.html#isargs" class="tsd-kind-icon">is<wbr>Args</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.confirmpassreset.html#newargs" class="tsd-kind-icon">new<wbr>Args</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.mfaloginchallenge.html#isargs" class="tsd-kind-icon">is<wbr>Args</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.mfaloginchallenge.html#newargs" class="tsd-kind-icon">new<wbr>Args</a></li>
 							</ul>
 						</section>
 					</div>
@@ -119,25 +119,34 @@
 					<div class="tsd-signature tsd-kind-icon">Args<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L309">methods/auth/auth.ts:309</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L176">methods/auth/auth.ts:176</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Note that the session here would be from a
+								previous ChallengeResponse.  This is not the
+								Authorization token, these values are passed
+								back and forth in each step of a Challenge
+							Response interaction.</p>
+						</div>
+					</div>
 					<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-						<a name="newpassword" class="tsd-anchor"></a>
-						<h3>new<wbr>Password</h3>
-						<div class="tsd-signature tsd-kind-icon">new<wbr>Password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+						<a name="mfalogincode" class="tsd-anchor"></a>
+						<h3>mfa<wbr>Login<wbr>Code</h3>
+						<div class="tsd-signature tsd-kind-icon">mfa<wbr>Login<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L311">methods/auth/auth.ts:311</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L178">methods/auth/auth.ts:178</a></li>
 							</ul>
 						</aside>
 						</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-						<a name="passwordresetcode" class="tsd-anchor"></a>
-						<h3>password<wbr>Reset<wbr>Code</h3>
-						<div class="tsd-signature tsd-kind-icon">password<wbr>Reset<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+						<a name="session" class="tsd-anchor"></a>
+						<h3>session</h3>
+						<div class="tsd-signature tsd-kind-icon">session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L312">methods/auth/auth.ts:312</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L179">methods/auth/auth.ts:179</a></li>
 							</ul>
 						</aside>
 						</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -146,7 +155,7 @@
 						<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L310">methods/auth/auth.ts:310</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L177">methods/auth/auth.ts:177</a></li>
 							</ul>
 						</aside>
 			</section></section>    </section>
@@ -155,27 +164,21 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="response" class="tsd-anchor"></a>
 					<h3>Response</h3>
-					<div class="tsd-signature tsd-kind-icon">Response<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messageresponse" class="tsd-signature-type">MessageResponse</a></div>
+					<div class="tsd-signature tsd-kind-icon">Response<span class="tsd-signature-symbol">:</span> <a href="_methods_auth_auth_.html#userorchallengeresponse" class="tsd-signature-type">UserOrChallengeResponse</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L342">methods/auth/auth.ts:342</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L204">methods/auth/auth.ts:204</a></li>
 						</ul>
 					</aside>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="result" class="tsd-anchor"></a>
 					<h3>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messageresult" class="tsd-signature-type">MessageResult</a></div>
+					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="_methods_auth_auth_.html#userorchallengeresult" class="tsd-signature-type">UserOrChallengeResult</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L340">methods/auth/auth.ts:340</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L203">methods/auth/auth.ts:203</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Ought to tell them they can now log in with their
-							new password.</p>
-						</div>
-					</div>
 			</section>    </section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
@@ -185,16 +188,16 @@
 					<div class="tsd-signature tsd-kind-icon">HTTP<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.httpmethods.html#post" class="tsd-signature-type">POST</a><span class="tsd-signature-symbol"> =&nbsp;&quot;POST&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L306">methods/auth/auth.ts:306</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L166">methods/auth/auth.ts:166</a></li>
 						</ul>
 					</aside>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="path" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> Path</h3>
-					<div class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authBasePath}/${ResourcePaths.passReset}&#x60;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authBasePath}/${ResourcePaths.login}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L307">methods/auth/auth.ts:307</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L167">methods/auth/auth.ts:167</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -210,7 +213,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L319">methods/auth/auth.ts:319</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L186">methods/auth/auth.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -233,13 +236,13 @@
 					<a name="newargs" class="tsd-anchor"></a>
 					<h3>new<wbr>Args</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">new<wbr>Args<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_methods_auth_auth_.confirmpassreset.args.html" class="tsd-signature-type">Args</a></li>
+						<li class="tsd-signature tsd-kind-icon">new<wbr>Args<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_methods_auth_auth_.mfaloginchallenge.args.html" class="tsd-signature-type">Args</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L328">methods/auth/auth.ts:328</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/56a34e9/spec/methods/auth/auth.ts#L195">methods/auth/auth.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -249,7 +252,7 @@
 									correct shape as a value.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_methods_auth_auth_.confirmpassreset.args.html" class="tsd-signature-type">Args</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_methods_auth_auth_.mfaloginchallenge.args.html" class="tsd-signature-type">Args</a></h4>
 						</li>
 					</ul>
 			</section>    </section>
@@ -265,25 +268,25 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_methods_auth_auth_.confirmpassreset.args.html" class="tsd-kind-icon">Args</a>
+						<a href="../interfaces/_methods_auth_auth_.mfaloginchallenge.args.html" class="tsd-kind-icon">Args</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.confirmpassreset.html#response" class="tsd-kind-icon">Response</a>
+						<a href="_methods_auth_auth_.mfaloginchallenge.html#response" class="tsd-kind-icon">Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.confirmpassreset.html#result" class="tsd-kind-icon">Result</a>
+						<a href="_methods_auth_auth_.mfaloginchallenge.html#result" class="tsd-kind-icon">Result</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.confirmpassreset.html#http" class="tsd-kind-icon">HTTP</a>
+						<a href="_methods_auth_auth_.mfaloginchallenge.html#http" class="tsd-kind-icon">HTTP</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.confirmpassreset.html#path" class="tsd-kind-icon">Path</a>
+						<a href="_methods_auth_auth_.mfaloginchallenge.html#path" class="tsd-kind-icon">Path</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.confirmpassreset.html#isargs" class="tsd-kind-icon">is<wbr>Args</a>
+						<a href="_methods_auth_auth_.mfaloginchallenge.html#isargs" class="tsd-kind-icon">is<wbr>Args</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.confirmpassreset.html#newargs" class="tsd-kind-icon">new<wbr>Args</a>
+						<a href="_methods_auth_auth_.mfaloginchallenge.html#newargs" class="tsd-kind-icon">new<wbr>Args</a>
 					</li>
 				</ul>
 			</nav>

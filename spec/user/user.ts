@@ -205,7 +205,27 @@ export namespace Challenges {
     NewPasswordRequired = "NEW_PASSWORD_REQUIRED"
   }
 
+  /**
+   * Type guard; only valid enum values within the
+   * Types enum will return `true`.
+   * @param val 
+   */
+  export function isTypes(val: any): val is Types {
+    let typeStrings:string[] = Object.values(Types);
+    return isString(val) && typeStrings.includes(val);
+  }
+
   export type MfaTypes = Types.SmsMfa | Types.SoftwareTokenMfa;
+
+  /**
+   * Type guard; only valid values for the
+   * MfaTypes type will return `true`.
+   * @param val 
+   */
+  export function isMfaTypes(val: any): val is MfaTypes {
+    let mfaTypes:string[] = [Types.SmsMfa, Types.SoftwareTokenMfa];
+    return isTypes(val) && mfaTypes.includes(val);
+  }
 
   /**
    * General response shape for all Challenges.  They

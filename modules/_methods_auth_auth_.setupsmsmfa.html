@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Refresh | @eximchain/dappbot-types</title>
+	<title>SetupSmsMfa | @eximchain/dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="_methods_auth_auth_.html">&quot;methods/auth/auth&quot;</a>
 				</li>
 				<li>
-					<a href="_methods_auth_auth_.refresh.html">Refresh</a>
+					<a href="_methods_auth_auth_.setupsmsmfa.html">SetupSmsMfa</a>
 				</li>
 			</ul>
-			<h1>Module Refresh</h1>
+			<h1>Module SetupSmsMfa</h1>
 		</div>
 	</div>
 </header>
@@ -72,9 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Refresh login call which only requires a token
-							and ought to produce fresh credentials, unless
-						it has been more than a month.</p>
+						<p>Setup Phone Number for SMS MFA</p>
 					</div>
 				</div>
 			</section>
@@ -85,28 +83,28 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_auth_auth_.refresh.args.html" class="tsd-kind-icon">Args</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_methods_auth_auth_.setupsmsmfa.args.html" class="tsd-kind-icon">Args</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.refresh.html#response" class="tsd-kind-icon">Response</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.refresh.html#result" class="tsd-kind-icon">Result</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.setupsmsmfa.html#response" class="tsd-kind-icon">Response</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_methods_auth_auth_.setupsmsmfa.html#result" class="tsd-kind-icon">Result</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.refresh.html#http" class="tsd-kind-icon">HTTP</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.refresh.html#path" class="tsd-kind-icon">Path</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.setupsmsmfa.html#http" class="tsd-kind-icon">HTTP</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_methods_auth_auth_.setupsmsmfa.html#path" class="tsd-kind-icon">Path</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.refresh.html#isargs" class="tsd-kind-icon">is<wbr>Args</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.refresh.html#newargs" class="tsd-kind-icon">new<wbr>Args</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.setupsmsmfa.html#isargs" class="tsd-kind-icon">is<wbr>Args</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_methods_auth_auth_.setupsmsmfa.html#newargs" class="tsd-kind-icon">new<wbr>Args</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,39 +118,57 @@
 					<div class="tsd-signature tsd-kind-icon">Args<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L90">methods/auth/auth.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L406">methods/auth/auth.ts:406</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-						<a name="refreshtoken" class="tsd-anchor"></a>
-						<h3>refresh<wbr>Token</h3>
-						<div class="tsd-signature tsd-kind-icon">refresh<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+						<a name="phonenumber" class="tsd-anchor"></a>
+						<h3>phone<wbr>Number</h3>
+						<div class="tsd-signature tsd-kind-icon">phone<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L91">methods/auth/auth.ts:91</a></li>
+								<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L417">methods/auth/auth.ts:417</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Phone numbers must follow these formatting rules: A phone number
+									must start with a plus (+) sign, followed immediately by the country
+									code. A phone number can only contain the + sign and digits. You must
+									remove any other characters from a phone number, such as parentheses,
+									spaces, or dashes (-) before submitting the value to the service.
+									For example, a United States-based phone number must follow this
+									format: +14325551212.
+								(Sourced from: <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html">https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html</a>)</p>
+							</div>
+						</div>
 			</section></section>    </section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="response" class="tsd-anchor"></a>
 					<h3>Response</h3>
-					<div class="tsd-signature tsd-kind-icon">Response<span class="tsd-signature-symbol">:</span> <a href="_methods_auth_auth_.html#userorchallengeresponse" class="tsd-signature-type">UserOrChallengeResponse</a></div>
+					<div class="tsd-signature tsd-kind-icon">Response<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messageresponse" class="tsd-signature-type">MessageResponse</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L114">methods/auth/auth.ts:114</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L445">methods/auth/auth.ts:445</a></li>
 						</ul>
 					</aside>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="result" class="tsd-anchor"></a>
 					<h3>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="_methods_auth_auth_.html#userorchallengeresult" class="tsd-signature-type">UserOrChallengeResult</a></div>
+					<div class="tsd-signature tsd-kind-icon">Result<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.html#messageresult" class="tsd-signature-type">MessageResult</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L113">methods/auth/auth.ts:113</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L443">methods/auth/auth.ts:443</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>When successful, the message ought to say something
+							like, &quot;Your phone number has been registered for SMS MFA.&quot;</p>
+						</div>
+					</div>
 			</section>    </section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
@@ -162,16 +178,16 @@
 					<div class="tsd-signature tsd-kind-icon">HTTP<span class="tsd-signature-symbol">:</span> <a href="_responses_responses_.httpmethods.html#post" class="tsd-signature-type">POST</a><span class="tsd-signature-symbol"> =&nbsp;&quot;POST&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L87">methods/auth/auth.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L403">methods/auth/auth.ts:403</a></li>
 						</ul>
 					</aside>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="path" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> Path</h3>
-					<div class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authBasePath}/${ResourcePaths.login}&#x60;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authBasePath}/${ResourcePaths.configureMfa}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L88">methods/auth/auth.ts:88</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L404">methods/auth/auth.ts:404</a></li>
 						</ul>
 					</aside>
 			</section>    </section>
@@ -187,7 +203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L98">methods/auth/auth.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L424">methods/auth/auth.ts:424</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,13 +226,13 @@
 					<a name="newargs" class="tsd-anchor"></a>
 					<h3>new<wbr>Args</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">new<wbr>Args<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_methods_auth_auth_.refresh.args.html" class="tsd-signature-type">Args</a></li>
+						<li class="tsd-signature tsd-kind-icon">new<wbr>Args<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_methods_auth_auth_.setupsmsmfa.args.html" class="tsd-signature-type">Args</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L107">methods/auth/auth.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L433">methods/auth/auth.ts:433</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,7 +242,7 @@
 									correct shape as a value.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_methods_auth_auth_.refresh.args.html" class="tsd-signature-type">Args</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_methods_auth_auth_.setupsmsmfa.args.html" class="tsd-signature-type">Args</a></h4>
 						</li>
 					</ul>
 			</section>    </section>
@@ -242,25 +258,25 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_methods_auth_auth_.refresh.args.html" class="tsd-kind-icon">Args</a>
+						<a href="../interfaces/_methods_auth_auth_.setupsmsmfa.args.html" class="tsd-kind-icon">Args</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.refresh.html#response" class="tsd-kind-icon">Response</a>
+						<a href="_methods_auth_auth_.setupsmsmfa.html#response" class="tsd-kind-icon">Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.refresh.html#result" class="tsd-kind-icon">Result</a>
+						<a href="_methods_auth_auth_.setupsmsmfa.html#result" class="tsd-kind-icon">Result</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.refresh.html#http" class="tsd-kind-icon">HTTP</a>
+						<a href="_methods_auth_auth_.setupsmsmfa.html#http" class="tsd-kind-icon">HTTP</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.refresh.html#path" class="tsd-kind-icon">Path</a>
+						<a href="_methods_auth_auth_.setupsmsmfa.html#path" class="tsd-kind-icon">Path</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.refresh.html#isargs" class="tsd-kind-icon">is<wbr>Args</a>
+						<a href="_methods_auth_auth_.setupsmsmfa.html#isargs" class="tsd-kind-icon">is<wbr>Args</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_methods_auth_auth_.refresh.html#newargs" class="tsd-kind-icon">new<wbr>Args</a>
+						<a href="_methods_auth_auth_.setupsmsmfa.html#newargs" class="tsd-kind-icon">new<wbr>Args</a>
 					</li>
 				</ul>
 			</nav>

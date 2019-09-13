@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PaymentProvider | @eximchain/dappbot-types</title>
+	<title>Args | @eximchain/dappbot-types</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,62 +56,66 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_user_user_.html">&quot;user/user&quot;</a>
+					<a href="../modules/_methods_auth_auth_.html">&quot;methods/auth/auth&quot;</a>
 				</li>
 				<li>
-					<a href="_user_user_.paymentprovider.html">PaymentProvider</a>
+					<a href="../modules/_methods_auth_auth_.setupsmsmfa.html">SetupSmsMfa</a>
+				</li>
+				<li>
+					<a href="_methods_auth_auth_.setupsmsmfa.args.html">Args</a>
 				</li>
 			</ul>
-			<h1>Enumeration PaymentProvider</h1>
+			<h1>Interface Args</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>All possible <code>custom:payment_provider</code>s for a DappBot
-							user.  As of Fall 2019, the only options are they&#39;re
-						paying with Stripe or they have an admin account.</p>
-					</div>
-				</div>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Args</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_user_user_.paymentprovider.html#admin" class="tsd-kind-icon">ADMIN</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_user_user_.paymentprovider.html#stripe" class="tsd-kind-icon">STRIPE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_methods_auth_auth_.setupsmsmfa.args.html#phonenumber" class="tsd-kind-icon">phone<wbr>Number</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="admin" class="tsd-anchor"></a>
-					<h3>ADMIN</h3>
-					<div class="tsd-signature tsd-kind-icon">ADMIN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;ADMIN&quot;</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="phonenumber" class="tsd-anchor"></a>
+					<h3>phone<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">phone<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/user/user.ts#L173">user/user.ts:173</a></li>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/methods/auth/auth.ts#L417">methods/auth/auth.ts:417</a></li>
 						</ul>
 					</aside>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="stripe" class="tsd-anchor"></a>
-					<h3>STRIPE</h3>
-					<div class="tsd-signature tsd-kind-icon">STRIPE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;STRIPE&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/43e11a9/spec/user/user.ts#L172">user/user.ts:172</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Phone numbers must follow these formatting rules: A phone number
+								must start with a plus (+) sign, followed immediately by the country
+								code. A phone number can only contain the + sign and digits. You must
+								remove any other characters from a phone number, such as parentheses,
+								spaces, or dashes (-) before submitting the value to the service.
+								For example, a United States-based phone number must follow this
+								format: +14325551212.
+							(Sourced from: <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html">https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html</a>)</p>
+						</div>
+					</div>
 			</section>    </section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -120,81 +124,39 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_dapp_dapp_.html">"dapp/dapp"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_methods_auth_auth_.html">"methods/auth/auth"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_methods_payment_payment_.html">"methods/payment/payment"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_methods_private_private_.html">"methods/private/private"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_methods_public_public_.html">"methods/public/public"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_responses_responses_.html">"responses/responses"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_user_user_.html">"user/user"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_util_.html">"util"</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="_user_user_.paymentprovider.html" class="tsd-kind-icon">Payment<wbr>Provider</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_methods_auth_auth_.setupsmsmfa.args.html" class="tsd-kind-icon">Args</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_user_user_.paymentprovider.html#admin" class="tsd-kind-icon">ADMIN</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_user_user_.paymentprovider.html#stripe" class="tsd-kind-icon">STRIPE</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_methods_auth_auth_.setupsmsmfa.args.html#phonenumber" class="tsd-kind-icon">phone<wbr>Number</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="_user_user_.paymentstatus.html" class="tsd-kind-icon">Payment<wbr>Status</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.setupsmsmfa.html#response" class="tsd-kind-icon">Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_user_user_.authdata.html" class="tsd-kind-icon">Auth<wbr>Data</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.setupsmsmfa.html#result" class="tsd-kind-icon">Result</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_user_user_.userattributes.html" class="tsd-kind-icon">User<wbr>Attributes</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.setupsmsmfa.html#http" class="tsd-kind-icon">HTTP</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_user_user_.userdata.html" class="tsd-kind-icon">User<wbr>Data</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.setupsmsmfa.html#path" class="tsd-kind-icon">Path</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_user_user_.html#isauthdata" class="tsd-kind-icon">is<wbr>Auth<wbr>Data</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.setupsmsmfa.html#isargs" class="tsd-kind-icon">is<wbr>Args</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_user_user_.html#isuserattributes" class="tsd-kind-icon">is<wbr>User<wbr>Attributes</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_user_user_.html#isuserdata" class="tsd-kind-icon">is<wbr>User<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_user_user_.html#newauthdata" class="tsd-kind-icon">new<wbr>Auth<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_user_user_.html#newuserattributes" class="tsd-kind-icon">new<wbr>User<wbr>Attributes</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_user_user_.html#newuserdata" class="tsd-kind-icon">new<wbr>User<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_user_user_.html#validatepassword" class="tsd-kind-icon">validate<wbr>Password</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_methods_auth_auth_.setupsmsmfa.html#newargs" class="tsd-kind-icon">new<wbr>Args</a>
 					</li>
 				</ul>
 			</nav>

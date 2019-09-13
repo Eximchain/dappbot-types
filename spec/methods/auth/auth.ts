@@ -374,7 +374,6 @@ export namespace SetMfaPreference {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
-    username: string,
     smsMfaEnabled: boolean,
     appMfaEnabled: boolean,
     preferredMfa?: Challenges.MfaTypes 
@@ -385,8 +384,7 @@ export namespace SetMfaPreference {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['username']) &&
-           keysAreBooleans(val, ['smsMfaEnabled', 'appMfaEnabled']) &&
+    return keysAreBooleans(val, ['smsMfaEnabled', 'appMfaEnabled']) &&
            (!val.preferredMfa || Challenges.isMfaTypes(val.preferredMfa));
   }
 
@@ -397,7 +395,6 @@ export namespace SetMfaPreference {
    */
   export function newArgs(): Args {
     return {
-      username : '',
       smsMfaEnabled: false,
       appMfaEnabled: false
     }
@@ -421,7 +418,6 @@ export namespace SetupSmsMfa {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
-    username: string,
     phoneNumber: string
   }
 
@@ -430,7 +426,7 @@ export namespace SetupSmsMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['username', 'phoneNumber']);
+    return keysAreStrings(val, ['phoneNumber']);
   }
 
   /**
@@ -440,7 +436,6 @@ export namespace SetupSmsMfa {
    */
   export function newArgs(): Args {
     return {
-      username : '',
       phoneNumber : ''
     }
   }
@@ -463,7 +458,6 @@ export namespace BeginSetupAppMfa {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
-    username: string,
     refreshToken: string
   }
 
@@ -472,7 +466,7 @@ export namespace BeginSetupAppMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['username', 'accessToken']) && !keysNonNull(val, ['mfaVerifyCode']);
+    return keysAreStrings(val, ['accessToken']) && !keysNonNull(val, ['mfaVerifyCode']);
   }
 
   /**
@@ -482,7 +476,6 @@ export namespace BeginSetupAppMfa {
    */
   export function newArgs(): Args {
     return {
-      username : '',
       refreshToken : ''
     }
   }
@@ -505,7 +498,6 @@ export namespace ConfirmSetupAppMfa {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
-    username: string,
     refreshToken: string,
     mfaVerifyCode: string
   }
@@ -515,7 +507,7 @@ export namespace ConfirmSetupAppMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['username', 'accessToken', 'mfaVerifyCode']);
+    return keysAreStrings(val, ['accessToken', 'mfaVerifyCode']);
   }
 
   /**
@@ -525,7 +517,6 @@ export namespace ConfirmSetupAppMfa {
    */
   export function newArgs(): Args {
     return {
-      username : '',
       refreshToken : '',
       mfaVerifyCode : ''
     }

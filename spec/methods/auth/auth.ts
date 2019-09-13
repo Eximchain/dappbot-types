@@ -2,9 +2,7 @@ import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '../../methods';
 import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
-import { keysAreStrings as keysAreStrings,
-         keysAreBooleans as keysAreBooleans, 
-         keysNonNull as keysNonNull} from '../../util';
+import { keysAreStrings, keysAreBooleans } from '../../util';
 
 /**
  * Baseline path from which more specific auth
@@ -36,23 +34,6 @@ export type UserOrChallengeResult = XOR<AuthData, Challenges.Data>;
  * to respond to.
  */
 export type UserOrChallengeResponse = ApiResponse<UserOrChallengeResult>;
-
-/**
- * Response from a call to begin
- * App MFA setup.  It contains a secret code
- * to enter into the MFA App.
- */
-export type SecretCodeResult = {
-  secretCode: string,
-  session: string
-};
-
-/**
- * Decoded API response from a call to begin
- * App MFA setup.  It contains a secret code
- * to enter into the MFA App.
- */
-export type SecretCodeResponse = ApiResponse<SecretCodeResult>;
 
 //////////////////////////////////
 // Login Types
@@ -407,7 +388,7 @@ export namespace SetMfaPreference {
 
   /**
    * When successful, the message ought to say something
-   * like, "An email has been sent with a temporary password."
+   * like, "Successfully set MFA Preferences."
    */
   export type Result = MessageResult;
 
@@ -423,6 +404,16 @@ export namespace SetupSmsMfa {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
+    /**
+     * Phone numbers must follow these formatting rules: A phone number
+     * must start with a plus (+) sign, followed immediately by the country
+     * code. A phone number can only contain the + sign and digits. You must
+     * remove any other characters from a phone number, such as parentheses,
+     * spaces, or dashes (-) before submitting the value to the service.
+     * For example, a United States-based phone number must follow this
+     * format: +14325551212.
+     * (Sourced from: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html)
+     */
     phoneNumber: string
   }
 
@@ -447,7 +438,7 @@ export namespace SetupSmsMfa {
 
   /**
    * When successful, the message ought to say something
-   * like, "An email has been sent with a temporary password."
+   * like, "Your phone number has been registered for SMS MFA."
    */
   export type Result = MessageResult;
 
@@ -489,9 +480,12 @@ export namespace BeginSetupAppMfa {
    * Returns secret code to enter into the
    * MFA App.
    */
-  export type Result = SecretCodeResult;
+  export type Result = {
+    secretCode: string,
+    session: string
+  };
 
-  export type Response = SecretCodeResponse;
+  export type Response = ApiResponse<Result>;
 }
 
 /**
@@ -504,6 +498,7 @@ export namespace ConfirmSetupAppMfa {
 
   export interface Args {
     session: string,
+    // Produced by MFA App after entering the secret code from a BeginSetupAppMfa call
     mfaVerifyCode: string
   }
 
@@ -529,7 +524,7 @@ export namespace ConfirmSetupAppMfa {
 
   /**
    * When successful, the message ought to say something
-   * like, "An email has been sent with a temporary password."
+   * like, "Your MFA app has been successfully configured."
    */
   export type Result = MessageResult;
 

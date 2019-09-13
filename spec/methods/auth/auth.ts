@@ -464,7 +464,7 @@ export namespace BeginSetupAppMfa {
 
   export interface Args {
     username: string,
-    accessToken: string
+    refreshToken: string
   }
 
   /**
@@ -483,7 +483,7 @@ export namespace BeginSetupAppMfa {
   export function newArgs(): Args {
     return {
       username : '',
-      accessToken : ''
+      refreshToken : ''
     }
   }
 
@@ -506,7 +506,7 @@ export namespace ConfirmSetupAppMfa {
 
   export interface Args {
     username: string,
-    accessToken: string,
+    refreshToken: string,
     mfaVerifyCode: string
   }
 
@@ -526,7 +526,7 @@ export namespace ConfirmSetupAppMfa {
   export function newArgs(): Args {
     return {
       username : '',
-      accessToken : '',
+      refreshToken : '',
       mfaVerifyCode : ''
     }
   }

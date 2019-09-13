@@ -199,7 +199,7 @@ export namespace Challenges {
     Default             = "DEFAULT",
     ForgotPassword      = "FORGOT_PASSWORD",
     SmsMfa              = "SMS_MFA",
-    SoftwareTokenMfa    = "SOFTWARE_TOKEN_MFA",
+    AppMfa              = "SOFTWARE_TOKEN_MFA",
     SelectMfaType       = "SELECT_MFA_TYPE",
     MfaSetup            = "MFA_SETUP",
     NewPasswordRequired = "NEW_PASSWORD_REQUIRED"
@@ -215,7 +215,7 @@ export namespace Challenges {
     return isString(val) && typeStrings.includes(val);
   }
 
-  export type MfaTypes = Types.SmsMfa | Types.SoftwareTokenMfa;
+  export type MfaTypes = Types.SmsMfa | Types.AppMfa;
 
   /**
    * Type guard; only valid values for the
@@ -223,7 +223,7 @@ export namespace Challenges {
    * @param val 
    */
   export function isMfaTypes(val: any): val is MfaTypes {
-    let mfaTypes:string[] = [Types.SmsMfa, Types.SoftwareTokenMfa];
+    let mfaTypes:string[] = [Types.SmsMfa, Types.AppMfa];
     return isTypes(val) && mfaTypes.includes(val);
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "@eximchain/dappbot-types",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "description": "Typescript bindings to interact with the DappBot API",
   "main": "build/index.js",
   "types": "spec/index.ts",

@@ -2,7 +2,9 @@ import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '../../methods';
 import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
-import { keysAreStrings as keysAreStrings } from '../../util';
+import { keysAreStrings as keysAreStrings,
+         keysAreBooleans as keysAreBooleans, 
+         keysNonNull as keysNonNull} from '../../util';
 
 /**
  * Baseline path from which more specific auth
@@ -16,7 +18,8 @@ export const authBasePath = `${apiBasePath}/${RootResources.auth}`;
  */
 export enum ResourcePaths {
   login = 'login',
-  passReset = 'password-reset'
+  passReset = 'password-reset',
+  configureMfa = 'configure-mfa'
 }
 
 /**
@@ -242,7 +245,7 @@ export namespace SelectMfaChallenge {
   export function newArgs(): Args {
     return {
       username     : '',
-      mfaSelection : Challenges.Types.SoftwareTokenMfa,
+      mfaSelection : Challenges.Types.AppMfa,
       session      : ''
     }
   }
@@ -307,7 +310,7 @@ export namespace ConfirmPassReset {
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 
   export interface Args {
-    username:string
+    username:string,
     newPassword: string,
     passwordResetCode: string
   }
@@ -336,6 +339,201 @@ export namespace ConfirmPassReset {
   /**
    * Ought to tell them they can now log in with their
    * new password.
+   */
+  export type Result = MessageResult;
+
+  export type Response = MessageResponse;
+}
+
+//////////////////////////////////
+// Configure MFA Types
+//////////////////////////////////
+
+/**
+ * Response from a call to begin
+ * App MFA setup.  It contains a secret code
+ * to enter into the MFA App.
+ */
+export type SecretCodeResult = {
+  secretCode: string
+};
+
+/**
+ * Decoded API response from a call to begin
+ * App MFA setup.  It contains a secret code
+ * to enter into the MFA App.
+ */
+export type SecretCodeResponse = ApiResponse<SecretCodeResult>;
+
+/**
+ * Sets user MFA preferences
+ */
+export namespace SetMfaPreference {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    username: string,
+    smsMfaEnabled: boolean,
+    appMfaEnabled: boolean,
+    preferredMfa?: Challenges.MfaTypes 
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username']) &&
+           keysAreBooleans(val, ['smsMfaEnabled', 'appMfaEnabled']) &&
+           (!val.preferredMfa || Challenges.isMfaTypes(val.preferredMfa));
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : '',
+      smsMfaEnabled: false,
+      appMfaEnabled: false
+    }
+  }
+
+  /**
+   * When successful, the message ought to say something
+   * like, "An email has been sent with a temporary password."
+   */
+  export type Result = MessageResult;
+
+  export type Response = MessageResponse;
+}
+
+/**
+ * Setup Phone Number for SMS MFA
+ */
+export namespace SetupSmsMfa {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    username: string,
+    phoneNumber: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'phoneNumber']);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : '',
+      phoneNumber : ''
+    }
+  }
+
+  /**
+   * When successful, the message ought to say something
+   * like, "An email has been sent with a temporary password."
+   */
+  export type Result = MessageResult;
+
+  export type Response = MessageResponse;
+}
+
+/**
+ * Begin Setup for App MFA
+ */
+export namespace BeginSetupAppMfa {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    username: string,
+    accessToken: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'accessToken']) && !keysNonNull(val, ['mfaVerifyCode']);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : '',
+      accessToken : ''
+    }
+  }
+
+  /**
+   * Returns secret code to enter into the
+   * MFA App.
+   */
+  export type Result = SecretCodeResult;
+
+  export type Response = SecretCodeResponse;
+}
+
+/**
+ * Confirm Setup for App MFA
+ */
+export namespace ConfirmSetupAppMfa {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    username: string,
+    accessToken: string,
+    mfaVerifyCode: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['username', 'accessToken', 'mfaVerifyCode']);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      username : '',
+      accessToken : '',
+      mfaVerifyCode : ''
+    }
+  }
+
+  /**
+   * When successful, the message ought to say something
+   * like, "An email has been sent with a temporary password."
    */
   export type Result = MessageResult;
 

@@ -23,6 +23,18 @@ export function keysAreStrings(val:any, keyNames:string[]){
 }
 
 /**
+ * Helper validation function which checks whether
+ * all `propertyNames` are present on `body` and
+ * then checks that their values are booleans.
+ * 
+ * @param val 
+ * @param keyNames 
+ */
+export function keysAreBooleans(val:any, keyNames:string[]){
+  return keysValid(val, keyNames, isBoolean);
+}
+
+/**
  * Very flexible validation function which accepts
  * an object to check, properties to inspect, and a
  * test function to see if the value is correct.
@@ -46,6 +58,15 @@ export function keysValid(val:any, keyNames:string[], isValid:(keyVal:any)=>bool
  */
 export function isString(val:any): val is string {
   return typeof val === 'string';
+}
+
+/**
+ * Type guard; returns `true` if `maybe` is a boolean,
+ * `false` otherwise.
+ * @param val 
+ */
+export function isBoolean(val:any): val is boolean {
+  return typeof val === 'boolean';
 }
 
 /**

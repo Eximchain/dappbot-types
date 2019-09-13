@@ -1,3 +1,10 @@
+# v1.3.0
+New types for new MFA APIs
+- Added auth namespaces `SetMfaPreference`, `SetupSmsMfa`, `BeginSetupAppMfa`, and `ConfirmSetupAppMfa`
+- Added auth types `SecretCodeResult` and `SecretCodeResponse`
+- Renamed `Challenges.Types.SoftwareTokenMfa` to `Challenges.Types.AppMfa`
+- Added type guards for booleans to util
+
 # v1.2.5
 New types relating to MFA challenges
 - Added type guards for `Challenges.Types` and `Challenges.MfaTypes`

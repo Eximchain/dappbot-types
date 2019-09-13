@@ -2,7 +2,7 @@ import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '../../methods';
 import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
-import { keysAreStrings as keysAreStrings } from '../../util';
+import { keysAreStrings, keysAreBooleans } from '../../util';
 
 /**
  * Baseline path from which more specific auth
@@ -16,7 +16,8 @@ export const authBasePath = `${apiBasePath}/${RootResources.auth}`;
  */
 export enum ResourcePaths {
   login = 'login',
-  passReset = 'password-reset'
+  passReset = 'password-reset',
+  configureMfa = 'configure-mfa'
 }
 
 /**
@@ -33,6 +34,10 @@ export type UserOrChallengeResult = XOR<AuthData, Challenges.Data>;
  * to respond to.
  */
 export type UserOrChallengeResponse = ApiResponse<UserOrChallengeResult>;
+
+//////////////////////////////////
+// Login Types
+//////////////////////////////////
 
 /**
  * Main login call which either produces a user
@@ -242,7 +247,7 @@ export namespace SelectMfaChallenge {
   export function newArgs(): Args {
     return {
       username     : '',
-      mfaSelection : Challenges.Types.SoftwareTokenMfa,
+      mfaSelection : Challenges.Types.AppMfa,
       session      : ''
     }
   }
@@ -307,7 +312,7 @@ export namespace ConfirmPassReset {
   export const Path = `${authBasePath}/${ResourcePaths.passReset}`;
 
   export interface Args {
-    username:string
+    username:string,
     newPassword: string,
     passwordResetCode: string
   }
@@ -336,6 +341,190 @@ export namespace ConfirmPassReset {
   /**
    * Ought to tell them they can now log in with their
    * new password.
+   */
+  export type Result = MessageResult;
+
+  export type Response = MessageResponse;
+}
+
+//////////////////////////////////
+// Configure MFA Types
+//////////////////////////////////
+
+/**
+ * Sets user MFA preferences
+ */
+export namespace SetMfaPreference {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    smsMfaEnabled: boolean,
+    appMfaEnabled: boolean,
+    preferredMfa?: Challenges.MfaTypes 
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreBooleans(val, ['smsMfaEnabled', 'appMfaEnabled']) &&
+           (!val.preferredMfa || Challenges.isMfaTypes(val.preferredMfa));
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      smsMfaEnabled: false,
+      appMfaEnabled: false
+    }
+  }
+
+  /**
+   * When successful, the message ought to say something
+   * like, "Successfully set MFA Preferences."
+   */
+  export type Result = MessageResult;
+
+  export type Response = MessageResponse;
+}
+
+/**
+ * Setup Phone Number for SMS MFA
+ */
+export namespace SetupSmsMfa {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    /**
+     * Phone numbers must follow these formatting rules: A phone number
+     * must start with a plus (+) sign, followed immediately by the country
+     * code. A phone number can only contain the + sign and digits. You must
+     * remove any other characters from a phone number, such as parentheses,
+     * spaces, or dashes (-) before submitting the value to the service.
+     * For example, a United States-based phone number must follow this
+     * format: +14325551212.
+     * (Sourced from: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html)
+     */
+    phoneNumber: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['phoneNumber']);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      phoneNumber : ''
+    }
+  }
+
+  /**
+   * When successful, the message ought to say something
+   * like, "Your phone number has been registered for SMS MFA."
+   */
+  export type Result = MessageResult;
+
+  export type Response = MessageResponse;
+}
+
+/**
+ * Begin Setup for App MFA
+ */
+export namespace BeginSetupAppMfa {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    refreshToken: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['refreshToken']);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      refreshToken : ''
+    }
+  }
+
+  /**
+   * Returns secret code to enter into the
+   * MFA App.
+   */
+  export type Result = {
+    secretCode: string,
+    session: string
+  };
+
+  export type Response = ApiResponse<Result>;
+}
+
+/**
+ * Confirm Setup for App MFA
+ */
+export namespace ConfirmSetupAppMfa {
+
+  export const HTTP:HttpMethods.POST = 'POST';
+  export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
+
+  export interface Args {
+    session: string,
+    // Produced by MFA App after entering the secret code from a BeginSetupAppMfa call
+    mfaVerifyCode: string
+  }
+
+  /**
+   * Type guard; only returns true for valid `Args` objects.
+   * @param val 
+   */
+  export function isArgs(val:any): val is Args {
+    return keysAreStrings(val, ['session', 'mfaVerifyCode']);
+  }
+
+  /**
+   * Factory to produce an Args object with
+   * empty strings. Useful for getting the 
+   * correct shape as a value.
+   */
+  export function newArgs(): Args {
+    return {
+      session : '',
+      mfaVerifyCode : ''
+    }
+  }
+
+  /**
+   * When successful, the message ought to say something
+   * like, "Your MFA app has been successfully configured."
    */
   export type Result = MessageResult;
 

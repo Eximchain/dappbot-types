@@ -466,7 +466,7 @@ export namespace BeginSetupAppMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['accessToken']) && !keysNonNull(val, ['mfaVerifyCode']);
+    return keysAreStrings(val, ['refreshToken']) && !keysNonNull(val, ['mfaVerifyCode']);
   }
 
   /**
@@ -507,7 +507,7 @@ export namespace ConfirmSetupAppMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['accessToken', 'mfaVerifyCode']);
+    return keysAreStrings(val, ['refreshToken', 'mfaVerifyCode']);
   }
 
   /**

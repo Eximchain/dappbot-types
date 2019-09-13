@@ -355,7 +355,8 @@ export namespace ConfirmPassReset {
  * to enter into the MFA App.
  */
 export type SecretCodeResult = {
-  secretCode: string
+  secretCode: string,
+  session: string
 };
 
 /**
@@ -498,7 +499,7 @@ export namespace ConfirmSetupAppMfa {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
-    refreshToken: string,
+    session: string,
     mfaVerifyCode: string
   }
 
@@ -507,7 +508,7 @@ export namespace ConfirmSetupAppMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['refreshToken', 'mfaVerifyCode']);
+    return keysAreStrings(val, ['session', 'mfaVerifyCode']);
   }
 
   /**
@@ -517,7 +518,7 @@ export namespace ConfirmSetupAppMfa {
    */
   export function newArgs(): Args {
     return {
-      refreshToken : '',
+      session : '',
       mfaVerifyCode : ''
     }
   }

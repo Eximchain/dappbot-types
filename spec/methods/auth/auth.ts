@@ -38,6 +38,27 @@ export type UserOrChallengeResult = XOR<AuthData, Challenges.Data>;
 export type UserOrChallengeResponse = ApiResponse<UserOrChallengeResult>;
 
 /**
+ * Response from a call to begin
+ * App MFA setup.  It contains a secret code
+ * to enter into the MFA App.
+ */
+export type SecretCodeResult = {
+  secretCode: string,
+  session: string
+};
+
+/**
+ * Decoded API response from a call to begin
+ * App MFA setup.  It contains a secret code
+ * to enter into the MFA App.
+ */
+export type SecretCodeResponse = ApiResponse<SecretCodeResult>;
+
+//////////////////////////////////
+// Login Types
+//////////////////////////////////
+
+/**
  * Main login call which either produces a user
  * object and credentials, or returns a challenge.
  */
@@ -348,23 +369,6 @@ export namespace ConfirmPassReset {
 //////////////////////////////////
 // Configure MFA Types
 //////////////////////////////////
-
-/**
- * Response from a call to begin
- * App MFA setup.  It contains a secret code
- * to enter into the MFA App.
- */
-export type SecretCodeResult = {
-  secretCode: string,
-  session: string
-};
-
-/**
- * Decoded API response from a call to begin
- * App MFA setup.  It contains a secret code
- * to enter into the MFA App.
- */
-export type SecretCodeResponse = ApiResponse<SecretCodeResult>;
 
 /**
  * Sets user MFA preferences

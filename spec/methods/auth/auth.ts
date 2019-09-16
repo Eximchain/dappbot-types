@@ -2,7 +2,7 @@ import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '../../methods';
 import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
-import { keysAreStrings, keysAreBooleans } from '../../util';
+import { keysAreStrings, keysAreBooleans, keysNonNull } from '../../util';
 
 /**
  * Baseline path from which more specific auth
@@ -462,7 +462,7 @@ export namespace BeginSetupAppMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['refreshToken']);
+    return keysAreStrings(val, ['refreshToken']) && !keysNonNull(val, ['mfaVerifyCode']);
   }
 
   /**
@@ -497,7 +497,7 @@ export namespace ConfirmSetupAppMfa {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
-    session: string,
+    refreshToken: string,
     // Produced by MFA App after entering the secret code from a BeginSetupAppMfa call
     mfaVerifyCode: string
   }
@@ -507,7 +507,7 @@ export namespace ConfirmSetupAppMfa {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['session', 'mfaVerifyCode']);
+    return keysAreStrings(val, ['refreshToken', 'mfaVerifyCode']);
   }
 
   /**
@@ -517,7 +517,7 @@ export namespace ConfirmSetupAppMfa {
    */
   export function newArgs(): Args {
     return {
-      session : '',
+      refreshToken : '',
       mfaVerifyCode : ''
     }
   }

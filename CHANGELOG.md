@@ -1,3 +1,6 @@
+# v1.4.0
+`ConfirmSetupAppMfa` uses `refreshToken` instead of `session`
+
 # v1.3.0
 New types for new MFA APIs
 - Added auth namespaces `SetMfaPreference`, `SetupSmsMfa`, `BeginSetupAppMfa`, and `ConfirmSetupAppMfa`

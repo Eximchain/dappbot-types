@@ -360,8 +360,7 @@ export namespace SetMfaPreference {
   export const Path = `${authBasePath}/${ResourcePaths.configureMfa}`;
 
   export interface Args {
-    smsMfaEnabled: boolean,
-    appMfaEnabled: boolean,
+    mfaEnabled: boolean,
     preferredMfa?: Challenges.MfaTypes 
   }
 
@@ -370,7 +369,7 @@ export namespace SetMfaPreference {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreBooleans(val, ['smsMfaEnabled', 'appMfaEnabled']) &&
+    return keysAreBooleans(val, ['mfaEnabled']) &&
            (!val.preferredMfa || Challenges.isMfaTypes(val.preferredMfa));
   }
 
@@ -381,8 +380,7 @@ export namespace SetMfaPreference {
    */
   export function newArgs(): Args {
     return {
-      smsMfaEnabled: false,
-      appMfaEnabled: false
+      mfaEnabled: false
     }
   }
 
@@ -481,8 +479,7 @@ export namespace BeginSetupAppMfa {
    * MFA App.
    */
   export type Result = {
-    secretCode: string,
-    session: string
+    secretCode: string
   };
 
   export type Response = ApiResponse<Result>;

@@ -1,3 +1,8 @@
+# v1.5.0
+Fixes for Configure MFA API
+- Simplified `SetMfaPreference.Args` to include only one `mfaPreference` argument
+- Removed `session` from `BeginSetupAppMfa.Result`
+
 # v1.4.0
 `ConfirmSetupAppMfa` uses `refreshToken` instead of `session`
 

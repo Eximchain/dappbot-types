@@ -1,3 +1,6 @@
+# v1.5.1
+Add optional `metadata` to `SignUp` args for analytics and/or logging
+
 # v1.5.0
 Fixes for Configure MFA API
 - Simplified `SetMfaPreference.Args` to include only one `mfaPreference` argument

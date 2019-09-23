@@ -87,6 +87,13 @@ export namespace SignUp {
     plans : StripePlans
     coupon?: string
     token?: string
+    // The metadata argument is for data needed for business and analytics
+    // Metadata is NOT required for technical purposes
+    metadata?: {
+      organization : string
+      occupation : string
+      [key:string] : string
+    }
   }
 
   /**

@@ -1,3 +1,6 @@
+# v1.5.2
+Bugfix; `UpdateDapp.isArgs()` has a `.some()` check which wasn't returning its result, so the typechecker was always failing.
+
 # v1.5.1
 Add optional `metadata` to `SignUp` args for analytics and/or logging
 

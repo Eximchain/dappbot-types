@@ -126,7 +126,7 @@ export namespace UpdateDapp {
    */
   export function isArgs(val:any): val is Args {
     return isObject(val) && ['Abi', 'ContractAddr', 'Web3URL', 'GuardianURL'].some((key) => {
-      typeof val[key] === 'string'
+      return typeof val[key] === 'string'
     })
   }
 

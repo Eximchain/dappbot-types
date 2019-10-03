@@ -14,7 +14,11 @@ import * as ChainTypes from './chains';
 //
 export * from './dapp';
 
-// TODO: Fill in
+// This line allows end-users to import the Chain
+// namespace from the dapp directory, like:
+//
+// import { Chain } from 'dappbot-types/spec/dapp';
+//
 export import Chain = ChainTypes;
 
 // This line exports the other file's namespace by default,

@@ -28,7 +28,11 @@
   },
   "homepage": "https://eximchain.github.io/dappbot-types",
   "dependencies": {
+    "@types/lodash.groupby": "^4.6.6",
+    "@types/lodash.keyby": "^4.6.6",
     "@types/stripe": "6.31.25",
+    "lodash.groupby": "^4.6.0",
+    "lodash.keyby": "^4.6.0",
     "ts-xor": "^1.0.8",
     "typescript": "^3.6.2"
   },

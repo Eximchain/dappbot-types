@@ -1,4 +1,4 @@
-import { keysAreStrings, isString, isObject } from '../util';
+import { keysAreStrings, isString, isObject } from '../validators';
 
 /**
  * Possible Dapp tiers and their string name 

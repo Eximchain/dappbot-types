@@ -2,8 +2,7 @@ import groupBy from 'lodash.groupby';
 
 export enum Names {
   Eximchain = 'Eximchain',
-  // Commented out until we have a definite txExecutor URL
-  // EximGamma = 'EximchainGamma',
+  EximGamma = 'EximGamma',
   Ethereum = 'Ethereum',
   Ropsten = 'Ropsten',
   Kovan = 'Kovan',
@@ -23,6 +22,22 @@ export function isName(val: string): val is Names {
   return Object.values(Names).includes(val as Names);
 }
 
+export function detailsByName(): { [key: string]: Details } {
+  return {
+    [Names.Eximchain]: Eximchain(),
+    [Names.EximGamma]: EximGamma(),
+    [Names.Ethereum]: Ethereum(),
+    [Names.Goerli]: Goerli(),
+    [Names.Kovan]: Kovan(),
+    [Names.Rinkeby]: Rinkeby(),
+    [Names.Ropsten]: Ropsten()
+  }
+}
+
+export function allDetails(): Details[] {
+  return Object.values(detailsByName);
+}
+
 export function detailsFromName(name: string): Details | null {
   let details = detailsByName()[name];
   return details ? details : null;
@@ -37,21 +52,6 @@ export function detailsById(): { [key: number] : Details[] } {
   return groupBy(allDetails(), detail => detail.id);
 }
 
-export function detailsByName(): { [key: string]: Details } {
-  return {
-    [Names.Eximchain]: Eximchain(),
-    [Names.Ethereum]: Ethereum(),
-    [Names.Goerli]: Goerli(),
-    [Names.Kovan]: Kovan(),
-    [Names.Rinkeby]: Rinkeby(),
-    [Names.Ropsten]: Ropsten()
-  }
-}
-
-export function allDetails(): Details[] {
-  return Object.values(detailsByName);
-}
-
 export function Eximchain(): Details {
   return {
     id: 1,
@@ -59,6 +59,16 @@ export function Eximchain(): Details {
     web3Url: "https://tx-executor-stress-test.eximchain.com",
     name: Names.Eximchain,
     displayName: 'Eximchain (Main Net)'
+  }
+}
+
+export function EximGamma(): Details {
+  return {
+    id: 1,
+    genesisHash: '0x6a2d1d7602dbebc139cf9598607bf012d30da83954aab5f731d7550feb283bdc',
+    web3Url: 'https://gamma-tx-executor-us-east.eximchain-dev.com',
+    name: Names.EximGamma,
+    displayName: 'Eximchain (Test Net)'
   }
 }
 
@@ -108,6 +118,6 @@ export function Goerli(): Details {
     genesisHash: '0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a',
     name: Names.Goerli,
     web3Url: 'https://goerli.infura.io/v3/55454709df7f4e54a660ceb5ad5a844c',
-    displayName: 'Ethereum (Goerli)'
+    displayName: 'Ethereum (Görli)'
   }
 }

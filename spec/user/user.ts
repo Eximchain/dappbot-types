@@ -1,4 +1,4 @@
-import { keysAreStrings, keysValid, isString, isObject } from '../util';
+import { keysAreStrings, keysValid, isString, isObject } from '../validators';
 
 /**
  * DappBot User Record as defined by Cognito.  This

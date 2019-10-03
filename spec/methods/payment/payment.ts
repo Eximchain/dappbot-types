@@ -2,7 +2,7 @@ import AllStripeTypes from 'stripe';
 import { ApiResponse, HttpMethods } from "../../responses";
 import { UserData } from "../../user";
 import { apiBasePath, RootResources } from "../../methods";
-import { keysAreStrings, keysValid } from "../../util";
+import { keysAreStrings, keysValid } from "../../validators";
 
 export const paymentBasePath = `${apiBasePath}/${RootResources.payment}/stripe`;
 

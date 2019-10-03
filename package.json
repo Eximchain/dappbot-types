@@ -1,6 +1,6 @@
 {
   "name": "@eximchain/dappbot-types",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Typescript bindings to interact with the DappBot API",
   "main": "build/index.js",
   "types": "spec/index.ts",
@@ -28,7 +28,9 @@
   },
   "homepage": "https://eximchain.github.io/dappbot-types",
   "dependencies": {
+    "@types/lodash.groupby": "^4.6.6",
     "@types/stripe": "6.31.25",
+    "lodash.groupby": "^4.6.0",
     "ts-xor": "^1.0.8",
     "typescript": "^3.6.2"
   },

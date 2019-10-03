@@ -1,3 +1,9 @@
+# v1.6.0
+New types related to our supported blockchains.
+- Each supported chain now has its chainId, genesisHash, & Web3URL stored within `Dapp.Chain`.  Can be imported directly via `import { Chain } from '@eximchain/dappbot-types/spec/dapp';`
+- Added new details about our test network
+- Exported our internal Validator functions like `keysAreStrings()` and `keysValid()`, as they're useful in our other projects.
+
 # v1.5.2
 Bugfix; `UpdateDapp.isArgs()` has a `.some()` check which wasn't returning its result, so the typechecker was always failing.
 

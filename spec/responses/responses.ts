@@ -1,5 +1,5 @@
 import { XOR } from 'ts-xor';
-import { isString, isObject } from '../util';
+import { isString, isObject } from '../validators';
 
 /**
  * All error responses from our API will include a message key.

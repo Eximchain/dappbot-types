@@ -1,4 +1,14 @@
-import { keysAreStrings, isString, isObject } from '../util';
+import { keysAreStrings, isString, isObject } from '../validators';
+import * as Chains from './chains';
+
+// This line makes Chain part of the Dapp
+// namespace, supporting calls like:
+//
+// import Dapp from '@eximchain/dappbot-types/spec/dapp';
+// ...
+// const details = Dapp.Chain.Ethereum();
+//
+export import Chain = Chains;
 
 /**
  * Possible Dapp tiers and their string name 

@@ -1,8 +1,7 @@
-import { XOR } from 'ts-xor';
-import { isObject, AtLeastOne } from '../../util';
+import { isObject, AtLeastOne } from '../../validators';
 import { HttpMethods, MessageResponse, MessageResult, ApiResponse } from '../../responses';
 import { apiBasePath, RootResources } from '../../methods';
-import { Item, Tiers } from '../../dapp';
+import { Item } from '../../dapp';
 
 export const privateBasePath = `${apiBasePath}/${RootResources.private}`
 

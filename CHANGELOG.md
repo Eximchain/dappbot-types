@@ -1,3 +1,6 @@
+# v1.6.1
+Bugfix; the new `Chain.allDetails()` failed to call the `Chain.detailsByName()` function, so it returned an empty array.
+
 # v1.6.0
 New types related to our supported blockchains.
 - Each supported chain now has its chainId, genesisHash, & Web3URL stored within `Dapp.Chain`.  Can be imported directly via `import { Chain } from '@eximchain/dappbot-types/spec/dapp';`

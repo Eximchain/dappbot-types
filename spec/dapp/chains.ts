@@ -35,7 +35,7 @@ export function detailsByName(): { [key: string]: Details } {
 }
 
 export function allDetails(): Details[] {
-  return Object.values(detailsByName);
+  return Object.values(detailsByName());
 }
 
 export function detailsFromName(name: string): Details | null {

@@ -385,12 +385,13 @@ export namespace SetMfaPreference {
   }
 
   /**
-   * When successful, the message ought to say something
-   * like, "Successfully set MFA Preferences."
+   * Returns which MFA method (if any) is enabled
    */
-  export type Result = MessageResult;
+  export type Result = {
+    enabledMfa?: Challenges.MfaTypes
+  };
 
-  export type Response = MessageResponse;
+  export type Response = ApiResponse<Result>;
 }
 
 /**

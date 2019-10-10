@@ -320,7 +320,7 @@ export function validatePassword(newPass:string) {
   let len = newPass.length;
   return (
     len >= 8 && len <= 64 && // Length from 8-64
-    !/\S/.test(newPass)   && // No whitespace
+    !/\s/.test(newPass)   && // No whitespace
     /[A-Z]/.test(newPass) && // Has upcase
     /[a-z]/.test(newPass) && // Has locase
     /[0-9]/.test(newPass) && // Has numbers

@@ -11,18 +11,6 @@ export function keysNonNull(val:any, keyNames:string[]){
 }
 
 /**
- * Helper validation function; provide an object and
- * a list of string keys, returns true if all are
- * missing or null.
- * 
- * @param val 
- * @param keyNames 
- */
-export function keysNotPresent(val:any, keyNames:string[]){
-  return keysValid(val, keyNames, (keyVal:any) => keyVal === null || keyVal === undefined);
-}
-
-/**
  * Helper validation function which checks whether
  * all `propertyNames` are present on `body` and
  * then checks that their values are strings.

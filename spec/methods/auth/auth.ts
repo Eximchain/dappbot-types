@@ -2,7 +2,7 @@ import { XOR } from 'ts-xor';
 import { apiBasePath, RootResources } from '../../methods';
 import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
-import { keysAreStrings, keysAreBooleans, keysNonNull, keysNotPresent } from '../../validators';
+import { keysAreStrings, keysAreBooleans, keysNonNull } from '../../validators';
 
 /**
  * Baseline path from which more specific auth
@@ -279,7 +279,7 @@ export namespace BeginPassReset {
    * @param val 
    */
   export function isArgs(val:any): val is Args {
-    return keysAreStrings(val, ['username']) && keysNotPresent(val, ['newPassword', 'passwordResetCode']);
+    return keysAreStrings(val, ['username']) && !ConfirmPassReset.isArgs(val);
   }
 
   /**

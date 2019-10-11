@@ -198,6 +198,7 @@ export namespace Challenges {
   export enum Types {
     Default             = "DEFAULT",
     ForgotPassword      = "FORGOT_PASSWORD",
+    BeginForgotPassword = "BEGIN_FORGOT_PASSWORD",
     SmsMfa              = "SMS_MFA",
     AppMfa              = "SOFTWARE_TOKEN_MFA",
     SelectMfaType       = "SELECT_MFA_TYPE",

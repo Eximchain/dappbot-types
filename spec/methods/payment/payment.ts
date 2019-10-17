@@ -13,6 +13,7 @@ export const paymentBasePath = `${apiBasePath}/${RootResources.payment}/stripe`;
  */
 export interface StripePlans {
   standard: number
+  ['standard-tiered']: number
   professional: number
   enterprise: number
 }
@@ -34,7 +35,8 @@ export function isStripePlans(val:any): val is StripePlans {
  */
 export function trialStripePlan():StripePlans {
   return {
-    standard: 1,
+    standard: 0,
+    ['standard-tiered']: 1,
     professional: 0,
     enterprise: 0
   }

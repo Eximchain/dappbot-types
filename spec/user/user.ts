@@ -133,6 +133,22 @@ export function isAuthData(val:any): val is AuthData {
 }
 
 /**
+ * Given valid AuthData, return an object stating whether 
+ * the data is active (authorized), stale (needs refresh),
+ * or empty (needs full login).
+ * @param val 
+ */
+export function authStatus(val:AuthData) {
+  let isEmpty = val.RefreshToken === '' || val.Authorization === '';
+  let expiryDate = Date.parse(val.ExpiresAt);
+  let isStale = expiryDate !== NaN && Date.now() > expiryDate;
+  return {
+    isActive : !isStale && !isEmpty,
+    isStale, isEmpty
+  }
+}
+
+/**
  * Factory which produces an empty AuthData object.
  * Leverages `emptyUserData()` for `User` key,
  * `ExpiresAt` is now as an ISO string, `Authorization`

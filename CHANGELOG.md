@@ -1,3 +1,11 @@
+# v1.7.6
+Added new `authStatus(authData)` helper function to determine whether a given piece of auth data is:
+- empty, meaning that a full login is required
+- stale, meaning a refresh login is required
+- active, meaning we are ready to make authenticated requests
+
+Also reverted changeset from 1.7.5, as we're going to follow a different strategy for plugging in new pricing plans.
+
 # v1.7.5
 Add demo feature `standard-tiered` plan
 

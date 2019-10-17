@@ -1,3 +1,6 @@
+# v1.7.5
+Add demo feature `standard-tiered` plan
+
 # v1.6.1
 Bugfix; the new `Chain.allDetails()` failed to call the `Chain.detailsByName()` function, so it returned an empty array.
 

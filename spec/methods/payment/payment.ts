@@ -29,16 +29,18 @@ export function isStripePlans(val:any): val is StripePlans {
 }
 
 /**
- * Factory to get a Stripe plan config that only has
- * one standard dapp, the value used on trials.
+ * Factory to get a Stripe plan config that has
+ * ten standard dapps, the value allowed on free tier.
  */
-export function trialStripePlan():StripePlans {
+export function freeTierStripePlan():StripePlans {
   return {
-    standard: 1,
+    standard: 10,
     professional: 0,
     enterprise: 0
   }
 }
+
+export const trialStripePlan = freeTierStripePlan;
 
 /**
  * The subset of Stripe's types which we use, extracted 

@@ -1,3 +1,6 @@
+# v1.7.7
+Updated the trial stripe plan to reflect the new free tier
+
 # v1.7.6
 Added new `authStatus(authData)` helper function to determine whether a given piece of auth data is:
 - empty, meaning that a full login is required

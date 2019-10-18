@@ -139,12 +139,14 @@ export function isAuthData(val:any): val is AuthData {
  * @param val 
  */
 export function authStatus(val:AuthData) {
-  let isEmpty = val.RefreshToken === '' || val.Authorization === '';
-  let expiryDate = Date.parse(val.ExpiresAt);
-  let isStale = expiryDate !== NaN && Date.now() > expiryDate;
+  let { RefreshToken, Authorization, User, ExpiresAt} = val;
+  let isEmpty = [RefreshToken, Authorization, User.Email].includes('');
+  let expiryDate = Date.parse(ExpiresAt);
+  let notExpired = expiryDate !== NaN && Date.now() < expiryDate;
   return {
-    isActive : !isStale && !isEmpty,
-    isStale, isEmpty
+    isActive : !isEmpty && notExpired,
+    isStale : !isEmpty && !notExpired,
+    isEmpty
   }
 }
 

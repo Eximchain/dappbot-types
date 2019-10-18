@@ -1,3 +1,6 @@
+# v1.7.8
+Hotfix on new `authStatus()` fxn; the stale check now ensures that the other fields are non-empty.
+
 # v1.7.7
 Updated the trial stripe plan to reflect the new free tier
 

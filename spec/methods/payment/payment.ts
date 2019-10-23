@@ -34,7 +34,7 @@ export function isStripePlans(val:any): val is StripePlans {
  */
 export function freeTierStripePlan():StripePlans {
   return {
-    standard: 10,
+    standard: 5,
     professional: 0,
     enterprise: 0
   }

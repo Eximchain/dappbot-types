@@ -49,7 +49,14 @@ export function detailsFromUrl(url:string): Details | null {
 }
 
 export function detailsById(): { [key: number] : Details[] } {
-  return groupBy(allDetails(), detail => detail.id);
+  return allDetails().reduce((result, chain) => {
+    if (result[chain.id]) {
+      result[chain.id].push(chain);
+    } else {
+      result[chain.id] = [chain];
+    }
+    return result;
+  }, {} as { [key:number] : Details[] })
 }
 
 export function Eximchain(): Details {

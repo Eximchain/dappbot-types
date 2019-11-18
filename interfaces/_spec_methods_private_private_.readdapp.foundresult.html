@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+	<title>FoundResult | </title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title"></a>
+					<a href="../index.html" class="title"></a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -53,107 +53,168 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_spec_methods_private_private_.html">&quot;spec/methods/private/private&quot;</a>
+				</li>
+				<li>
+					<a href="../modules/_spec_methods_private_private_.readdapp.html">ReadDapp</a>
+				</li>
+				<li>
+					<a href="_spec_methods_private_private_.readdapp.foundresult.html">FoundResult</a>
 				</li>
 			</ul>
-			<h1> </h1>
+			<h1>Interface FoundResult</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#dappbot-types" id="dappbot-types" style="color: inherit; text-decoration: none;">
-					<h1>dappbot-types</h1>
-				</a>
-				<p>Typescript bindings describing the core data types and API interactions with DappBot.  Extracted into their own repository in order to :</p>
-				<ul>
-					<li>Guarantee consistency across multiple client and server projects</li>
-					<li>Make the overall DappBot codebase DRYer</li>
-					<li>Share these types with our API customers</li>
-				</ul>
-				<a href="#a-hrefchangelogmdfull-changeloga" id="a-hrefchangelogmdfull-changeloga" style="color: inherit; text-decoration: none;">
-					<h3><a href="./CHANGELOG.md">Full Changelog</a></h3>
-				</a>
-				<p>There is full generated documentation from the source code hosted at <code>eximchain.github.io/dappbot-types</code>.  Briefly, the types are grouped into nested namespaces in order to minimize both collisions and stuttering. They are nested like:</p>
-				<ul>
-					<li><code>DappBotTypes</code>: Overall namespace, package&#39;s default export<ul>
-							<li><code>Dapp</code>: Interfaces, type guards, and factories related to the <code>DappItem</code> data type</li>
-							<li><code>User</code>:  Interfaces, type guards, and factories related to the <code>User</code> &amp; auth data types</li>
-							<li><code>Responses</code>: Interfaces and helper functions for our API responses</li>
-							<li><code>Methods</code>: Each sub-module within here (<code>Auth</code>, <code>Payment</code>, <code>Private</code>, <code>Public</code>) contains all types related to that resource&#39;s available methods.  Each method contains keys <code>Args</code>, <code>Result</code>, <code>Response</code>, <code>HTTP</code>, &amp; <code>Path</code>.  The <code>Result</code> corresponds to the <code>res.data</code> in a successful call, <code>Response</code> just wraps that shape in <code>data</code>/<code>err</code>.</li>
-						</ul>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">FoundResult</span>
 					</li>
 				</ul>
-				<p>As a consumer, you can import either import the full namespace from the top or instead use the import string to grab one of the more nested ones.  All of the individual namespaces &amp; types are declared within the <code>spec</code> folder, which you can directly refer to in your import.  By example, below are two ways of getting at the same type:</p>
-				<pre><code class="language-typescript"><span class="hljs-comment">// Grab the overall types object and drill down through</span>
-<span class="hljs-comment">// the namespaces to get the interface we want</span>
-<span class="hljs-keyword">import</span> Types <span class="hljs-keyword">from</span> <span class="hljs-string">'dappbot-types'</span>;
-<span class="hljs-keyword">const</span> argsFromType:Types.Methods.Auth.Login.Args = {
-  username : <span class="hljs-string">'wuddup'</span>,
-  password : <span class="hljs-string">'we here'</span>,
-  yis : <span class="hljs-string">'this prop is not legal and gets an error'</span>
-}
-
-<span class="hljs-comment">// Now we're going through the file structure to more</span>
-<span class="hljs-comment">// directly grab the namespace with the types we're</span>
-<span class="hljs-comment">// concerned about in this hypothetical file.</span>
-<span class="hljs-keyword">import</span> { Login } <span class="hljs-keyword">from</span> <span class="hljs-string">'dappbot-types/spec/methods/auth'</span>;
-<span class="hljs-keyword">const</span> argsFromAuth:Login.Args = {
-  username : <span class="hljs-string">"this object will have err because it's missing a property"</span>
-}</code></pre>
-			</div>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_spec_methods_private_private_.readdapp.foundresult.html#exists" class="tsd-kind-icon">exists</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_spec_methods_private_private_.readdapp.foundresult.html#item" class="tsd-kind-icon">item</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="exists" class="tsd-anchor"></a>
+					<h3>exists</h3>
+					<div class="tsd-signature tsd-kind-icon">exists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/c5bc436/spec/methods/private/private.ts#L89">spec/methods/private/private.ts:89</a></li>
+						</ul>
+					</aside>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="item" class="tsd-anchor"></a>
+					<h3>item</h3>
+					<div class="tsd-signature tsd-kind-icon">item<span class="tsd-signature-symbol">:</span> <a href="_spec_dapp_dapp_.item.api.html" class="tsd-signature-type">Api</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Eximchain/dappbot-types/blob/c5bc436/spec/methods/private/private.ts#L90">spec/methods/private/private.ts:90</a></li>
+						</ul>
+					</aside>
+			</section>    </section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_spec_dapp_chains_.html">"spec/dapp/chains"</a>
+						<a href="../modules/_spec_dapp_chains_.html">"spec/dapp/chains"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_spec_dapp_dapp_.html">"spec/dapp/dapp"</a>
+						<a href="../modules/_spec_dapp_dapp_.html">"spec/dapp/dapp"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_spec_methods_auth_auth_.html">"spec/methods/auth/auth"</a>
+						<a href="../modules/_spec_methods_auth_auth_.html">"spec/methods/auth/auth"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_spec_methods_payment_payment_.html">"spec/methods/payment/payment"</a>
+						<a href="../modules/_spec_methods_payment_payment_.html">"spec/methods/payment/payment"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_spec_methods_private_private_.html">"spec/methods/private/private"</a>
+						<ul>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module">
+								<a href="../modules/_spec_methods_private_private_.createdapp.html">Create<wbr>Dapp</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module">
+								<a href="../modules/_spec_methods_private_private_.deletedapp.html">Delete<wbr>Dapp</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module">
+								<a href="../modules/_spec_methods_private_private_.listdapps.html">List<wbr>Dapps</a>
+							</li>
+							<li class="current tsd-kind-module tsd-parent-kind-external-module">
+								<a href="../modules/_spec_methods_private_private_.readdapp.html">Read<wbr>Dapp</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module">
+								<a href="../modules/_spec_methods_private_private_.updatedapp.html">Update<wbr>Dapp</a>
+							</li>
+						</ul>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_spec_methods_private_private_.html">"spec/methods/private/private"</a>
+						<a href="../modules/_spec_methods_public_public_.html">"spec/methods/public/public"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_spec_methods_public_public_.html">"spec/methods/public/public"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_spec_user_user_.html">"spec/user/user"</a>
+						<a href="../modules/_spec_user_user_.html">"spec/user/user"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_node_modules__eximchain_api_types_spec_responses_index_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/responses/index"</a>
+						<a href="../modules/_node_modules__eximchain_api_types_spec_responses_index_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/responses/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_node_modules__eximchain_api_types_spec_responses_responses_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/responses/responses"</a>
+						<a href="../modules/_node_modules__eximchain_api_types_spec_responses_responses_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/responses/responses"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_node_modules__eximchain_api_types_spec_validators_index_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/validators/index"</a>
+						<a href="../modules/_node_modules__eximchain_api_types_spec_validators_index_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/validators/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_node_modules__eximchain_api_types_spec_validators_validators_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/validators/validators"</a>
+						<a href="../modules/_node_modules__eximchain_api_types_spec_validators_validators_.html">"node_<wbr>modules/@eximchain/api-<wbr>types/spec/validators/validators"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_spec_methods_private_private_.readdapp.foundresult.html" class="tsd-kind-icon">Found<wbr>Result</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_spec_methods_private_private_.readdapp.foundresult.html#exists" class="tsd-kind-icon">exists</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_spec_methods_private_private_.readdapp.foundresult.html#item" class="tsd-kind-icon">item</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_spec_methods_private_private_.readdapp.notfoundresult.html" class="tsd-kind-icon">Not<wbr>Found<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_spec_methods_private_private_.readdapp.html#args" class="tsd-kind-icon">Args</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_spec_methods_private_private_.readdapp.html#response" class="tsd-kind-icon">Response</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_spec_methods_private_private_.readdapp.html#result" class="tsd-kind-icon">Result</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_spec_methods_private_private_.readdapp.html#http" class="tsd-kind-icon">HTTP</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_spec_methods_private_private_.readdapp.html#path" class="tsd-kind-icon">Path</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -223,7 +284,7 @@
 	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

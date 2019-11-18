@@ -28,7 +28,7 @@
   },
   "homepage": "https://eximchain.github.io/dappbot-types",
   "dependencies": {
-    "@eximchain/api-types": "^1.0.0"
+    "@eximchain/api-types": "^1.0.1"
   },
   "peerDependencies": {
     "@types/stripe": "6.31.25"

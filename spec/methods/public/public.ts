@@ -1,4 +1,4 @@
-import { ApiResponse, HttpMethods } from "../../responses";
+import { ApiResponse, HttpMethods } from '@eximchain/api-types/spec/responses';
 import { Item } from '../../dapp';
 import { apiBasePath, RootResources } from '../../methods';
 

@@ -1,3 +1,6 @@
+# v1.7.11
+Moved types from `dependencies` to `devDependencies`, removed lodash helper function which was only being used in one place.
+
 # v1.7.8
 Hotfix on new `authStatus()` fxn; the stale check now ensures that the other fields are non-empty.
 

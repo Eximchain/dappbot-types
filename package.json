@@ -27,7 +27,9 @@
     "url": "https://github.com/Eximchain/dappbot-types/issues"
   },
   "homepage": "https://eximchain.github.io/dappbot-types",
-  "dependencies": {},
+  "dependencies": {
+    "@eximchain/api-types": "^1.0.0"
+  },
   "peerDependencies": {
     "@types/stripe": "6.31.25"
   },

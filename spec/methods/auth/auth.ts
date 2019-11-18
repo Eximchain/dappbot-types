@@ -1,8 +1,8 @@
 import { XOR } from 'ts-xor';
+import { keysAreStrings, keysAreBooleans, keysNonNull } from '@eximchain/api-types/spec/validators';
+import { ApiResponse, MessageResult, MessageResponse, HttpMethods } from '@eximchain/api-types/spec/responses';
 import { apiBasePath, RootResources } from '../../methods';
-import { ApiResponse, MessageResponse, HttpMethods, MessageResult } from '../../responses';
 import { AuthData, Challenges } from '../../user';
-import { keysAreStrings, keysAreBooleans, keysNonNull } from '../../validators';
 
 /**
  * Baseline path from which more specific auth

@@ -1,8 +1,8 @@
-import DappTypes from './dapp';
+import { Validate as Validators } from '@eximchain/api-types';
 import ResponseTypes from './responses';
+import DappTypes from './dapp';
 import UserTypes from './user';
 import MethodTypes from './methods';
-import * as Validators from './validators';
 
 // These exports make it possible to do
 // something like:

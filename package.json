@@ -1,6 +1,6 @@
 {
   "name": "@eximchain/dappbot-types",
-  "version": "1.7.11",
+  "version": "1.7.12",
   "description": "Typescript bindings to interact with the DappBot API",
   "main": "build/index.js",
   "types": "spec/index.ts",
@@ -27,7 +27,9 @@
     "url": "https://github.com/Eximchain/dappbot-types/issues"
   },
   "homepage": "https://eximchain.github.io/dappbot-types",
-  "dependencies": {},
+  "dependencies": {
+    "@eximchain/api-types": "^1.0.1"
+  },
   "peerDependencies": {
     "@types/stripe": "6.31.25"
   },

@@ -1,4 +1,4 @@
-import { keysAreStrings, isString, isObject } from '../validators';
+import { keysAreStrings, isString, isObject } from '@eximchain/api-types/spec/validators';
 import * as Chains from './chains';
 
 // This line makes Chain part of the Dapp

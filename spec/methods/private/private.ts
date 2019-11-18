@@ -1,5 +1,5 @@
-import { isObject, AtLeastOne } from '../../validators';
-import { HttpMethods, MessageResponse, MessageResult, ApiResponse } from '../../responses';
+import { HttpMethods, MessageResponse, MessageResult, ApiResponse } from '@eximchain/api-types/spec/responses';
+import { isObject, AtLeastOne } from '@eximchain/api-types/spec/validators';
 import { apiBasePath, RootResources } from '../../methods';
 import { Item } from '../../dapp';
 

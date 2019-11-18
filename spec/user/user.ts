@@ -1,4 +1,4 @@
-import { keysAreStrings, keysValid, isString, isObject } from '../validators';
+import { keysAreStrings, keysValid, isString, isObject } from '@eximchain/api-types/spec/validators';
 
 /**
  * DappBot User Record as defined by Cognito.  This

@@ -4,7 +4,7 @@
 // then a consumer would have to do it in order
 // to get a convenient namespace.
 import * as Dapp from './dapp';
-import * as ChainTypes from './chains';
+import * as ChainTypes from '@eximchain/api-types/spec/chains';
 
 // This line directly surfaces all of its non-default
 // exports from right here, so that users can just

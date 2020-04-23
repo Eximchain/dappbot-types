@@ -1,5 +1,5 @@
 import { keysAreStrings, isString, isObject } from '@eximchain/api-types/spec/validators';
-import * as Chains from './chains';
+import * as Chains from '@eximchain/api-types/spec/chains';
 
 // This line makes Chain part of the Dapp
 // namespace, supporting calls like:
